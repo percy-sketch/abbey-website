@@ -7,10 +7,10 @@
     <h1 class="section-heading mt-4">{{ $page->title }}</h1>
     <p class="font-sans text-sm text-abbey-sage mt-2">
       {{ date('F j, Y', is_numeric($page->date) ? $page->date : strtotime($page->date)) }}
-      @if (!empty($page->speaker)) &middot; {{ $page->speaker }} @endif
+      @if ($page->speaker) &middot; {{ $page->speaker }} @endif
     </p>
 
-    @if (!empty($page->youtube_id))
+    @if ($page->youtube_id)
       <div class="aspect-video mt-8">
         <iframe
           class="w-full h-full"
@@ -20,6 +20,13 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
+      </div>
+    @endif
+
+    @if ($page->mp3)
+      <div class="mt-8">
+        <audio controls preload="none" class="w-full" src="{{ $page->mp3 }}"></audio>
+        <a href="{{ $page->mp3 }}" download class="nav-link font-sans text-sm mt-2 inline-block">Download MP3</a>
       </div>
     @endif
 

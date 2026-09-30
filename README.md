@@ -62,8 +62,7 @@ Optional notes/transcript — rendered below the video.
 ```
 
 It'll automatically show up on `/sermons`, newest first — no other file needs
-to change. Delete the two `example-sermon-*.md` placeholder files once you've
-got real entries in.
+to change.
 
 ## Editing site-wide settings
 

@@ -2,6 +2,9 @@
 extends: _layouts.master
 section: content
 title: Sermons
+pagination:
+  collection: sermons
+  perPage: 12
 ---
 
 @section('content')
@@ -16,19 +19,39 @@ title: Sermons
 </div>
 
 <div class="max-w-5xl mx-auto px-6 md:px-12 py-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-  @foreach ($sermons as $sermon)
+  @foreach ($pagination->items as $sermon)
     <a href="{{ $sermon->getUrl() }}" class="block group">
       <div class="aspect-video bg-abbey-parchment overflow-hidden">
-        @if (!empty($sermon->youtube_id))
-          <img src="https://i3.ytimg.com/vi/{{ $sermon->youtube_id }}/hqdefault.jpg" alt="{{ $sermon->title }}" class="w-full h-full object-cover group-hover:opacity-90">
+        @if ($sermon->youtube_id)
+          <img src="https://i3.ytimg.com/vi/{{ $sermon->youtube_id }}/hqdefault.jpg" alt="{{ $sermon->title }}" loading="lazy" class="w-full h-full object-cover group-hover:opacity-90">
         @endif
       </div>
       <p class="font-serif text-lg mt-3 text-abbey-midnight group-hover:text-abbey-green">{{ $sermon->title }}</p>
       <p class="font-sans text-xs text-abbey-sage mt-1">
         {{ date("F j, Y", is_numeric($sermon->date) ? $sermon->date : strtotime($sermon->date)) }}
-        @if (!empty($sermon->speaker)) &middot; {{ $sermon->speaker }} @endif
+        @if ($sermon->speaker) &middot; {{ $sermon->speaker }} @endif
       </p>
     </a>
   @endforeach
 </div>
+
+@if ($pagination->totalPages > 1)
+  <nav class="max-w-5xl mx-auto px-6 md:px-12 pb-16 flex flex-wrap items-center justify-center gap-2 font-sans text-sm" aria-label="Sermon pages">
+    @if ($pagination->previous)
+      <a href="{{ $pagination->previous }}" class="nav-link px-3 py-2" rel="prev">&larr; Newer</a>
+    @endif
+
+    @foreach ($pagination->pages as $number => $path)
+      @if ($number == $pagination->currentPage)
+        <span class="px-3 py-2 bg-abbey-green text-white" aria-current="page">{{ $number }}</span>
+      @else
+        <a href="{{ $path }}" class="nav-link px-3 py-2">{{ $number }}</a>
+      @endif
+    @endforeach
+
+    @if ($pagination->next)
+      <a href="{{ $pagination->next }}" class="nav-link px-3 py-2" rel="next">Older &rarr;</a>
+    @endif
+  </nav>
+@endif
 @endsection
