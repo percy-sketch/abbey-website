@@ -35,7 +35,6 @@ return [
     ],
 
     'navigation' => [
-        ['title' => 'Home', 'url' => '/'],
         ['title' => 'Who We Are', 'url' => '/who-we-are'],
         ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],
         ['title' => 'Sermons', 'url' => '/sermons'],
