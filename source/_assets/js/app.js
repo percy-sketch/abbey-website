@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     String(str ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   const gridHtml = (items) => `
-    <div class="max-w-5xl mx-auto px-6 md:px-12 py-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="max-w-6xl mx-auto px-6 md:px-12 pt-6 pb-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       ${items.map((s) => `
         <a href="${esc(s.u)}" class="block group">
           <div class="aspect-video bg-abbey-parchment overflow-hidden">
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>`;
 
   const listHtml = (items) => `
-    <div class="max-w-5xl mx-auto px-6 md:px-12 py-14 overflow-x-auto">
+    <div class="max-w-6xl mx-auto px-6 md:px-12 pt-6 pb-14 overflow-x-auto">
       <table class="w-full text-left font-sans text-sm">
         <thead>
           <tr class="border-b-2 border-abbey-green text-abbey-midnight">
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     status.textContent = `${matches.length} of ${index.length} sermons`;
     results.innerHTML = matches.length
       ? (view === 'list' ? listHtml(matches) : gridHtml(matches))
-      : '<p class="max-w-5xl mx-auto px-6 md:px-12 py-14 font-sans text-abbey-sage">No sermons match your search.</p>';
+      : '<p class="max-w-6xl mx-auto px-6 md:px-12 pt-6 pb-14 font-sans text-abbey-sage">No sermons match your search.</p>';
   };
 
   input.addEventListener('input', update);
@@ -148,5 +148,33 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', () => {
     clearTimeout(timer);
     timer = setTimeout(() => { if (open) place(open); }, 100);
+  });
+});
+
+// Nav dropdown — hover and keyboard focus already open it via CSS; this adds a
+// tap/click toggle (chevron button) for touch screens, plus Escape / outside-click to close.
+document.addEventListener('DOMContentLoaded', () => {
+  const dropdowns = document.querySelectorAll('[data-nav-dropdown]');
+  if (!dropdowns.length) return;
+
+  const setOpen = (dd, open) => {
+    dd.toggleAttribute('data-open', open);
+    dd.querySelector('[data-nav-dropdown-toggle]').setAttribute('aria-expanded', String(open));
+  };
+
+  dropdowns.forEach((dd) => {
+    dd.querySelector('[data-nav-dropdown-toggle]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      const willOpen = !dd.hasAttribute('data-open');
+      dropdowns.forEach((other) => setOpen(other, false));
+      setOpen(dd, willOpen);
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    dropdowns.forEach((dd) => { if (!dd.contains(e.target)) setOpen(dd, false); });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') dropdowns.forEach((dd) => setOpen(dd, false));
   });
 });

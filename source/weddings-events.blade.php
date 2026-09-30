@@ -20,7 +20,7 @@ title: Weddings + Events
 @endsection
 
 @section('after')
-<div class="max-w-5xl mx-auto px-6 md:px-12 pb-14 -mt-4">
+<div class="max-w-6xl mx-auto px-6 md:px-12 pb-14 -mt-4">
   <div class="grid gap-6 sm:grid-cols-3">
     <img src="{{ $page->baseUrl }}assets/images/wedding-1.jpg" alt="A wedding at The Abbey" class="w-full aspect-[3/2] object-cover">
     <div class="aspect-[3/2] bg-abbey-sage flex items-center justify-center">

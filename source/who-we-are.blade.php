@@ -12,7 +12,7 @@ title: Who We Are
 @endsection
 
 @section('after')
-<div class="max-w-5xl mx-auto px-6 md:px-12 pb-16 -mt-4">
+<div class="max-w-6xl mx-auto px-6 md:px-12 pb-16 -mt-4">
   <div data-staff-grid class="grid gap-x-6 gap-y-10 sm:grid-cols-3">
     @foreach ($page->staff as $i => $person)
       <div data-staff-item>
@@ -36,7 +36,7 @@ title: Who We Are
     @endforeach
   </div>
 
-  <div class="bg-abbey-sage max-w-3xl mx-auto mt-14">
+  <div class="bg-abbey-sage max-w-3xl mt-14">
     <img src="{{ $page->baseUrl }}assets/images/who-scripture.png" alt="Jeremiah 3:15 — Then I will give you shepherds after my own heart, who will feed you on knowledge and understanding." class="w-full h-auto">
   </div>
 </div>

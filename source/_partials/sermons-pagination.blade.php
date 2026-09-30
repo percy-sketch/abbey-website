@@ -1,5 +1,5 @@
 @if ($pagination->totalPages > 1)
-  <nav data-search-hide class="max-w-5xl mx-auto px-6 md:px-12 pb-16 flex flex-wrap items-center justify-center gap-2 font-sans text-sm" aria-label="Sermon pages">
+  <nav data-search-hide class="max-w-6xl mx-auto px-6 md:px-12 pb-16 flex flex-wrap items-center justify-center gap-2 font-sans text-sm" aria-label="Sermon pages">
     @if ($pagination->previous)
       <a href="{{ $pagination->previous }}" class="nav-link px-3 py-2" rel="prev">&larr; Newer</a>
     @endif

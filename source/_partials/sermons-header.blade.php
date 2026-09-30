@@ -1,5 +1,5 @@
 <div class="bg-abbey-parchment/40 border-b border-abbey-parchment">
-  <div class="max-w-5xl mx-auto px-6 md:px-12 py-2.5 flex flex-wrap items-end justify-between gap-6">
+  <div class="max-w-6xl mx-auto px-6 md:px-12 py-2.5 flex flex-wrap items-end justify-between gap-6">
     <div>
       <h1 class="section-heading">Sermons</h1>
       <p class="font-sans text-abbey-sage mt-2">

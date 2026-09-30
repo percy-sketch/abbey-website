@@ -1,4 +1,4 @@
-<div class="max-w-5xl mx-auto px-6 md:px-12 pt-10">
+<div class="max-w-6xl mx-auto px-6 md:px-12 pt-6">
   <label for="sermon-search" class="sr-only">Search sermons</label>
   <input
     id="sermon-search"

@@ -101,13 +101,15 @@ return [
     ],
 
     'navigation' => [
-        ['title' => 'Who We Are', 'url' => '/who-we-are'],
-        ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],
-        ['title' => 'Sermons', 'url' => '/sermons'],
-        ['title' => 'Give', 'url' => '/give'],
-        ['title' => 'My Abbey', 'url' => 'myAbbey', 'external' => true],
+        ['title' => 'Who We Are', 'url' => '/who-we-are', 'children' => [
+            ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],
+            ['title' => 'Sermons', 'url' => '/sermons'],
+        ]],
         ['title' => 'Weddings + Events', 'url' => '/weddings-events'],
-        ['title' => 'Contact', 'url' => '/contact'],
+        ['title' => 'Contact Us', 'url' => '/contact', 'children' => [
+            ['title' => 'Give', 'url' => '/give'],
+            ['title' => 'My Abbey', 'url' => 'myAbbey', 'external' => true],
+        ]],
     ],
 
     // Every file in source/_sermons/ becomes an entry in $page->sermons,

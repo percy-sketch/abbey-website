@@ -1,7 +1,8 @@
 @extends('_layouts.master')
 
 @section('content')
-  <div class="max-w-3xl mx-auto px-6 md:px-12 py-14">
+  <div class="max-w-6xl mx-auto px-6 md:px-12 py-14">
+  <div class="max-w-3xl">
     <a href="{{ $page->baseUrl }}sermons" class="nav-link">&larr; All sermons</a>
 
     <h1 class="section-heading mt-4">{{ $page->title }}</h1>
@@ -33,5 +34,6 @@
     <div class="prose prose-lg font-serif prose-headings:font-serif mt-8">
       @yield('body')
     </div>
+  </div>
   </div>
 @endsection

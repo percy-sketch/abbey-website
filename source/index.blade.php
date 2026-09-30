@@ -23,7 +23,8 @@ title: Home
   <div class="absolute inset-0 bg-abbey-midnight/50"></div>
   <img src="{{ $page->baseUrl }}assets/images/hero-placeholder.jpg" alt="" class="w-full h-[70vh] object-cover">
   <div class="absolute inset-0 flex items-end">
-    <div class="max-w-3xl mx-auto md:mx-0 md:ml-16 mb-16 mx-6 bg-abbey-midnight/70 text-white p-8 md:p-10">
+    <div class="w-full max-w-6xl mx-auto px-6 md:px-12 mb-16">
+    <div class="max-w-3xl bg-abbey-midnight/70 text-white p-8 md:p-10">
       <h1 class="font-serif text-4xl md:text-5xl mb-4">You're Invited&hellip;</h1>
       <p class="font-serif text-lg leading-relaxed">
         We want to invite you to experience God our Father, through His Son Jesus Christ,
@@ -31,6 +32,7 @@ title: Home
         free through His Word, His presence, and His people.
       </p>
       <a href="{{ $page->baseUrl }}who-we-are" class="btn mt-6">Learn More</a>
+    </div>
     </div>
   </div>
 </section>
@@ -69,7 +71,7 @@ title: Home
   </div>
 </section>
 
-<section class="max-w-5xl mx-auto px-6 md:px-12 py-16 grid gap-8 md:grid-cols-2">
+<section class="max-w-6xl mx-auto px-6 md:px-12 py-16 grid gap-8 md:grid-cols-2">
   <div class="aspect-video">
     <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/REPLACE_WITH_ID" title="The Abbey Pawleys Island" frameborder="0" allowfullscreen></iframe>
   </div>

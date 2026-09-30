@@ -11,7 +11,7 @@ pagination:
 @include('_partials.sermons-header', ['view' => 'grid'])
 @include('_partials.sermons-search', ['view' => 'grid'])
 
-<div data-search-hide class="max-w-5xl mx-auto px-6 md:px-12 py-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<div data-search-hide class="max-w-6xl mx-auto px-6 md:px-12 pt-6 pb-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
   @foreach ($pagination->items as $sermon)
     <a href="{{ $sermon->getUrl() }}" class="block group">
       <div class="aspect-video bg-abbey-parchment overflow-hidden">
