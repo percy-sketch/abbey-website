@@ -10,4 +10,6 @@
   <article class="max-w-3xl mx-auto px-6 md:px-12 py-14 prose prose-lg font-serif prose-headings:font-serif prose-headings:text-abbey-midnight prose-a:text-abbey-green">
     @yield('body')
   </article>
+
+  @yield('after')
 @endsection
