@@ -10,7 +10,7 @@ title: Give
   OnRealm, off this site.
 </p>
 
-<p>
+<p class="not-prose">
   <a href="{{ $page->links['give'] }}" target="_blank" rel="noopener" class="btn">Give Online</a>
 </p>
 @endsection

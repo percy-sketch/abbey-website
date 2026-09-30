@@ -14,7 +14,7 @@ title: Weddings + Events
   All ceremonies are overseen by our clergy. Reach out for more information and/or to enquire.
 </p>
 
-<p>
+<p class="not-prose">
   <a href="mailto:{{ $page->contact['email'] }}" class="btn">Enquire by Email</a>
 </p>
 @endsection
