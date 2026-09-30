@@ -7,9 +7,10 @@ return [
     'siteName' => 'The Abbey at Pawleys Island',
     'siteDescription' => 'A community of believers passionate about sharing the greatness and grace of our Savior Jesus Christ.',
 
-    // Update siteUrl to the real GitHub Pages URL (or custom domain) before deploying.
-    // Used to build the sitemap and absolute URLs/meta tags.
-    'siteUrl' => 'https://theabbeypawleysisland.github.io/site',
+    // Where the site is served from. Currently the private GitHub Pages preview;
+    // switch to 'https://theabbeypawleysisland.com' at launch, when this replaces the old site.
+    // Used for absolute URLs (sitemap, meta tags) — nothing reads it yet.
+    'siteUrl' => 'https://sturdy-adventure-1vrw4kz.pages.github.io',
     'baseUrl' => '/',
 
     'service' => [
