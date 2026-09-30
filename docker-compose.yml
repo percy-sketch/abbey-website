@@ -3,7 +3,7 @@ services:
     build: .
     ports:
       - "8000:8000"   # `jigsaw serve`
-      - "5173:5173"   # vite dev server (npm run dev)
+      - "5273:5273"   # vite dev server (npm run dev)
     volumes:
       - .:/var/www/html
     working_dir: /var/www/html
