@@ -9,8 +9,9 @@ pagination:
 
 @section('content')
 @include('_partials.sermons-header', ['view' => 'list'])
+@include('_partials.sermons-search', ['view' => 'list'])
 
-<div class="max-w-5xl mx-auto px-6 md:px-12 py-14 overflow-x-auto">
+<div data-search-hide class="max-w-5xl mx-auto px-6 md:px-12 py-14 overflow-x-auto">
   <table class="w-full text-left font-sans text-sm">
     <thead>
       <tr class="border-b-2 border-abbey-green text-abbey-midnight">
