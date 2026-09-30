@@ -11,4 +11,6 @@ services:
     command: >
       sh -c "composer install --no-interaction &&
              npm install &&
+             (npm run dev &) &&
+             while [ ! -d build_local ]; do sleep 1; done &&
              vendor/bin/jigsaw serve --host=0.0.0.0"
