@@ -1,9 +1,9 @@
-/vendor
-/node_modules
+.DS_Store
+.env
+Thumbs.db
 /build_local
 /build_production
 /build_staging
 /source/assets/build
-.DS_Store
-Thumbs.db
-.env
+/node_modules
+/vendor
