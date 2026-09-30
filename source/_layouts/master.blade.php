@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ $title ?? $page->siteName }} &middot; {{ $page->siteName }}</title>
-  <meta name="description" content="{{ $description ?? $page->siteDescription }}">
+  <title>{{ $page->title ?? $page->siteName }} &middot; {{ $page->siteName }}</title>
+  <meta name="description" content="{{ $page->description ?? $page->siteDescription }}">
   <link rel="icon" href="{{ $page->baseUrl }}assets/images/abbey-logomark.png">
   <link rel="canonical" href="{{ $page->getUrl() }}">
 
