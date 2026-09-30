@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="bg-abbey-parchment/40 border-b border-abbey-parchment">
-    <div class="max-w-4xl mx-auto px-6 md:px-12 py-14">
+    <div class="max-w-4xl mx-auto px-6 md:px-12 py-[18px]">
       <h1 class="section-heading">{{ $page->title }}</h1>
     </div>
   </div>

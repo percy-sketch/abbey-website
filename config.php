@@ -34,6 +34,72 @@ return [
         'instagram' => 'https://www.instagram.com/theabbeypawleys/',
     ],
 
+    // Staff shown on /who-we-are. Bios are carried over from the original site.
+    'staff' => [
+        [
+            'name' => 'Allen Hughes',
+            'fullName' => 'The Rev. Dr. Allen Hughes',
+            'title' => 'Senior Rector/Pastor',
+            'photo' => 'staff-hughes.jpg',
+            'bio' => [
+                'Allen is married to Louise and they have four children: Chaplin, James, Josh, and Dargan. He is originally from Mt. Pleasant, SC. Allen attended the University of South Carolina, received his MDiv from The University of the South (Sewanee), and completed his Doctor of Ministry at Asbury Seminary.',
+                'Allen is the Executive Director of The Anglican Mission in America (AMiA), the Three-Stream Anglican Society of which The Abbey is a part. He has planted churches in Texas and South Carolina. A pastor for 30 years, Allen has a deep commitment to coaching and training leaders and discipleship. Allen oversees The Abbey and mentors the clergy, staff, and ministry leaders.',
+            ],
+        ],
+        [
+            'name' => 'Capers Barr',
+            'fullName' => 'Mr. Capers Barr',
+            'title' => 'Executive Pastor',
+            'photo' => 'staff-barr.jpg',
+            'bio' => [
+                'Capers and his wife Jodi grew up in Charleston and Mt. Pleasant and have been married for 33 years. They have two sons, Capers and Cannon, and a granddaughter, Lee. Capers and his wife, Mary, live with their daughter, Lee, in Mt. Pleasant, and they are expecting their second daughter, Lucy, to arrive in January of this year. Cannon is married to Marguerite, and they live in Georgetown.',
+                'Capers is a graduate of the University of South Carolina and the University of South Carolina School of Law. After almost 30 years of practice, Capers left the law and began working full time for the church, most recently as Executive Pastor of an Anglican church in Mt. Pleasant.',
+                'Capers grew up spending his summers in Pawleys Island, and he and Jodi are very excited to now call Pawleys Island home.',
+                'They are passionate about sharing their story of God’s work in their lives and in their marriage, and they are also passionate about working with the LAMB Institute, which serves orphaned and otherwise underprivileged children in Honduras. They are honored and excited to get to know everyone at The Abbey and to join together to help expand God’s kingdom.',
+            ],
+        ],
+        [
+            'name' => 'Bob Grant',
+            'fullName' => 'The Rev. Dr. Bob Grant',
+            'title' => 'Assistant Rector/Pastor',
+            'photo' => 'staff-grant.jpg',
+            'bio' => [
+                'Robert (Bob) Grant is celebrating 58 years of covenant marriage with his wife Sue and they have two adult children, Kelley and Richard. Bob completed a B.A. in Religion, M.A. in Counseling Psychology, and Th.D. in Applied Christianity.',
+                'Spanning 55 years of ordained ministry, “Dr Bob” has served as a church planter, pastor, family and marriage counselor, and a certified leader development coach. For 12 years, he hosted “The Dr Bob Grant Show,” a weekday 2-hour live talk radio program in Colorado addressing faith and culture. He currently serves as the U.S. Department of Defense Endorsing Agent for active duty military chaplains in The AMiA. Bob assists at The Abbey in worship, preaching, pastoral care, and discipleship.',
+            ],
+        ],
+        [
+            'name' => 'Graham Schuyler',
+            'fullName' => 'The Rev. Graham Schuyler',
+            'title' => 'Assistant Rector/Pastor',
+            'photo' => 'staff-schuyler.jpg',
+            'bio' => [
+                'Graham is married to Wendy, and they have two children: Hannah Grace and Graham Jr. He is originally from New Jersey but left after middle school to attend an all-boys boarding school in North Carolina and he has been in the South ever since. After a term serving in the United States Marine Corps and getting his combat action in Desert Shield and Desert Storm, he graduated from the College of Charleston, where he met his wife Wendy, who is a talented interior designer and furniture salesperson.',
+                'Graham and Wendy attended seminary in Ambridge, Pennsylvania, at Trinity School for Ministry. After three years in Knoxville, Tennessee, they discovered the need to get out of the church and go out in the local communities and preach the Gospel to the unchurched. They realized that there are many people out there that are wide open for the Gospel, but do not find themselves going to a church. So together they formed G3 Ministries, which is now home based in Pawleys Island, SC. They are a mission outreach ministry that plants the seed of the Gospel through relationships and earning the right. Graham assists at The Abbey in worship, preaching, discipleship, and youth ministry.',
+            ],
+        ],
+        [
+            'name' => 'Percy Strickland',
+            'fullName' => 'Rev. Percy Strickland',
+            'title' => 'Assistant Rector/Pastor',
+            'photo' => 'staff-strickland.jpg',
+            'bio' => [
+                'Percy is married to Dr. Angie Strickland (a local Emergency Room physician) and they have six children: Tamon, Essence, Ala, Huck, Jasper and E.D. Lu. He grew up on a hog farm in Spivey’s Corner, NC, but many of his country ways were smoothed out a little when he attended Duke University for his undergraduate studies. Percy received his MDiv from Union Presbyterian Seminary and is currently finishing up his PhD in Old Testament at Columbia International University.',
+                'Before his time here, Percy was a campus minister with InterVarsity Christian Fellowship at the University of Richmond. He was also, for 17 years, the CEO of a ministry to at-risk youth in the East End of Richmond, VA. Percy loves to speak God’s truth (through teaching and preaching), seek God’s truth (through strategic investments in community) and leak God’s truth (through life-on-life discipleship and leadership development) and has been doing that full-time since 1999. Percy works alongside Allen and the entire staff and ministry team to ensure that folks are invested in, encouraged and activated to the ministry to which they are called.',
+            ],
+        ],
+        [
+            'name' => 'Paula Johnson',
+            'fullName' => 'Paula Johnson',
+            'title' => 'Church Administrator and Children’s Minister',
+            'photo' => 'staff-johnson.jpg',
+            'bio' => [
+                'Paula is married to Todd and they have four children: Scott, Noah, Sarah, and Hope. She is originally from Sumter, SC. Todd is from Michigan and their children are what locals refer to as “creek ratz” because they have been raised on the inlet.',
+                'Paula attended Coastal Carolina College for her undergraduate degree and the University of South Carolina for her MEd. Paula has a passion and heart for children to know they are loved by Jesus. When Paula is not serving the local church she also serves local nonprofits as a board member and through assisting with planning events. She is also active with her children’s schools serving as chaperone, board member, and Team Mom. Paula serves as the Church Administrator and oversees Children’s Ministry at The Abbey.',
+            ],
+        ],
+    ],
+
     'navigation' => [
         ['title' => 'Who We Are', 'url' => '/who-we-are'],
         ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],

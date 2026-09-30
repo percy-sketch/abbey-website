@@ -87,3 +87,66 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && input.value) { input.value = ''; update(); }
   });
 });
+
+// Staff bios — clicking a person opens their bio in a full-width panel directly
+// under that person's row of the grid; clicking again (or another person) swaps/closes it.
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.querySelector('[data-staff-grid]');
+  if (!grid) return;
+
+  const items = [...grid.querySelectorAll('[data-staff-item]')];
+  const panel = document.createElement('div');
+  panel.setAttribute('role', 'region');
+  panel.className = 'col-span-full bg-abbey-parchment/40 border-t-4 border-abbey-green p-6 md:p-10 relative';
+  let open = null;
+
+  const setCard = (item, expanded) => {
+    const card = item.querySelector('[data-staff-card]');
+    card.setAttribute('aria-expanded', String(expanded));
+    card.querySelector('[data-staff-label]').textContent = expanded ? 'Hide bio' : 'Read bio';
+    card.querySelector('[data-staff-icon]').textContent = expanded ? '−' : '+';
+  };
+
+  // Place the panel after the last item that shares the clicked item's row.
+  const place = (item) => {
+    const top = item.offsetTop;
+    const rowEnd = items.filter((i) => i.offsetTop === top).pop();
+    rowEnd.after(panel);
+  };
+
+  const close = () => {
+    if (!open) return;
+    setCard(open, false);
+    panel.remove();
+    open = null;
+  };
+
+  const show = (item) => {
+    if (open) setCard(open, false);
+    open = item;
+    const bio = item.querySelector('[data-staff-bio]');
+    panel.innerHTML = bio.innerHTML +
+      '<button type="button" data-staff-close class="nav-link absolute top-4 right-5" aria-label="Close bio">Close &times;</button>';
+    panel.setAttribute('aria-labelledby', bio.id);
+    place(item);
+    setCard(item, true);
+    panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  };
+
+  grid.addEventListener('click', (e) => {
+    if (e.target.closest('[data-staff-close]')) { close(); return; }
+    const card = e.target.closest('[data-staff-card]');
+    if (!card) return;
+    const item = card.closest('[data-staff-item]');
+    item === open ? close() : show(item);
+  });
+
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+  // Column count changes with viewport width, so re-seat the panel under the right row.
+  let timer;
+  window.addEventListener('resize', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { if (open) place(open); }, 100);
+  });
+});
