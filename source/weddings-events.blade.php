@@ -4,6 +4,7 @@ section: body
 title: Weddings + Events
 ---
 
+@section('body')
 <p class="lead">
   Marriage is one of the Christian rites that the Anglican 39 Articles say are
   &ldquo;commonly called sacraments.&rdquo;
@@ -16,3 +17,4 @@ title: Weddings + Events
 <p>
   <a href="mailto:{{ $page->contact['email'] }}" class="btn">Enquire by Email</a>
 </p>
+@endsection

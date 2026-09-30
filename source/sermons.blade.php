@@ -4,6 +4,7 @@ section: content
 title: Sermons
 ---
 
+@section('content')
 <div class="bg-abbey-parchment/40 border-b border-abbey-parchment">
   <div class="max-w-5xl mx-auto px-6 md:px-12 py-14">
     <h1 class="section-heading">Sermons</h1>
@@ -30,3 +31,4 @@ title: Sermons
     </a>
   @endforeach
 </div>
+@endsection

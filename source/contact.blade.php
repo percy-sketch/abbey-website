@@ -4,6 +4,7 @@ section: body
 title: Contact
 ---
 
+@section('body')
 <p class="lead">We'd love to hear from you.</p>
 
 <p>
@@ -19,3 +20,4 @@ title: Contact
   fails — see README.md "Contact form" for the two easy ways to add one back
   (Formspree, or a plain mailto: link like above) once the church decides.
 --}}
+@endsection

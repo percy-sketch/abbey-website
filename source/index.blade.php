@@ -4,6 +4,7 @@ section: content
 title: Home
 ---
 
+@section('content')
 {{--
   Layout mirrors the homepage as reviewed in abbeyweb.pdf, with the
   reviewer's own markup addressed:
@@ -76,3 +77,4 @@ title: Home
     <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/REPLACE_WITH_ID" title="Sunday at The Abbey" frameborder="0" allowfullscreen></iframe>
   </div>
 </section>
+@endsection
