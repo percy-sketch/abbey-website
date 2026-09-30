@@ -1,0 +1,14 @@
+services:
+  jigsaw:
+    build: .
+    ports:
+      - "8000:8000"   # `jigsaw serve`
+      - "5173:5173"   # vite dev server (npm run dev)
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    tty: true
+    command: >
+      sh -c "composer install --no-interaction &&
+             npm install &&
+             vendor/bin/jigsaw serve --host=0.0.0.0"

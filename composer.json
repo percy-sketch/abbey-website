@@ -1,0 +1,16 @@
+{
+    "name": "theabbeypawleysisland/site",
+    "description": "The Abbey at Pawleys Island — static site source (Jigsaw)",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "tightenco/jigsaw": "^1.8"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

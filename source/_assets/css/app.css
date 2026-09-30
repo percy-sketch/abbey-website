@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-serif text-abbey-midnight bg-white;
+  }
+  h1, h2 {
+    @apply font-serif font-semibold text-abbey-midnight;
+  }
+  h3 {
+    @apply font-sans text-abbey-green;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block px-6 py-3 font-sans tracking-wide uppercase text-sm text-white bg-abbey-green hover:bg-abbey-midnight transition-colors;
+  }
+  .btn-outline {
+    @apply inline-block px-6 py-3 font-sans tracking-wide uppercase text-sm border border-white text-white hover:bg-white hover:text-abbey-midnight transition-colors;
+  }
+  .nav-link {
+    @apply font-sans text-sm tracking-wide uppercase text-abbey-midnight hover:text-abbey-green transition-colors;
+  }
+  .section-heading {
+    @apply font-serif text-3xl md:text-4xl text-abbey-midnight;
+  }
+}
