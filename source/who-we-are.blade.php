@@ -36,7 +36,7 @@ title: Who We Are
     @endforeach
   </div>
 
-  <div class="bg-abbey-sage max-w-3xl mt-14">
+  <div class="bg-abbey-sage max-w-3xl mx-auto mt-14">
     <img src="{{ $page->baseUrl }}assets/images/who-scripture.png" alt="Jeremiah 3:15 — Then I will give you shepherds after my own heart, who will feed you on knowledge and understanding." class="w-full h-auto">
   </div>
 </div>
