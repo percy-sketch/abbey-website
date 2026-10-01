@@ -132,6 +132,10 @@ return [
         ],
         [
             'image' => 'slide-5.jpg',
+            // This graphic has its own text baked in, so show all of it (centered) rather than
+            // cropping to fill; `bg` matches the image's edge color so there are no visible bars.
+            'fit' => 'contain',
+            'bg' => '#050713',
             'alt' => 'Sundays at The Abbey, 10:30 AM. “Lord, I love the house where you live, the place where your glory dwells.” Psalm 26. Sunlight through a stained-glass window lights the sanctuary.',
         ],
     ],

@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply font-serif text-abbey-midnight bg-white;
+    @apply font-serif text-abbey-midnight bg-abbey-parchment/10;
   }
   h1, h2 {
     @apply font-serif font-semibold text-abbey-midnight;

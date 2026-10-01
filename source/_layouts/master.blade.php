@@ -18,7 +18,7 @@
   {{-- The whole site is one centered column (max-w-6xl) on a white page, so on wide
        screens every band — header, announcement bar, title band, hero, footer — stops
        at the column edge and leaves white gutters either side. --}}
-  <div class="max-w-6xl mx-auto bg-white min-h-screen flex flex-col">
+  <div class="max-w-6xl mx-auto bg-white min-h-screen flex flex-col shadow-[0_0_32px_rgba(0,0,0,0.10)]">
     @include('_partials.nav')
     @include('_partials.announcement-bar')
 
