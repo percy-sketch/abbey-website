@@ -19,11 +19,11 @@ pagination:
           <img src="https://i3.ytimg.com/vi/{{ $sermon->youtube_id }}/hqdefault.jpg" alt="{{ $sermon->title }}" loading="lazy" class="w-full h-full object-cover group-hover:opacity-90">
         @endif
       </div>
-      <p class="font-serif text-lg mt-3 text-abbey-midnight group-hover:text-abbey-green">{{ $sermon->title }}</p>
-      <p class="font-sans text-xs text-abbey-sage mt-1">
+      <p class="font-serif text-lg mt-3 text-abbey-midnight group-hover:text-abbey-green">
         {{ date("F j, Y", is_numeric($sermon->date) ? $sermon->date : strtotime($sermon->date)) }}
         @if ($sermon->speaker) &middot; {{ $sermon->speaker }} @endif
       </p>
+      <p class="font-sans text-xs text-abbey-sage mt-1">{{ $sermon->title }}</p>
     </a>
   @endforeach
 </div>

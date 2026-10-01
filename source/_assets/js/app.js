@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="aspect-video bg-abbey-parchment overflow-hidden">
             ${s.y ? `<img src="https://i3.ytimg.com/vi/${esc(s.y)}/hqdefault.jpg" alt="${esc(s.t)}" loading="lazy" class="w-full h-full object-cover group-hover:opacity-90">` : ''}
           </div>
-          <p class="font-serif text-lg mt-3 text-abbey-midnight group-hover:text-abbey-green">${esc(s.t)}</p>
-          <p class="font-sans text-xs text-abbey-sage mt-1">${esc(s.l)}${s.s ? ` &middot; ${esc(s.s)}` : ''}</p>
+          <p class="font-serif text-lg mt-3 text-abbey-midnight group-hover:text-abbey-green">${esc(s.l)}${s.s ? ` &middot; ${esc(s.s)}` : ''}</p>
+          <p class="font-sans text-xs text-abbey-sage mt-1">${esc(s.t)}</p>
         </a>`).join('')}
     </div>`;
 
