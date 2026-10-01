@@ -15,14 +15,19 @@
 </head>
 <body class="antialiased">
 
-  @include('_partials.nav')
-  @include('_partials.announcement-bar')
+  {{-- The whole site is one centered column (max-w-6xl) on a white page, so on wide
+       screens every band — header, announcement bar, title band, hero, footer — stops
+       at the column edge and leaves white gutters either side. --}}
+  <div class="max-w-6xl mx-auto bg-white min-h-screen flex flex-col">
+    @include('_partials.nav')
+    @include('_partials.announcement-bar')
 
-  <main>
-    @yield('content')
-  </main>
+    <main class="flex-1">
+      @yield('content')
+    </main>
 
-  @include('_partials.footer')
+    @include('_partials.footer')
+  </div>
 
 </body>
 </html>

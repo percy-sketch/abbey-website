@@ -178,3 +178,80 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') dropdowns.forEach((dd) => setOpen(dd, false));
   });
 });
+
+// Home page carousel — fade between slides, autoplay with a pause control, arrows, dots,
+// swipe, and ←/→ keys. Autoplay pauses on hover/focus and while the tab is hidden, and
+// never starts for visitors who prefer reduced motion.
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.querySelector('[data-carousel]');
+  if (!root) return;
+
+  const slides = [...root.querySelectorAll('[data-carousel-slide]')];
+  const dots = [...root.querySelectorAll('[data-carousel-dot]')];
+  const toggle = root.querySelector('[data-carousel-toggle]');
+  const interval = Number(root.dataset.interval) || 9000;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let index = 0;
+  let timer = null;
+  let userPaused = reduceMotion;   // the pause button's state
+  let hovering = false;
+
+  const show = (next) => {
+    index = (next + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const active = i === index;
+      slide.classList.toggle('opacity-100', active);
+      slide.classList.toggle('opacity-0', !active);
+      slide.classList.toggle('pointer-events-none', !active);
+      slide.toggleAttribute('aria-hidden', !active);
+      if (active) slide.querySelector('img')?.removeAttribute('loading');
+    });
+    dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
+  };
+
+  const stop = () => { clearInterval(timer); timer = null; };
+  const start = () => {
+    stop();
+    if (userPaused || hovering || document.hidden) return;
+    timer = setInterval(() => show(index + 1), interval);
+  };
+  const restart = () => start();
+
+  const syncToggle = () => {
+    toggle.setAttribute('aria-label', userPaused ? 'Play slideshow' : 'Pause slideshow');
+    toggle.querySelector('[data-icon-pause]').classList.toggle('hidden', userPaused);
+    toggle.querySelector('[data-icon-play]').classList.toggle('hidden', !userPaused);
+    // Announce slide changes politely only when the user is driving.
+    root.querySelector('[data-carousel-track]').setAttribute('aria-live', userPaused ? 'polite' : 'off');
+  };
+
+  root.querySelector('[data-carousel-prev]')?.addEventListener('click', () => { show(index - 1); restart(); });
+  root.querySelector('[data-carousel-next]')?.addEventListener('click', () => { show(index + 1); restart(); });
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); restart(); }));
+  toggle.addEventListener('click', () => { userPaused = !userPaused; syncToggle(); start(); });
+
+  root.addEventListener('mouseenter', () => { hovering = true; stop(); });
+  root.addEventListener('mouseleave', () => { hovering = false; start(); });
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+  document.addEventListener('visibilitychange', start);
+
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { show(index - 1); restart(); }
+    if (e.key === 'ArrowRight') { show(index + 1); restart(); }
+  });
+
+  // Swipe (touch)
+  let startX = null;
+  root.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  root.addEventListener('touchend', (e) => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    startX = null;
+    if (Math.abs(dx) > 50) { show(index + (dx < 0 ? 1 : -1)); restart(); }
+  });
+
+  syncToggle();
+  start();
+});

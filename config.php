@@ -101,6 +101,41 @@ return [
         ],
     ],
 
+    // Home page carousel. Slides advance in this order; `panel` (optional) is the taupe
+    // text box laid over the photo. Rebuilt as live text from the legacy site's slider graphics.
+    'heroSlides' => [
+        [
+            'image' => 'slide-1.jpg',
+            'alt' => 'Live oaks draped in Spanish moss over the brick drive and church campus at sunset',
+            'panel' => [
+                'heading' => 'You’re Invited…',
+                'body' => 'We want to invite you to experience God our Father, through His Son Jesus Christ, by the power of the Holy Spirit in a new and vibrant way, where your heart becomes free through His Word, His presence, and authentic community.',
+                'tagline' => ['COME + BELONG'],
+            ],
+        ],
+        [
+            'image' => 'slide-2.jpg',
+            'alt' => 'A stylized, painterly rendering of The Abbey’s church building with its cross in the center gable',
+        ],
+        [
+            'image' => 'slide-3.jpg',
+            'alt' => 'The congregation gathered in worship, with a pianist and a cellist leading music',
+        ],
+        [
+            'image' => 'slide-4.jpg',
+            'alt' => 'A group of children laughing together on a sofa, with candy canes on the tables in front of them',
+            'panel' => [
+                'heading' => 'Mission',
+                'body' => 'Like the Celtic abbeys of old, we desire to transform the world by proclaiming the Gospel of Jesus Christ through',
+                'tagline' => ['RADICAL HOSPITALITY', 'CULTURAL ENGAGEMENT', '+ SPIRITUAL RENEWAL.'],
+            ],
+        ],
+        [
+            'image' => 'slide-5.jpg',
+            'alt' => 'Sundays at The Abbey, 10:30 AM. “Lord, I love the house where you live, the place where your glory dwells.” Psalm 26. Sunlight through a stained-glass window lights the sanctuary.',
+        ],
+    ],
+
     'navigation' => [
         ['title' => 'Who We Are', 'url' => '/who-we-are', 'children' => [
             ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],

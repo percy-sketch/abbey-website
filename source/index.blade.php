@@ -15,27 +15,11 @@ title: Home
      being wedged beneath it.
    - the three feature cards are laid out on an even 3-column grid instead
      of the uneven spacing marked up in the review.
-  Replace the placeholder hero photo and YouTube IDs with the church's own
-  before launch.
+  The hero is the carousel in _partials/hero-carousel.blade.php; its slides live in
+  config.php ('heroSlides'). Replace the placeholder YouTube ID below before launch.
 --}}
 
-<section class="relative">
-  <div class="absolute inset-0 bg-abbey-midnight/50"></div>
-  <img src="{{ $page->baseUrl }}assets/images/hero-placeholder.jpg" alt="" class="w-full h-[70vh] object-cover">
-  <div class="absolute inset-0 flex items-end">
-    <div class="w-full max-w-6xl mx-auto px-6 md:px-12 mb-16">
-    <div class="max-w-3xl bg-abbey-midnight/70 text-white p-8 md:p-10">
-      <h1 class="font-serif text-4xl md:text-5xl mb-4">You're Invited&hellip;</h1>
-      <p class="font-serif text-lg leading-relaxed">
-        We want to invite you to experience God our Father, through His Son Jesus Christ,
-        by the power of the Holy Spirit in a new and vibrant way, where your heart becomes
-        free through His Word, His presence, and His people.
-      </p>
-      <a href="{{ $page->baseUrl }}who-we-are" class="btn mt-6">Learn More</a>
-    </div>
-    </div>
-  </div>
-</section>
+@include('_partials.hero-carousel')
 
 <section class="max-w-6xl mx-auto px-6 md:px-12 py-16 grid gap-8 md:grid-cols-3">
   <div class="relative h-56 overflow-hidden">
