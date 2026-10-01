@@ -7,8 +7,10 @@
     </div>
   </div>
 
+  @yield('before')
+
   <div class="max-w-6xl mx-auto px-6 md:px-12">
-  <article class="max-w-3xl py-14 prose prose-lg font-serif prose-headings:font-serif prose-headings:text-abbey-midnight prose-a:text-abbey-green">
+  <article class="max-w-3xl {{ $page->centered ? 'mx-auto' : '' }} py-14 prose prose-lg font-serif prose-headings:font-serif prose-headings:text-abbey-midnight prose-a:text-abbey-green">
     @yield('body')
   </article>
   </div>
