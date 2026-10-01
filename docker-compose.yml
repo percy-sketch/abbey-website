@@ -7,6 +7,10 @@ services:
     volumes:
       - .:/var/www/html
     working_dir: /var/www/html
+    environment:
+      # Vite rebuilds the whole site on every save and can exhaust Node's default ~2 GB heap
+      # in a long session; give it more room.
+      NODE_OPTIONS: --max-old-space-size=4096
     tty: true
     command: >
       sh -c "composer install --no-interaction &&

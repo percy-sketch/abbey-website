@@ -14,11 +14,26 @@
     </div>
 
     <div class="font-sans text-sm space-y-3">
-      <h3 class="text-white uppercase tracking-wide text-xs mb-3">Connect</h3>
-      <div class="flex gap-4">
-        <a href="{{ $page->links['facebook'] }}" target="_blank" rel="noopener" class="hover:text-abbey-sage">Facebook</a>
-        <a href="{{ $page->links['instagram'] }}" target="_blank" rel="noopener" class="hover:text-abbey-sage">Instagram</a>
-        <a href="{{ $page->links['youtube'] }}" target="_blank" rel="noopener" class="hover:text-abbey-sage">YouTube</a>
+      @php
+        $shareUrl = rtrim($page->siteUrl, '/') . $page->getPath();
+        $shareText = $page->siteName;
+      @endphp
+      <div class="flex flex-wrap gap-x-16 gap-y-4 pb-5">
+        <div>
+          <h3 class="text-white uppercase tracking-wide text-xs mb-3">Connect</h3>
+          <div class="flex items-center gap-4">
+            <a href="{{ $page->links['facebook'] }}" target="_blank" rel="noopener" aria-label="The Abbey on Facebook" class="hover:text-abbey-sage">@include('_partials.icons.facebook', ['class' => 'h-6 w-6'])</a>
+            <a href="{{ $page->links['instagram'] }}" target="_blank" rel="noopener" aria-label="The Abbey on Instagram" class="hover:text-abbey-sage">@include('_partials.icons.instagram', ['class' => 'h-6 w-6'])</a>
+            <a href="{{ $page->links['youtube'] }}" target="_blank" rel="noopener" aria-label="The Abbey on YouTube" class="hover:text-abbey-sage">@include('_partials.icons.youtube', ['class' => 'h-6 w-6'])</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white uppercase tracking-wide text-xs mb-3">Share</h3>
+          <div class="flex items-center gap-4">
+            <a href="https://x.com/intent/tweet?text={{ rawurlencode($shareText) }}&amp;url={{ rawurlencode($shareUrl) }}" target="_blank" rel="noopener" aria-label="Share this page on X" class="hover:text-abbey-sage">@include('_partials.icons.x', ['class' => 'h-5 w-5'])</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ rawurlencode($shareUrl) }}" target="_blank" rel="noopener" aria-label="Share this page on Facebook" class="hover:text-abbey-sage">@include('_partials.icons.facebook', ['class' => 'h-5 w-5'])</a>
+          </div>
+        </div>
       </div>
       <a href="{{ $page->links['myAbbey'] }}" target="_blank" rel="noopener" class="block mt-4 hover:text-abbey-sage">My Abbey (member portal) &rarr;</a>
       <a href="{{ $page->links['give'] }}" target="_blank" rel="noopener" class="block hover:text-abbey-sage">Give online &rarr;</a>

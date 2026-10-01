@@ -22,27 +22,14 @@ title: Home
 @include('_partials.hero-carousel')
 
 <section class="max-w-6xl mx-auto px-6 md:px-12 py-16 grid gap-8 md:grid-cols-3">
-  <div class="relative h-56 overflow-hidden">
-    <img src="{{ $page->baseUrl }}assets/images/feature-hospitality.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 bg-abbey-midnight/60 p-6 flex flex-col justify-end text-white">
-      <p class="font-sans text-xs uppercase tracking-wide text-abbey-sage">Radical Hospitality</p>
-      <p class="font-serif text-2xl">Come and See.</p>
-    </div>
-  </div>
-  <div class="relative h-56 overflow-hidden">
-    <img src="{{ $page->baseUrl }}assets/images/feature-culture.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 bg-abbey-midnight/60 p-6 flex flex-col justify-end text-white">
-      <p class="font-sans text-xs uppercase tracking-wide text-abbey-sage">Cultural Engagement</p>
-      <p class="font-serif text-2xl">Come and Learn.</p>
-    </div>
-  </div>
-  <div class="relative h-56 overflow-hidden">
-    <img src="{{ $page->baseUrl }}assets/images/feature-renewal.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 bg-abbey-midnight/60 p-6 flex flex-col justify-end text-white">
-      <p class="font-sans text-xs uppercase tracking-wide text-abbey-sage">Spiritual Renewal</p>
-      <p class="font-serif text-2xl">Come and Renew.</p>
-    </div>
-  </div>
+  @foreach ($page->featureCards as $card)
+    <img
+      src="{{ $page->baseUrl }}assets/images/{{ $card['image'] }}"
+      alt="{{ $card['alt'] }}"
+      loading="lazy"
+      class="relative w-full aspect-video object-cover shadow-md transition-all duration-300 ease-out motion-reduce:transition-none md:hover:scale-[3] md:hover:z-30 md:hover:shadow-2xl {{ $loop->first ? 'md:origin-left' : ($loop->last ? 'md:origin-right' : 'md:origin-center') }}"
+    >
+  @endforeach
 </section>
 
 <section class="bg-abbey-parchment/30 py-16">
@@ -55,12 +42,32 @@ title: Home
   </div>
 </section>
 
+@php $latestSermon = $sermons->first(); @endphp
 <section class="max-w-6xl mx-auto px-6 md:px-12 py-16 grid gap-8 md:grid-cols-2">
-  <div class="aspect-video">
-    <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/REPLACE_WITH_ID" title="The Abbey Pawleys Island" frameborder="0" allowfullscreen></iframe>
+  <div class="aspect-video shadow-md">
+    <iframe
+      class="w-full h-full"
+      src="https://www.youtube-nocookie.com/embed/{{ $page->introVideo['id'] }}?rel=0"
+      title="{{ $page->introVideo['title'] }}"
+      loading="lazy"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
   </div>
-  <div class="aspect-video">
-    <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/REPLACE_WITH_ID" title="Sunday at The Abbey" frameborder="0" allowfullscreen></iframe>
-  </div>
+
+  @if ($latestSermon && $latestSermon->youtube_id)
+    <div class="aspect-video shadow-md">
+      <iframe
+        class="w-full h-full"
+        src="https://www.youtube-nocookie.com/embed/{{ $latestSermon->youtube_id }}?rel=0"
+        title="Latest sermon: {{ $latestSermon->title }}, {{ date('F j, Y', is_numeric($latestSermon->date) ? $latestSermon->date : strtotime($latestSermon->date)) }}"
+        loading="lazy"
+        frameborder="0"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  @endif
 </section>
 @endsection

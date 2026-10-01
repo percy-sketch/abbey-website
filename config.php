@@ -101,6 +101,30 @@ return [
         ],
     ],
 
+    // Intro video in the left-hand slot under the home page cards. (The right-hand slot
+    // automatically shows the newest sermon in source/_sermons.)
+    'introVideo' => [
+        'id' => 'LtU_pfpwkDc',
+        'title' => 'Welcome to The Abbey at Pawleys Island',
+    ],
+
+    // The three cards under the home carousel. Each image is a finished graphic from the
+    // legacy site (photo + text baked in), so the alt text carries the full wording.
+    'featureCards' => [
+        [
+            'image' => 'card-hospitality.jpg',
+            'alt' => 'Radical Hospitality. Come and See. Come to The Abbey. We welcome you to our family. God has a place for you.',
+        ],
+        [
+            'image' => 'card-culture.jpg',
+            'alt' => 'Cultural Engagement. Come and Learn. Come and learn about God, Christianity, and think about cultural issues through the lens of Christ.',
+        ],
+        [
+            'image' => 'card-renewal.jpg',
+            'alt' => 'Spiritual Renewal. Come and Renew. Come and be renewed by the Holy Spirit and practice the Christian faith in discipleship.',
+        ],
+    ],
+
     // Home page carousel. Slides advance in this order; `panel` (optional) is the taupe
     // text box laid over the photo. Rebuilt as live text from the legacy site's slider graphics.
     'heroSlides' => [
