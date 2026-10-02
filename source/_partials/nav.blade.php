@@ -29,7 +29,7 @@
               </button>
             </div>
             <div id="nav-submenu-{{ $loop->index }}" class="pl-4 md:pl-0 md:absolute {{ $loop->last ? 'md:right-0' : 'md:left-0' }} md:top-full md:pt-3 md:hidden md:group-hover:block md:group-focus-within:block md:group-data-[open]:block">
-              <div class="md:bg-white md:shadow-lg md:border md:border-abbey-parchment md:min-w-[11rem] md:py-2">
+              <div class="md:bg-white md:shadow-lg md:border md:border-abbey-parchment md:min-w-[11rem] md:py-2 md:rounded-lg md:overflow-hidden">
                 @foreach ($children as $child)
                   <a
                     href="{{ $href($child) }}"
