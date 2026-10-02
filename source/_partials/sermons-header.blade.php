@@ -8,7 +8,7 @@
       </p>
     </div>
 
-    <div class="inline-flex font-sans text-sm border border-abbey-green" role="group" aria-label="Sermon view">
+    <div class="inline-flex font-sans text-sm border border-abbey-green rounded-lg overflow-hidden" role="group" aria-label="Sermon view">
       <a href="{{ $page->baseUrl }}sermons"
          class="px-4 py-2 {{ $view === 'grid' ? 'bg-abbey-green text-white' : 'text-abbey-green hover:bg-abbey-parchment' }}"
          @if ($view === 'grid') aria-current="true" @endif>Thumbnails</a>

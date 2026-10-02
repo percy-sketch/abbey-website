@@ -18,10 +18,10 @@
 
 @layer components {
   .btn {
-    @apply inline-block px-6 py-3 font-sans tracking-wide uppercase text-sm text-white bg-abbey-green hover:bg-abbey-midnight transition-colors;
+    @apply inline-block px-6 py-3 rounded-lg font-sans tracking-wide uppercase text-sm text-white bg-abbey-green hover:bg-abbey-midnight transition-colors;
   }
   .btn-outline {
-    @apply inline-block px-6 py-3 font-sans tracking-wide uppercase text-sm border border-white text-white hover:bg-white hover:text-abbey-midnight transition-colors;
+    @apply inline-block px-6 py-3 rounded-lg font-sans tracking-wide uppercase text-sm border border-white text-white hover:bg-white hover:text-abbey-midnight transition-colors;
   }
   .nav-link {
     @apply font-sans text-sm tracking-wide uppercase text-abbey-midnight hover:text-abbey-green transition-colors;

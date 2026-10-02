@@ -7,7 +7,7 @@
     data-view="{{ $view }}"
     placeholder="Search by title, speaker, or date&hellip;"
     autocomplete="off"
-    class="w-full sm:max-w-md font-sans text-sm border border-abbey-sage px-4 py-2 bg-white focus:outline-none focus:border-abbey-green"
+    class="w-full sm:max-w-md font-sans text-sm border border-abbey-sage rounded-lg px-4 py-2 bg-white focus:outline-none focus:border-abbey-green"
   >
   <p data-search-status class="font-sans text-xs text-abbey-sage mt-2 min-h-[1rem]" aria-live="polite"></p>
 </div>

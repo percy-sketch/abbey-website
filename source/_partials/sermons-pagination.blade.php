@@ -6,7 +6,7 @@
 
     @foreach ($pagination->pages as $number => $path)
       @if ($number == $pagination->currentPage)
-        <span class="px-3 py-2 bg-abbey-green text-white" aria-current="page">{{ $number }}</span>
+        <span class="px-3 py-2 rounded-lg bg-abbey-green text-white" aria-current="page">{{ $number }}</span>
       @else
         <a href="{{ $path }}" class="nav-link px-3 py-2">{{ $number }}</a>
       @endif
