@@ -17,7 +17,7 @@ title: Who We Are
     @foreach ($page->staff as $i => $person)
       <div data-staff-item>
         <button type="button" data-staff-card aria-expanded="false" aria-controls="staff-bio-{{ $i }}" class="block w-full text-left group">
-          <img src="{{ $page->baseUrl }}assets/images/{{ $person['photo'] }}" alt="{{ $person['name'] }}" loading="lazy" class="w-full aspect-square object-cover group-hover:opacity-90 group-aria-expanded:ring-4 group-aria-expanded:ring-abbey-green">
+          <img src="{{ $page->baseUrl }}assets/images/{{ $person['photo'] }}" alt="{{ $person['name'] }}" loading="lazy" class="w-full aspect-square object-cover rounded-2xl group-hover:opacity-90 group-aria-expanded:ring-4 group-aria-expanded:ring-abbey-green">
           <span class="block text-center mt-4">
             <span class="block font-serif text-xl text-abbey-midnight group-hover:text-abbey-green">{{ $person['name'] }}</span>
             <span class="block font-sans text-sm text-abbey-sage mt-1">{{ $person['title'] }}</span>
@@ -36,7 +36,7 @@ title: Who We Are
     @endforeach
   </div>
 
-  <div class="bg-abbey-sage max-w-3xl mx-auto mt-14">
+  <div class="bg-abbey-sage max-w-3xl mx-auto mt-14 rounded-2xl overflow-hidden">
     <img src="{{ $page->baseUrl }}assets/images/who-scripture.png" alt="Jeremiah 3:15 — Then I will give you shepherds after my own heart, who will feed you on knowledge and understanding." class="w-full h-auto">
   </div>
 </div>

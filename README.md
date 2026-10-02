@@ -1,8 +1,8 @@
 # The Abbey at Pawleys Island — site source
 
 A static rebuild of theabbeypawleysisland.com using [Jigsaw](https://jigsaw.tighten.com)
-(PHP static site generator), styled from **The Abbey Brand Guide.pdf** and built to
-deploy to GitHub Pages for free — no more hosting charges.
+(PHP static site generator), styled from **The Abbey Brand Guide.pdf**
+and built to deploy to GitHub Pages for free — no more hosting charges.
 
 ## What's here vs. what's still a placeholder
 
@@ -23,8 +23,8 @@ docker compose up
 ```
 
 This installs PHP + JS dependencies on first run and starts Jigsaw's dev
-server. Visit **http://localhost:8000**. Vite's dev server runs on port 5273
-for asset hot-reloading.
+server. Visit [localhost](**http://localhost:8000**). Vite's dev server runs on
+port 5273 for asset hot-reloading.
 
 To run commands inside the container directly (e.g. after adding a package):
 

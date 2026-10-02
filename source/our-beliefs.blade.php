@@ -7,7 +7,7 @@ centered: true
 
 @section('before')
 <div class="max-w-6xl mx-auto px-6 md:px-12 pt-10 -mb-8">
-  <div class="bg-abbey-sage max-w-[576px] mx-auto">
+  <div class="bg-abbey-sage max-w-[576px] mx-auto rounded-2xl overflow-hidden">
     <img src="{{ $page->baseUrl }}assets/images/beliefs-scripture.png" alt="1 Corinthians 14:33 — For God is not a God of confusion but of peace, as in all the churches of the saints." class="w-full h-auto">
   </div>
 </div>

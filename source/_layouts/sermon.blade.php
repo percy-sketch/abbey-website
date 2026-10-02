@@ -12,7 +12,7 @@
     </p>
 
     @if ($page->youtube_id)
-      <div class="aspect-video mt-8">
+      <div class="aspect-video mt-8 rounded-2xl overflow-hidden">
         <iframe
           class="w-full h-full"
           src="https://www.youtube-nocookie.com/embed/{{ $page->youtube_id }}"

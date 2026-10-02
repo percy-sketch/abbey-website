@@ -27,7 +27,7 @@ title: Home
       src="{{ $page->baseUrl }}assets/images/{{ $card['image'] }}"
       alt="{{ $card['alt'] }}"
       loading="lazy"
-      class="relative w-full aspect-video object-cover shadow-md transition-all duration-300 ease-out motion-reduce:transition-none md:hover:scale-[3] md:hover:z-30 md:hover:shadow-2xl {{ $loop->first ? 'md:origin-left' : ($loop->last ? 'md:origin-right' : 'md:origin-center') }}"
+      class="relative w-full aspect-video object-cover rounded-2xl md:hover:rounded-md shadow-md transition-all duration-300 ease-out motion-reduce:transition-none md:hover:scale-[3] md:hover:z-30 md:hover:shadow-2xl {{ $loop->first ? 'md:origin-left' : ($loop->last ? 'md:origin-right' : 'md:origin-center') }}"
     >
   @endforeach
 </section>
@@ -44,7 +44,7 @@ title: Home
 
 @php $latestSermon = $sermons->first(); @endphp
 <section class="max-w-6xl mx-auto px-6 md:px-12 py-16 grid gap-8 md:grid-cols-2">
-  <div class="aspect-video shadow-md">
+  <div class="aspect-video shadow-md rounded-2xl overflow-hidden">
     <iframe
       class="w-full h-full"
       src="https://www.youtube-nocookie.com/embed/{{ $page->introVideo['id'] }}?rel=0"
@@ -57,7 +57,7 @@ title: Home
   </div>
 
   @if ($latestSermon && $latestSermon->youtube_id)
-    <div class="aspect-video shadow-md">
+    <div class="aspect-video shadow-md rounded-2xl overflow-hidden">
       <iframe
         class="w-full h-full"
         src="https://www.youtube-nocookie.com/embed/{{ $latestSermon->youtube_id }}?rel=0"

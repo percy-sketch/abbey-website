@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="max-w-6xl mx-auto px-6 md:px-12 pt-6 pb-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       ${items.map((s) => `
         <a href="${esc(s.u)}" class="block group">
-          <div class="aspect-video bg-abbey-parchment overflow-hidden">
+          <div class="aspect-video bg-abbey-parchment overflow-hidden rounded-2xl">
             ${s.y ? `<img src="https://i3.ytimg.com/vi/${esc(s.y)}/hqdefault.jpg" alt="${esc(s.t)}" loading="lazy" class="w-full h-full object-cover group-hover:opacity-90">` : ''}
           </div>
           <p class="font-serif text-lg mt-3 text-abbey-midnight group-hover:text-abbey-green">${esc(s.l)}${s.s ? ` &middot; ${esc(s.s)}` : ''}</p>
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const items = [...grid.querySelectorAll('[data-staff-item]')];
   const panel = document.createElement('div');
   panel.setAttribute('role', 'region');
-  panel.className = 'col-span-full bg-abbey-parchment/40 border-t-4 border-abbey-green p-6 md:p-10 relative';
+  panel.className = 'col-span-full bg-abbey-parchment/40 border-t-4 border-abbey-green p-6 md:p-10 relative rounded-2xl overflow-hidden';
   let open = null;
 
   const setCard = (item, expanded) => {
