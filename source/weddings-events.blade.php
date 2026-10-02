@@ -2,18 +2,22 @@
 extends: _layouts.page
 section: body
 title: Weddings + Events
+centered: true
 ---
 
 @section('body')
 <p>
-  Marriage is one of the Christian rites that the Anglican 39 Articles say are
-  &ldquo;commonly called sacraments.&rdquo; St. Paul calls marriage a &ldquo;mystery&rdquo;
-  or &ldquo;sacrament&rdquo; and says that the union between a husband and a wife in
+  Marriage is one of the Christian rites that the Anglican 39 Articles say are &ldquo;commonly called sacraments.&rdquo;
+</<p>
+</p>
+  St. Paul calls marriage a &ldquo;mystery&rdquo; or &ldquo;sacrament&rdquo; and says that the union between a husband and a wife in
   marriage points to the union of Christ and His Church. Our campus is beautiful and we
   are delighted to share it for weddings and other special events at The Abbey and
   consider it a joy and a privilege to minister to families from our parish and beyond
-  through the mystery of marriage. As with all our sacraments and ministries, The Abbey
-  provides oversight for all weddings that take place in our church and one of our clergy
+  through the mystery of marriage. As with all our sacraments and ministries, 
+</<p>
+</p>
+  The Abbey provides oversight for all weddings that take place in our church and one of our clergy
   presides over every wedding ceremony. Reach out for more information and/or to enquire
   about using our space for a wedding or event.
 </p>
