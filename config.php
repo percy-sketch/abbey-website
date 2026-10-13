@@ -131,8 +131,12 @@ return [
             'fullName' => 'Anne Nolen Howard',
             'title' => 'Community Discipleship Guide',
             'photo' => 'staff-howard.jpg',
-            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
-            'bio' => [],
+            'bio' => [
+                'Anne Nolen Howard is a lifelong resident of Pawleys Island, a graduate of the University of South Carolina, and a devoted wife and mother. She and her husband, Will, a banker with First Citizens Bank, married in 1999 and have three children: twin daughters, Adams and Nolen, and a son, William.',
+                'Anne Nolen grew up in Pawleys Island after her father, The Rt. Rev. Chuck Murphy, was called to serve as Rector of All Saints Church in 1982. Her family later helped plant The Abbey Pawleys Island, founded in 2012 under her father’s leadership.',
+                'After working in pharmaceutical sales, Anne Nolen devoted herself to raising her children and later worked alongside her mother, Margaret Murphy, at As For Me and My House, a local shop dedicated to filling homes with the truth of God. Following the shop’s sale in 2019, she spent six years traveling domestically and internationally with No Boundaries International, helping lead others toward restoration and transformation through a personal relationship with Jesus Christ.',
+                'Today, Anne Nolen feels called to bring her experiences, training, and personal testimony to her work at The Abbey. With a heart for spiritual breakthrough, authentic community, and the advancement of Kingdom culture, she believes in the power of vulnerable, personal witness to inspire transformation. She is passionate about equipping the Church, fostering meaningful connections, and creating opportunities for people to encounter the living God and experience His transforming work through the Body of Christ.',
+            ],
         ],
     ],
 
