@@ -108,8 +108,8 @@ return [
             'title' => 'Student Discipleship Pastor',
             'photo' => 'staff-andreucci.jpg',
             'bio' => [
-                'I have a passion helping students grow as disciples of Jesus through Scripture, intentional discipleship, and authentic community. At The Abbey, my heart is to help students learn what it means to be with Jesus, become like Jesus, and do what Jesus did in every area of their lives. I love seeing students grow in their faith and discover what it means to follow Jesus in their everyday lives.',
-                'Outside of ministry, I’m married to my beautiful wife, Drew, and enjoy spending my free time reading and cheering on my favorite sports teams.',
+                'Peyton has a passion for helping students grow as disciples of Jesus through Scripture, intentional discipleship, and authentic community. At The Abbey, his heart is to help students learn what it means to be with Jesus, become like Jesus, and do what Jesus did in every area of their lives. He loves seeing students grow in their faith and discover what it means to follow Jesus in their everyday lives.',
+                'Outside of ministry, Peyton is married to his wife, Drew, and enjoys spending his free time reading and cheering on his favorite sports teams.',
             ],
         ],
         [
