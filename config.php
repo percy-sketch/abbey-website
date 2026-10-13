@@ -22,6 +22,8 @@ return [
         'phone' => '843.314.0277',
         'phoneHref' => '+18433140277',
         'email' => 'info@theabbeypawleysisland.com',
+        // Waypoints Weekly newsletter sign-ups go to Shana by email.
+        'newsletterEmail' => 'shana@theabbeypawleysisland.com',
     ],
 
     'links' => [
@@ -215,6 +217,7 @@ return [
         ['title' => 'Calendar', 'url' => '/calendar'],
         ['title' => 'Weddings + Events', 'url' => '/weddings-events'],
         ['title' => 'Contact Us', 'url' => '/contact', 'children' => [
+            ['title' => 'Get in Touch', 'url' => '/contact'],
             ['title' => 'Give', 'url' => '/give'],
             ['title' => 'My Abbey', 'url' => 'myAbbey', 'external' => true],
         ]],
