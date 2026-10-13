@@ -93,7 +93,7 @@ return [
         [
             'name' => 'Paula Johnson',
             'fullName' => 'Paula Johnson',
-            'title' => 'Church Administrator and Children’s Minister',
+            'title' => 'Children’s Discipleship Pastor',
             'photo' => 'staff-johnson.jpg',
             'bio' => [
                 'Paula is married to Todd and they have four children: Scott, Noah, Sarah, and Hope. She is originally from Sumter, SC. Todd is from Michigan and their children are what locals refer to as “creek ratz” because they have been raised on the inlet.',
