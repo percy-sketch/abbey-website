@@ -20,7 +20,7 @@ import json
 import re
 import subprocess
 import urllib.request
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -83,6 +83,20 @@ def existing():
     return ids, newest
 
 
+def normalize(title):
+    """Match the older entries' naming: 'Sunday 10:30 AM at The Abbey' -> '10:30 AM Worship Service'."""
+    if re.fullmatch(r"\s*sunday\s+10:30\s*am\s+at\s+the\s+abbey\s*", title, re.I):
+        return "10:30 AM Worship Service"
+    return title.strip()
+
+
+def snap_to_sunday(day, title):
+    """A Sunday stream is often published after midnight, so the feed says Monday."""
+    if day.weekday() == 0 and re.search(r"sunday|10:30", title, re.I):
+        return day - timedelta(days=1)
+    return day
+
+
 def slugify(title):
     t = re.sub(r"^\s*\d{1,2}(:\d{2})?\s*(am|pm)\b", "", title, flags=re.I)  # "10:30 AM Worship" -> "Worship"
     s = re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
@@ -122,13 +136,13 @@ def main():
             continue
         if status != "was_live":
             continue  # scheduled or still live; picked up on a later run
-        day = title_date(title) or feed.get(vid)
+        day = title_date(title) or (feed.get(vid) and snap_to_sunday(feed[vid], title))
         if day is None:
             undated.append(f"{vid} | {title}")
             continue
         if day <= newest or day > datetime.now(TZ).date():
             continue
-        added.append(write(vid, title, day))
+        added.append(write(vid, normalize(title), day))
 
     print(f"added {len(added)}:", *sorted(added), sep="\n  ")
     print(f"\nnot added, no date available ({len(undated)}):", *undated, sep="\n  ")
