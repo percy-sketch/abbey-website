@@ -36,7 +36,7 @@ return [
         'instagram' => 'https://www.instagram.com/theabbeypawleys/',
     ],
 
-    // Staff shown on /who-we-are. Bios are carried over from the original site.
+    // Staff shown on /our-team. Bios are carried over from the original site.
     'staff' => [
         [
             'name' => 'Allen Hughes',
@@ -173,6 +173,7 @@ return [
     'navigation' => [
         ['title' => 'Who We Are', 'url' => '/who-we-are', 'children' => [
             ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],
+            ['title' => 'Our Team', 'url' => '/our-team'],
             ['title' => 'Live Stream', 'url' => 'liveStream', 'external' => true],
         ]],
         ['title' => 'Weddings + Events', 'url' => '/weddings-events'],
