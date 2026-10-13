@@ -5,7 +5,7 @@ return [
     'production' => false,
 
     'siteName' => 'The Abbey at Pawleys Island',
-    'siteDescription' => 'A community of believers passionate about sharing the greatness and grace of our Savior Jesus Christ.',
+    'siteDescription' => 'A community committed to forming fully devoted followers of Jesus Christ.',
 
     // Where the site is served from: GitHub Pages for percy-sketch/abbey-website.
     // At launch on theabbeypawleysisland.com, set siteUrl to that domain and baseUrl back to '/'.
