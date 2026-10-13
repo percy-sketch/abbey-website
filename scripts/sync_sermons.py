@@ -80,6 +80,7 @@ def write(info, day):
 
 
 def main():
+    print(f"run at {datetime.now(TZ):%Y-%m-%d %H:%M %Z}")
     ids, newest = existing()
     print(f"{len(ids)} sermons on the site, newest {newest}")
     entries = ytdlp("--flat-playlist", "-J", f"https://www.youtube.com/playlist?list={PLAYLIST}")["entries"]
@@ -88,9 +89,10 @@ def main():
     added = []
     for entry in entries:  # newest first
         vid = entry.get("id")
-        if not vid or vid in ids:
-            if vid in ids:
-                break  # reached what the site already has
+        if vid in ids:
+            print(f"reached {vid}, already on the site")
+            break
+        if not vid:
             continue
         try:
             info = ytdlp("-J", "--skip-download", f"https://www.youtube.com/watch?v={vid}")
@@ -103,7 +105,8 @@ def main():
         if day is None:
             continue
         if day <= newest:
-            break  # older than the site's newest sermon
+            print(f"reached {vid} from {day}, not newer than the site's newest sermon")
+            break
         added.append(write(info, day))
         if len(added) >= MAX_NEW:
             break

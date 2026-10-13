@@ -34,7 +34,14 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --upgrade yt-dlp
-      - run: python3 scripts/sync_sermons.py
+      - name: Look for new sermons on YouTube
+        run: python3 scripts/sync_sermons.py 2>&1 | tee sermon-sync.txt; exit ${PIPESTATUS[0]}
+      - name: Keep the log (published at /sermon-sync.txt)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sermon-sync-log
+          path: sermon-sync.txt
       - name: Commit new sermons
         run: |
           git add source/_sermons
@@ -77,6 +84,13 @@ jobs:
 
       - name: Build site (production)
         run: vendor/bin/jigsaw build production
+
+      - name: Add the sermon sync log
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: sermon-sync-log
+          path: build_production
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
