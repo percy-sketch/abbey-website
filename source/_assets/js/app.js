@@ -255,3 +255,30 @@ document.addEventListener('DOMContentLoaded', () => {
   syncToggle();
   start();
 });
+
+
+// Latest News: Constant Contact's archive widget lists past Waypoints (newest first).
+// Show the newest one in full above the list. The widget loads after the page, so
+// watch for its first link to appear.
+document.addEventListener('DOMContentLoaded', () => {
+  const archive = document.querySelector('[data-waypoint-archive]');
+  if (!archive) return;
+  const latest = document.querySelector('[data-waypoint-latest]');
+  const empty = document.querySelector('[data-waypoint-empty]');
+
+  const showLatest = () => {
+    const link = [...archive.querySelectorAll('a[href]')].find((a) => /^https?:/.test(a.href));
+    if (!link) return false;
+    latest.querySelector('[data-waypoint-frame]').src = link.href;
+    latest.querySelector('[data-waypoint-open]').href = link.href;
+    latest.hidden = false;
+    empty.hidden = true;
+    document.querySelector('[data-waypoint-past]').hidden = false;
+    return true;
+  };
+
+  if (showLatest()) return;
+  const observer = new MutationObserver(() => { if (showLatest()) observer.disconnect(); });
+  observer.observe(archive, { childList: true, subtree: true });
+  setTimeout(() => observer.disconnect(), 20000);
+});

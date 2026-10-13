@@ -221,6 +221,7 @@ return [
             ['title' => 'Live Stream', 'url' => 'liveStream', 'external' => true],
             ['title' => 'Sermons', 'url' => '/sermons'],
         ]],
+        ['title' => 'Latest News', 'url' => '/latest-news'],
         ['title' => 'Calendar', 'url' => '/calendar'],
         ['title' => 'Weddings + Events', 'url' => '/weddings-events'],
         ['title' => 'Contact Us', 'url' => '/contact', 'children' => [
