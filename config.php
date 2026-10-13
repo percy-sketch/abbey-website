@@ -116,6 +116,14 @@ return [
             // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
             'bio' => [],
         ],
+        [
+            'name' => 'Kasey Weston',
+            'fullName' => 'Kasey Weston',
+            'title' => 'Administrative Guide',
+            'photo' => 'staff-weston.jpg',
+            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
+            'bio' => [],
+        ],
     ],
 
     // Intro video in the left-hand slot under the home page cards. (The right-hand slot
