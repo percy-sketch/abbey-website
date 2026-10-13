@@ -194,12 +194,17 @@ return [
         ],
     ],
 
+    // Google Calendar shown on /calendar ("Abbey Public Calendar"). It must stay public
+    // (Settings and sharing > Make available to public) or visitors see an empty calendar.
+    'publicCalendar' => 'c_5ec40702b67d50fe8f09a7d2401cd9db188198c7309ee3ee6c816241b04386bd@group.calendar.google.com',
+
     'navigation' => [
         ['title' => 'Who We Are', 'url' => '/who-we-are', 'children' => [
             ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],
             ['title' => 'Our Team', 'url' => '/our-team'],
             ['title' => 'Live Stream', 'url' => 'liveStream', 'external' => true],
         ]],
+        ['title' => 'Calendar', 'url' => '/calendar'],
         ['title' => 'Weddings + Events', 'url' => '/weddings-events'],
         ['title' => 'Contact Us', 'url' => '/contact', 'children' => [
             ['title' => 'Give', 'url' => '/give'],
