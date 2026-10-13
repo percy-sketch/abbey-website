@@ -73,7 +73,7 @@ return [
         [
             'name' => 'Bob Grant',
             'fullName' => 'The Rev. Dr. Bob Grant',
-            'title' => 'Assistant Rector/Pastor',
+            'title' => 'Associate Rector/Pastor',
             'photo' => 'staff-grant.jpg',
             'bio' => [
                 'Robert (Bob) Grant is celebrating 58 years of covenant marriage with his wife Sue and they have two adult children, Kelley and Richard. Bob completed a B.A. in Religion, M.A. in Counseling Psychology, and Th.D. in Applied Christianity.',
@@ -83,7 +83,7 @@ return [
         [
             'name' => 'Graham Schuyler',
             'fullName' => 'The Rev. Graham Schuyler',
-            'title' => 'Assistant Rector/Pastor',
+            'title' => 'Associate Rector/Pastor',
             'photo' => 'staff-schuyler.jpg',
             'bio' => [
                 'Graham is married to Wendy, and they have two children: Hannah Grace and Graham Jr. He is originally from New Jersey but left after middle school to attend an all-boys boarding school in North Carolina and he has been in the South ever since. After a term serving in the United States Marine Corps and getting his combat action in Desert Shield and Desert Storm, he graduated from the College of Charleston, where he met his wife Wendy, who is a talented interior designer and furniture salesperson.',
