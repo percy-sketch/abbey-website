@@ -35,7 +35,11 @@ jobs:
           python-version: "3.12"
       - run: pip install --upgrade yt-dlp
       - name: Look for new sermons on YouTube
-        run: python3 scripts/sync_sermons.py 2>&1 | tee sermon-sync.txt; exit ${PIPESTATUS[0]}
+        run: |
+          python3 scripts/probe_youtube.py > probe.txt 2>&1 || true
+          python3 scripts/sync_sermons.py 2>&1 | tee sermon-sync.txt; status=${PIPESTATUS[0]}
+          cat probe.txt >> sermon-sync.txt
+          exit $status
       - name: Keep the log (published at /sermon-sync.txt)
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
