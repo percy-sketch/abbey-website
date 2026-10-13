@@ -8,9 +8,13 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
+  # Sunday night and Monday morning (Eastern): pick up that Sunday's live stream.
+  schedule:
+    - cron: "30 3 * * 1"
+    - cron: "0 14 * * 1"
 
 permissions:
-  contents: read
+  contents: write   # sync-sermons commits new sermon files
   pages: write
   id-token: write
 
@@ -19,10 +23,36 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Adds any new YouTube live streams to source/_sermons/ (scripts/sync_sermons.py).
+  # If YouTube is unreachable this step fails quietly and the site still deploys.
+  sync-sermons:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --upgrade yt-dlp
+      - run: python3 scripts/sync_sermons.py
+      - name: Commit new sermons
+        run: |
+          git add source/_sermons
+          if git diff --cached --quiet; then echo "No new sermons."; exit 0; fi
+          git config user.name "abbey-website bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Add new sermons from YouTube"
+          git pull --rebase origin master
+          git push origin HEAD:master
+
   build:
+    needs: sync-sermons
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: master   # include sermons committed by sync-sermons
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2

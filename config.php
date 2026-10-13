@@ -213,6 +213,7 @@ return [
             ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],
             ['title' => 'Our Team', 'url' => '/our-team'],
             ['title' => 'Live Stream', 'url' => 'liveStream', 'external' => true],
+            ['title' => 'Sermons', 'url' => '/sermons'],
         ]],
         ['title' => 'Calendar', 'url' => '/calendar'],
         ['title' => 'Weddings + Events', 'url' => '/weddings-events'],
