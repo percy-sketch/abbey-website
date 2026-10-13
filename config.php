@@ -107,8 +107,10 @@ return [
             'fullName' => 'Peyton Andreucci',
             'title' => 'Student Discipleship Pastor',
             'photo' => 'staff-andreucci.jpg',
-            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
-            'bio' => [],
+            'bio' => [
+                'I have a passion helping students grow as disciples of Jesus through Scripture, intentional discipleship, and authentic community. At The Abbey, my heart is to help students learn what it means to be with Jesus, become like Jesus, and do what Jesus did in every area of their lives. I love seeing students grow in their faith and discover what it means to follow Jesus in their everyday lives.',
+                'Outside of ministry, I’m married to my beautiful wife, Drew, and enjoy spending my free time reading and cheering on my favorite sports teams.',
+            ],
         ],
         [
             'name' => 'Tyler Batts',
