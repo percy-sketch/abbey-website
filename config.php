@@ -49,6 +49,16 @@ return [
             ],
         ],
         [
+            'name' => 'Percy Strickland',
+            'fullName' => 'Rev. Percy Strickland',
+            'title' => 'Assistant Rector/Pastor',
+            'photo' => 'staff-strickland.jpg',
+            'bio' => [
+                'Percy is married to Dr. Angie Strickland (a local Emergency Room physician) and they have six children: Tamon, Essence, Ala, Huck, Jasper and E.D. Lu. He grew up on a hog farm in Spivey’s Corner, NC, but many of his country ways were smoothed out a little when he attended Duke University for his undergraduate studies. Percy received his MDiv from Union Presbyterian Seminary and is currently finishing up his PhD in Old Testament at Columbia International University.',
+                'Before his time here, Percy was a campus minister with InterVarsity Christian Fellowship at the University of Richmond. He was also, for 17 years, the CEO of a ministry to at-risk youth in the East End of Richmond, VA. Percy loves to speak God’s truth (through teaching and preaching), seek God’s truth (through strategic investments in community) and leak God’s truth (through life-on-life discipleship and leadership development) and has been doing that full-time since 1999. Percy works alongside Allen and the entire staff and ministry team to ensure that folks are invested in, encouraged and activated to the ministry to which they are called.',
+            ],
+        ],
+        [
             'name' => 'Capers Barr',
             'fullName' => 'Mr. Capers Barr',
             'title' => 'Executive Pastor',
@@ -78,16 +88,6 @@ return [
             'bio' => [
                 'Graham is married to Wendy, and they have two children: Hannah Grace and Graham Jr. He is originally from New Jersey but left after middle school to attend an all-boys boarding school in North Carolina and he has been in the South ever since. After a term serving in the United States Marine Corps and getting his combat action in Desert Shield and Desert Storm, he graduated from the College of Charleston, where he met his wife Wendy, who is a talented interior designer and furniture salesperson.',
                 'Graham and Wendy attended seminary in Ambridge, Pennsylvania, at Trinity School for Ministry. After three years in Knoxville, Tennessee, they discovered the need to get out of the church and go out in the local communities and preach the Gospel to the unchurched. They realized that there are many people out there that are wide open for the Gospel, but do not find themselves going to a church. So together they formed G3 Ministries, which is now home based in Pawleys Island, SC. They are a mission outreach ministry that plants the seed of the Gospel through relationships and earning the right. Graham assists at The Abbey in worship, preaching, discipleship, and youth ministry.',
-            ],
-        ],
-        [
-            'name' => 'Percy Strickland',
-            'fullName' => 'Rev. Percy Strickland',
-            'title' => 'Assistant Rector/Pastor',
-            'photo' => 'staff-strickland.jpg',
-            'bio' => [
-                'Percy is married to Dr. Angie Strickland (a local Emergency Room physician) and they have six children: Tamon, Essence, Ala, Huck, Jasper and E.D. Lu. He grew up on a hog farm in Spivey’s Corner, NC, but many of his country ways were smoothed out a little when he attended Duke University for his undergraduate studies. Percy received his MDiv from Union Presbyterian Seminary and is currently finishing up his PhD in Old Testament at Columbia International University.',
-                'Before his time here, Percy was a campus minister with InterVarsity Christian Fellowship at the University of Richmond. He was also, for 17 years, the CEO of a ministry to at-risk youth in the East End of Richmond, VA. Percy loves to speak God’s truth (through teaching and preaching), seek God’s truth (through strategic investments in community) and leak God’s truth (through life-on-life discipleship and leadership development) and has been doing that full-time since 1999. Percy works alongside Allen and the entire staff and ministry team to ensure that folks are invested in, encouraged and activated to the ministry to which they are called.',
             ],
         ],
         [
