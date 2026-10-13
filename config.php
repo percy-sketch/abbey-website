@@ -31,6 +31,8 @@ return [
         'give' => 'https://onrealm.org/theabbey/give/now',
         'myAbbey' => 'https://onrealm.org/',
         'youtube' => 'https://www.youtube.com/channel/UCJHaxh7fG-EkC2W3a6LZacg',
+        // Opens whatever is live (or next scheduled) on the channel.
+        'liveStream' => 'https://www.youtube.com/channel/UCJHaxh7fG-EkC2W3a6LZacg/live',
         'facebook' => 'https://www.facebook.com/theabbeypawleys',
         'instagram' => 'https://www.instagram.com/theabbeypawleys/',
     ],
@@ -167,7 +169,7 @@ return [
     'navigation' => [
         ['title' => 'Who We Are', 'url' => '/who-we-are', 'children' => [
             ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],
-            ['title' => 'Sermons', 'url' => '/sermons'],
+            ['title' => 'Live Stream', 'url' => 'liveStream', 'external' => true],
         ]],
         ['title' => 'Weddings + Events', 'url' => '/weddings-events'],
         ['title' => 'Contact Us', 'url' => '/contact', 'children' => [
