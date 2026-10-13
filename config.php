@@ -124,6 +124,14 @@ return [
             // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
             'bio' => [],
         ],
+        [
+            'name' => 'Anne Nolen Howard',
+            'fullName' => 'Anne Nolen Howard',
+            'title' => 'Community Discipleship Guide',
+            'photo' => 'staff-howard.jpg',
+            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
+            'bio' => [],
+        ],
     ],
 
     // Intro video in the left-hand slot under the home page cards. (The right-hand slot
