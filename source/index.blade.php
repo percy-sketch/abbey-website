@@ -42,7 +42,6 @@ title: Home
   </div>
 </section>
 
-@php $latestSermon = $sermons->first(); @endphp
 <section class="max-w-6xl mx-auto px-6 md:px-12 py-16 grid gap-8 md:grid-cols-2">
   <div class="aspect-video shadow-md rounded-2xl overflow-hidden">
     <iframe
@@ -56,18 +55,17 @@ title: Home
     ></iframe>
   </div>
 
-  @if ($latestSermon && $latestSermon->youtube_id)
-    <div class="aspect-video shadow-md rounded-2xl overflow-hidden">
-      <iframe
-        class="w-full h-full"
-        src="https://www.youtube-nocookie.com/embed/{{ $latestSermon->youtube_id }}?rel=0"
-        title="Latest sermon: {{ $latestSermon->title }}, {{ date('F j, Y', is_numeric($latestSermon->date) ? $latestSermon->date : strtotime($latestSermon->date)) }}"
-        loading="lazy"
-        frameborder="0"
-        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-  @endif
+  {{-- Always the newest live stream: see 'liveStreamPlaylist' in config.php. --}}
+  <div class="aspect-video shadow-md rounded-2xl overflow-hidden">
+    <iframe
+      class="w-full h-full"
+      src="https://www.youtube-nocookie.com/embed/videoseries?list={{ $page->liveStreamPlaylist }}&rel=0"
+      title="Latest live stream from The Abbey"
+      loading="lazy"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
 </section>
 @endsection

@@ -109,6 +109,11 @@ return [
         'title' => 'Welcome to The Abbey at Pawleys Island',
     ],
 
+    // Homepage "latest live stream" video. This is YouTube's automatic "Live streams"
+    // playlist for the channel (the channel ID with UC swapped for UULV), so it always
+    // opens on the newest stream with no site update needed.
+    'liveStreamPlaylist' => 'UULVJHaxh7fG-EkC2W3a6LZacg',
+
     // The three cards under the home carousel. Each image is a finished graphic from the
     // legacy site (photo + text baked in), so the alt text carries the full wording.
     'featureCards' => [
