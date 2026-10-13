@@ -17,6 +17,7 @@ title: Our Team
   <div data-staff-grid class="grid gap-x-6 gap-y-10 sm:grid-cols-3">
     @foreach ($page->staff as $i => $person)
       <div data-staff-item>
+        @if (count($person['bio'] ?? []) > 0)
         <button type="button" data-staff-card aria-expanded="false" aria-controls="staff-bio-{{ $i }}" class="block w-full text-left group">
           <img src="{{ $page->baseUrl }}assets/images/{{ $person['photo'] }}" alt="{{ $person['name'] }}" loading="lazy" class="w-full aspect-square object-cover rounded-2xl group-hover:opacity-90 group-aria-expanded:ring-4 group-aria-expanded:ring-abbey-green">
           <span class="block text-center mt-4">
@@ -33,6 +34,16 @@ title: Our Team
             <p class="font-serif text-lg leading-relaxed text-abbey-midnight/90 mb-4">{{ $paragraph }}</p>
           @endforeach
         </div>
+        @else
+          {{-- No bio yet: show the photo, name and title only (no "Read bio" button). --}}
+          <div class="block w-full">
+            <img src="{{ $page->baseUrl }}assets/images/{{ $person['photo'] }}" alt="{{ $person['name'] }}" loading="lazy" class="w-full aspect-square object-cover rounded-2xl">
+            <span class="block text-center mt-4">
+              <span class="block font-serif text-xl text-abbey-midnight">{{ $person['name'] }}</span>
+              <span class="block font-sans text-sm text-abbey-sage mt-1">{{ $person['title'] }}</span>
+            </span>
+          </div>
+        @endif
       </div>
     @endforeach
   </div>

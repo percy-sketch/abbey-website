@@ -100,6 +100,14 @@ return [
                 'Paula attended Coastal Carolina College for her undergraduate degree and the University of South Carolina for her MEd. Paula has a passion and heart for children to know they are loved by Jesus. When Paula is not serving the local church she also serves local nonprofits as a board member and through assisting with planning events. She is also active with her children’s schools serving as chaperone, board member, and Team Mom. Paula serves as the Church Administrator and oversees Children’s Ministry at The Abbey.',
             ],
         ],
+        [
+            'name' => 'Peyton Andreucci',
+            'fullName' => 'Peyton Andreucci',
+            'title' => 'Student Discipleship Pastor',
+            'photo' => 'staff-andreucci.jpg',
+            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
+            'bio' => [],
+        ],
     ],
 
     // Intro video in the left-hand slot under the home page cards. (The right-hand slot
