@@ -35,17 +35,7 @@ jobs:
           python-version: "3.12"
       - run: pip install --upgrade yt-dlp
       - name: Look for new sermons on YouTube
-        run: |
-          python3 scripts/probe_youtube.py > probe.txt 2>&1 || true
-          python3 scripts/sync_sermons.py 2>&1 | tee sermon-sync.txt; status=${PIPESTATUS[0]}
-          cat probe.txt >> sermon-sync.txt
-          exit $status
-      - name: Keep the log (published at /sermon-sync.txt)
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: sermon-sync-log
-          path: sermon-sync.txt
+        run: python3 scripts/sync_sermons.py 2>&1 | tee "$RUNNER_TEMP/sermon-sync.txt"; exit ${PIPESTATUS[0]}
       - name: Commit new sermons
         run: |
           git add source/_sermons
@@ -55,6 +45,14 @@ jobs:
           git commit -m "Add new sermons from YouTube"
           git pull --rebase origin master
           git push origin HEAD:master
+      - name: Save the run log to the sermon-sync-log branch
+        if: ${{ always() }}
+        run: |
+          cd "$RUNNER_TEMP" && rm -rf log && mkdir log && cd log
+          git init -q && git checkout -q -b sermon-sync-log
+          cp ../sermon-sync.txt . 2>/dev/null || echo "no log" > sermon-sync.txt
+          git add . && git -c user.name="abbey-website bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "Sermon sync log"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" sermon-sync-log
 
   build:
     needs: sync-sermons
@@ -88,13 +86,6 @@ jobs:
 
       - name: Build site (production)
         run: vendor/bin/jigsaw build production
-
-      - name: Add the sermon sync log
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          name: sermon-sync-log
-          path: build_production
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
