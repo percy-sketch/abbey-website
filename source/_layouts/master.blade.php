@@ -9,9 +9,11 @@
   <link rel="canonical" href="{{ $page->getUrl() }}">
 
   {{-- Vite-compiled Tailwind CSS + JS, via the official @tighten/jigsaw-vite-plugin. --}}
+  {{-- vite() returns root-relative paths; prefix baseUrl so the site also works from a subfolder. --}}
+  @php $asset = fn ($u) => str_starts_with($u, '/') ? rtrim($page->baseUrl, '/') . $u : $u; @endphp
   @viteRefresh()
-  <link rel="stylesheet" href="{{ vite('source/_assets/css/app.css') }}">
-  <script defer type="module" src="{{ vite('source/_assets/js/app.js') }}"></script>
+  <link rel="stylesheet" href="{{ $asset(vite('source/_assets/css/app.css')) }}">
+  <script defer type="module" src="{{ $asset(vite('source/_assets/js/app.js')) }}"></script>
 </head>
 <body class="antialiased">
 
