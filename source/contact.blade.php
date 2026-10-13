@@ -12,9 +12,9 @@ title: Contact Us
   ], '', '&', PHP_QUERY_RFC3986);
   $cards = [
       ['heading' => 'Email Us', 'text' => 'Questions, prayer requests, or just want to say hello? Send us a note and we\'ll get back to you.',
-       'href' => 'mailto:' . $page->contact['email'], 'label' => $page->contact['email']],
-      ['heading' => 'Waypoints Weekly', 'text' => 'Stay connected with what\'s happening at The Abbey. To subscribe to our weekly newsletter, email Shana at ' . $page->contact['newsletterEmail'] . '.',
-       'href' => $newsletterHref, 'label' => 'Subscribe by email'],
+       'href' => 'mailto:' . $page->contact['email'], 'label' => 'Email Us'],
+      ['heading' => 'Waypoints Weekly', 'text' => 'Stay connected with what\'s happening at The Abbey. Click below to subscribe to our weekly newsletter.',
+       'href' => $newsletterHref, 'label' => 'Subscribe'],
       ['heading' => 'Call Us', 'text' => 'Prefer to talk? Give the church office a call.',
        'href' => 'tel:' . $page->contact['phoneHref'], 'label' => $page->contact['phone']],
   ];
