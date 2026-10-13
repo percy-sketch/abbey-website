@@ -108,6 +108,14 @@ return [
             // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
             'bio' => [],
         ],
+        [
+            'name' => 'Tyler Batts',
+            'fullName' => 'Tyler Batts',
+            'title' => 'Worship Pastor',
+            'photo' => 'staff-batts.jpg',
+            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
+            'bio' => [],
+        ],
     ],
 
     // Intro video in the left-hand slot under the home page cards. (The right-hand slot
