@@ -1,7 +1,7 @@
 ---
 extends: _layouts.master
 section: content
-title: Calendar
+title: The Abbey Calendar
 ---
 
 @section('content')
