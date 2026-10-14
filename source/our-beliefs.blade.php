@@ -170,11 +170,16 @@ description: Who we are and what we believe — an Ancient-Future, Three-Stream 
     </div>
   </section>
 
-  {{-- Closing verse, moved here from the top of the page --}}
-  <section class="max-w-6xl mx-auto px-6 md:px-12 pb-20">
-    <div class="bg-abbey-sage max-w-[576px] mx-auto rounded-2xl overflow-hidden">
-      <img src="{{ $page->baseUrl }}assets/images/beliefs-scripture.png" alt="1 Corinthians 14:33 — For God is not a God of confusion but of peace, as in all the churches of the saints." loading="lazy" class="w-full h-auto">
-    </div>
+  {{-- Closing verse, in the same quote style as Luke 10:2 on the Who We Are page --}}
+  <section class="max-w-4xl mx-auto px-6 md:px-12 pb-20">
+    <blockquote class="bg-abbey-sage/10 border-l-4 border-abbey-green px-6 md:px-8 py-7">
+      <p class="font-serif text-2xl italic leading-snug text-abbey-midnight">
+        &ldquo;For God is not a God of confusion but of peace, as in all the churches of the saints.&rdquo;
+      </p>
+      <footer class="font-sans text-xs uppercase tracking-[0.3em] text-abbey-sage mt-4">
+        <a href="https://www.biblegateway.com/passage/?search=1%20Corinthians%2014%3A33&amp;version=ESV" target="_blank" rel="noopener" class="hover:text-abbey-green">1 Corinthians 14:33</a>
+      </footer>
+    </blockquote>
   </section>
 </div>
 @endsection
