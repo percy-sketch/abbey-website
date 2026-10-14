@@ -145,7 +145,7 @@ return [
     // Intro video in the left-hand slot under the home page cards. (The right-hand slot
     // automatically shows the newest sermon in source/_sermons.)
     'introVideo' => [
-        'id' => 'LtU_pfpwkDc',
+        'id' => 'NLSs_D0L_Mg',
         'title' => 'Welcome to The Abbey at Pawleys Island',
     ],
 
