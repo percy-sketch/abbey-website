@@ -257,17 +257,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Latest News: Constant Contact's archive widget lists past Waypoints (newest first).
-// Show the newest one in full above the list. The widget loads after the page, so
-// watch for its first link to appear.
+// Latest News: past Waypoints from Constant Contact's email archive (newest archived first).
+// Read the archive fresh on every visit so a newly archived issue shows up as soon as
+// Constant Contact publishes it, then show the newest Waypoint in full above the list.
+// The featured spot prefers an email with "Waypoint" in its subject, so another email
+// archived by mistake (an Overlook, say) is listed but not featured.
 document.addEventListener('DOMContentLoaded', () => {
   const archive = document.querySelector('[data-waypoint-archive]');
-  if (!archive) return;
+  const source = document.querySelector('[data-ctct-archive]');
+  if (!archive || !source) return;
   const latest = document.querySelector('[data-waypoint-latest]');
   const empty = document.querySelector('[data-waypoint-empty]');
 
   const showLatest = () => {
-    const link = [...archive.querySelectorAll('a[href]')].find((a) => /^https?:/.test(a.href));
+    const links = [...archive.querySelectorAll('a[href]')].filter((a) => /^https?:/.test(a.href));
+    const link = links.find((a) => /waypoint/i.test(a.textContent)) || links[0];
     if (!link) return false;
     latest.querySelector('[data-waypoint-frame]').src = link.href;
     latest.querySelector('[data-waypoint-open]').href = link.href;
@@ -277,10 +281,34 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   };
 
-  if (showLatest()) return;
-  const observer = new MutationObserver(() => { if (showLatest()) observer.disconnect(); });
-  observer.observe(archive, { childList: true, subtree: true });
-  setTimeout(() => observer.disconnect(), 20000);
+  // Fallback: Constant Contact's own widget script.
+  const useWidget = () => {
+    source.innerHTML = `<div id="archiveList" data-archive-count="${source.dataset.count}" data-m="${source.dataset.ctctArchive}"></div>`;
+    const observer = new MutationObserver(() => { if (showLatest()) observer.disconnect(); });
+    observer.observe(archive, { childList: true, subtree: true });
+    setTimeout(() => observer.disconnect(), 20000);
+    const script = document.createElement('script');
+    script.id = 'archiveScript';
+    script.src = 'https://static.ctctcdn.com/js/archive-static/current/archive-static.min.js';
+    document.body.appendChild(script);
+  };
+
+  const url = `https://campaignlp.constantcontact.com/v1/archive/${source.dataset.ctctArchive}/activities?limit=${source.dataset.count}&_=${Date.now()}`;
+  fetch(url, { cache: 'no-store' })
+    .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then((items) => {
+      const list = document.createElement('ul');
+      list.className = 'space-y-2';
+      items.filter((i) => i.subject && i.campaignUrl).forEach((i) => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = i.campaignUrl; a.target = '_blank'; a.rel = 'noopener'; a.textContent = i.subject;
+        li.appendChild(a); list.appendChild(li);
+      });
+      source.replaceChildren(list);
+      showLatest();
+    })
+    .catch(useWidget);
 });
 
 // The Map: T / S / E / J buttons show one stage at a time. Without JavaScript every stage shows.
