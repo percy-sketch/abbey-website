@@ -147,8 +147,11 @@ return [
             'fullName' => 'Shana Grugan',
             'title' => 'Creative Communications Guide',
             'photo' => 'staff-grugan.jpg',
-            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
-            'bio' => [],
+            'bio' => [
+                'Shana Grugan is a visual artist working in acrylic. She was born in Greenville, SC, and studied art at The University of Georgia (BFA, Drawing and Painting). Shana continued her post-graduate studies at The University of South Carolina (MAT, Art Education) and was recognized with the Art Education Graduate Assistant Award. She has taught art in public schools throughout the Carolinas, levels K-12. Beginning in 2017, Shana decided to pursue art after several years of teaching and starting a family.',
+                'Her work has been included in juried shows, exhibits, and art collectives throughout the Southeast. A selection of Shana’s work is available at Gregg Irby Gallery, Atlanta, GA, and The Campbell Collective, Greenville, SC. She works from her home studio where she has developed a unique process of arranging and layering images through her preferred medium of acrylic on paper, panel, and canvas.',
+                'Recently, Shana has extended her creative calling to work alongside others in The Abbey community. She has collaborated with leadership to visually connect The Abbey logo with the church’s unique model of discipleship, communicating this relational vision in the form of The Abbey Map. Shana enjoys exploring ways visual imagery can communicate conceptual ideas, drawing inspiration from the many ways in which God does this in Scripture. She believes that each person has been given a creative inheritance and has a passion to walk alongside others as they discover this beautiful gift.',
+            ],
         ],
     ],
 
