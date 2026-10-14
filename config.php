@@ -158,8 +158,10 @@ return [
             'fullName' => 'Kevin Figgins',
             'title' => 'Deacon/Pastoral Resident',
             'photo' => 'staff-figgins.jpg',
-            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
-            'bio' => [],
+            'bio' => [
+                'Kevin is married to Tara, and they have five children: Ashtyn, Jada, Elliana, Malachi, and Ivy; two sons-in-law, Andrew and Jonah; and two grandchildren, Auggie and one more on the way. Kevin grew up in Augusta, Georgia. He attended Columbia International University for both his undergraduate and graduate studies in Bible and Theology. He also has a certificate in Anglican Studies from Trinity Anglican Seminary.',
+                'Before coming to The Abbey, Kevin and Tara served for more than 20 years in a number of ministry capacities, including church planting, preaching and teaching, inner-city ministry, university ministry, and hospitality. Kevin’s desire is to teach and clarify God’s truth in a way that forms people into maturity, while building and equipping leaders who multiply that maturity in others.',
+            ],
         ],
     ],
 
