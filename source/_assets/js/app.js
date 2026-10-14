@@ -282,3 +282,34 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(archive, { childList: true, subtree: true });
   setTimeout(() => observer.disconnect(), 20000);
 });
+
+// The Map: T / S / E / J buttons show one stage at a time. Without JavaScript every stage shows.
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = [...document.querySelectorAll('[data-map-tab]')];
+  const panels = [...document.querySelectorAll('[data-map-panel]')];
+  if (!tabs.length) return;
+
+  const select = (tab, focus = false) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach((p) => { p.hidden = p.id !== tab.getAttribute('aria-controls'); });
+    if (focus) tab.focus();
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', (e) => {
+      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (!step) return;
+      e.preventDefault();
+      select(tabs[(i + step + tabs.length) % tabs.length], true);
+    });
+  });
+
+  // Open a stage from the address, e.g. /the-map#scout
+  const names = { traveler: 0, scout: 1, explorer: 2, journeyman: 3 };
+  select(tabs[names[location.hash.slice(1)] ?? 0]);
+});

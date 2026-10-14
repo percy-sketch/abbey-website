@@ -218,6 +218,7 @@ return [
         ['title' => 'Who We Are', 'url' => '/who-we-are', 'children' => [
             ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],
             ['title' => 'Our Team', 'url' => '/our-team'],
+            ['title' => 'The Map', 'url' => '/the-map'],
             ['title' => 'Live Stream', 'url' => 'liveStream', 'external' => true],
         ]],
         ['title' => 'Latest News', 'url' => '/latest-news'],
