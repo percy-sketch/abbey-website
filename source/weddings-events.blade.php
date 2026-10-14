@@ -28,9 +28,15 @@ centered: true
 <div class="max-w-6xl mx-auto px-6 md:px-12 pb-14 -mt-4">
   <div class="grid gap-6 sm:grid-cols-3">
     <img src="{{ $page->baseUrl }}assets/images/wedding-1.jpg" alt="A wedding at The Abbey" class="w-full aspect-[3/2] object-cover rounded-2xl">
-    <div class="aspect-[3/2] bg-abbey-sage flex items-center justify-center rounded-2xl overflow-hidden">
-      <img src="{{ $page->baseUrl }}assets/images/weddings-scripture.png" alt="Philippians 4:4 — Rejoice in the Lord always; again I will say, rejoice." class="w-full h-full object-contain">
-    </div>
+    {{-- Same quote style as Luke 10:2 (Who We Are) and 1 Corinthians 14:33 (Our Beliefs). --}}
+    <blockquote class="sm:aspect-[3/2] flex flex-col justify-center bg-abbey-sage/10 border-l-4 border-abbey-green rounded-r-2xl px-6 md:px-8 py-7">
+      <p class="font-serif text-2xl italic leading-snug text-abbey-midnight">
+        &ldquo;Rejoice in the Lord always; again I will say, rejoice.&rdquo;
+      </p>
+      <footer class="font-sans text-xs uppercase tracking-[0.3em] text-abbey-sage mt-4">
+        <a href="https://www.biblegateway.com/passage/?search=Philippians%204%3A4&amp;version=ESV" target="_blank" rel="noopener" class="hover:text-abbey-green">Philippians 4:4</a>
+      </footer>
+    </blockquote>
     <img src="{{ $page->baseUrl }}assets/images/wedding-2.jpg" alt="A wedding at The Abbey" class="w-full aspect-[3/2] object-cover rounded-2xl">
   </div>
 
