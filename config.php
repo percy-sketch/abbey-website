@@ -125,8 +125,10 @@ return [
             'fullName' => 'Kasey Weston',
             'title' => 'Administrative Guide',
             'photo' => 'staff-weston.jpg',
-            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
-            'bio' => [],
+            'bio' => [
+                'Kasey is married to Taylor, and they are expecting their first child in April. She is originally from Northern New Jersey and attended the University of Massachusetts Amherst, where she was a student athlete on the women’s ice hockey team. Kasey moved to South Carolina during Covid, and she and Taylor have happily made the Lowcountry home.',
+                'Kasey serves on staff at The Abbey at Pawleys Island, where she oversees administration and communications, from staff coordination to event planning and outreach. She is known for being exceptionally organized, and she brings that gift to everything she does. What she loves most about her work is helping people: making sure ministries run smoothly so that others are free to connect, serve, and grow in faith. Kasey is grateful to be part of The Abbey family and to play a role in its mission and community.',
+            ],
         ],
         [
             'name' => 'Anne Nolen Howard',
