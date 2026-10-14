@@ -153,6 +153,14 @@ return [
                 'Recently, Shana has extended her creative calling to work alongside others in The Abbey community. She has collaborated with leadership to visually connect The Abbey logo with the church’s unique model of discipleship, communicating this relational vision in the form of The Abbey Map. Shana enjoys exploring ways visual imagery can communicate conceptual ideas, drawing inspiration from the many ways in which God does this in Scripture. She believes that each person has been given a creative inheritance and has a passion to walk alongside others as they discover this beautiful gift.',
             ],
         ],
+        [
+            'name' => 'Kevin Figgins',
+            'fullName' => 'Kevin Figgins',
+            'title' => 'Deacon/Pastoral Resident',
+            'photo' => 'staff-figgins.jpg',
+            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
+            'bio' => [],
+        ],
     ],
 
     // Intro video in the left-hand slot under the home page cards. (The right-hand slot
