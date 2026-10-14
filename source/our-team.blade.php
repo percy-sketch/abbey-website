@@ -48,8 +48,8 @@ title: Our Team
     @endforeach
   </div>
 
-  <div class="bg-abbey-sage max-w-3xl mx-auto mt-14 rounded-2xl overflow-hidden">
-    <img src="{{ $page->baseUrl }}assets/images/who-scripture.png" alt="Jeremiah 3:15 — Then I will give you shepherds after my own heart, who will feed you on knowledge and understanding." class="w-full h-auto">
+  <div class="max-w-3xl mx-auto mt-14 rounded-2xl overflow-hidden shadow-md">
+    <img src="{{ $page->baseUrl }}assets/images/team-want-to-grow.jpg" alt="We have all the time in the world for those who want to grow. Learn, grow, serve. Illustration of a person reading, planting, watering and growing alongside a clock and a tree." loading="lazy" class="w-full h-auto">
   </div>
 </div>
 @endsection
