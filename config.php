@@ -140,6 +140,14 @@ return [
                 'Today, Anne Nolen feels called to bring her experiences, training, and personal testimony to her work at The Abbey. With a heart for spiritual breakthrough, authentic community, and the advancement of Kingdom culture, she believes in the power of vulnerable, personal witness to inspire transformation. She is passionate about equipping the Church, fostering meaningful connections, and creating opportunities for people to encounter the living God and experience His transforming work through the Body of Christ.',
             ],
         ],
+        [
+            'name' => 'Shana Grugan',
+            'fullName' => 'Shana Grugan',
+            'title' => 'Creative Communications Guide',
+            'photo' => 'staff-grugan.jpg',
+            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
+            'bio' => [],
+        ],
     ],
 
     // Intro video in the left-hand slot under the home page cards. (The right-hand slot
