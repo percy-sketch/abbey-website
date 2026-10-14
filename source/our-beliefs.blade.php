@@ -126,7 +126,6 @@ description: Who we are and what we believe — an Ancient-Future, Three-Stream 
           <div class="md:order-2 row-span-2 md:row-span-1"><img src="{{ $page->baseUrl }}assets/images/{{ $icon }}" alt="" class="w-16 md:w-20 h-auto"></div>
           <div class="md:order-1">
             <h3 class="font-display text-3xl text-abbey-green">{{ $name }}</h3>
-            <p class="font-sans text-xs uppercase tracking-wide text-abbey-sage">{{ $tradition }}</p>
           </div>
           <p class="md:order-3 col-start-2 md:col-start-auto font-serif text-lg leading-relaxed text-abbey-midnight/85">{{ $text }}</p>
         </div>
