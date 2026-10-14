@@ -181,16 +181,16 @@ return [
     // legacy site (photo + text baked in), so the alt text carries the full wording.
     'featureCards' => [
         [
-            'image' => 'card-hospitality.jpg',
-            'alt' => 'Radical Hospitality. Come and See. Come to The Abbey. We welcome you to our family. God has a place for you.',
+            'image' => 'card-hospitality-v2.jpg',
+            'alt' => 'Radical Hospitality. We want to know you! The Abbey sanctuary with its timber ceiling, candle chandelier and altar.',
         ],
         [
-            'image' => 'card-culture.jpg',
-            'alt' => 'Cultural Engagement. Come and Learn. Come and learn about God, Christianity, and think about cultural issues through the lens of Christ.',
+            'image' => 'card-culture-v2.jpg',
+            'alt' => 'Cultural Engagement. Seeing the world through the lens of the Gospel. Worshipers in the pews of The Abbey.',
         ],
         [
-            'image' => 'card-renewal.jpg',
-            'alt' => 'Spiritual Renewal. Come and Renew. Come and be renewed by the Holy Spirit and practice the Christian faith in discipleship.',
+            'image' => 'card-renewal-v2.jpg',
+            'alt' => 'Spiritual Renewal. Transformed and empowered by the Holy Spirit. The congregation standing in worship at The Abbey.',
         ],
     ],
 
