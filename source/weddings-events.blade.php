@@ -18,7 +18,7 @@ centered: true
   </p>
   <p>
     As with all our ministries, The Abbey provides oversight for every wedding that takes place in our
-    church, and one of our clergy presides over each ceremony. Reach out for more information or to ask
+    church. Reach out for more information or to ask
     about using our space for a wedding or event.
   </p>
 </div>
