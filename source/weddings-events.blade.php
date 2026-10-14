@@ -6,21 +6,22 @@ centered: true
 ---
 
 @section('body')
-<p>
-  Marriage is one of the Christian rites that the Anglican 39 Articles say are &ldquo;commonly called sacraments.&rdquo;
-</<p>
-</p>
-  St. Paul calls marriage a &ldquo;mystery&rdquo; or &ldquo;sacrament&rdquo; and says that the union between a husband and a wife in
-  marriage points to the union of Christ and His Church. Our campus is beautiful and we
-  are delighted to share it for weddings and other special events at The Abbey and
-  consider it a joy and a privilege to minister to families from our parish and beyond
-  through the mystery of marriage. As with all our sacraments and ministries, 
-</<p>
-</p>
-  The Abbey provides oversight for all weddings that take place in our church and one of our clergy
-  presides over every wedding ceremony. Reach out for more information and/or to enquire
-  about using our space for a wedding or event.
-</p>
+<div class="not-prose font-serif text-xl md:text-2xl leading-relaxed text-abbey-midnight/90 space-y-6">
+  <p>
+    St. Paul calls marriage a &ldquo;mystery&rdquo; and says that the union between a husband and a wife
+    points to the union of Christ and His Church.
+  </p>
+  <p>
+    Our campus is beautiful, and we are delighted to share it for weddings and other special events.
+    We consider it a joy and a privilege to minister to families from our parish and beyond through the
+    mystery of marriage.
+  </p>
+  <p>
+    As with all our ministries, The Abbey provides oversight for every wedding that takes place in our
+    church, and one of our clergy presides over each ceremony. Reach out for more information or to ask
+    about using our space for a wedding or event.
+  </p>
+</div>
 @endsection
 
 @section('after')
@@ -34,7 +35,7 @@ centered: true
   </div>
 
   <p class="text-center mt-10">
-    <a href="mailto:{{ $page->contact['email'] }}" class="btn">Enquire by Email</a>
+    <a href="mailto:{{ $page->contact['weddingsEmail'] }}?subject={{ rawurlencode('Wedding / event inquiry') }}" class="btn">Ask about Weddings/Events</a>
   </p>
 </div>
 @endsection

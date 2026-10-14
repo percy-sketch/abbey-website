@@ -24,6 +24,8 @@ return [
         'email' => 'info@theabbeypawleysisland.com',
         // Waypoints Weekly newsletter sign-ups go to Shana by email.
         'newsletterEmail' => 'shana@theabbeypawleysisland.com',
+        // Wedding and event inquiries go to Paula.
+        'weddingsEmail' => 'paula@theabbeypawleysisland.com',
     ],
 
     'links' => [
