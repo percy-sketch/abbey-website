@@ -63,7 +63,7 @@ return [
         [
             'name' => 'Capers Barr',
             'fullName' => 'Mr. Capers Barr',
-            'title' => 'Executive Pastor',
+            'title' => 'Executive Pastor/Operations Guide',
             'photo' => 'staff-barr.jpg',
             'bio' => [
                 'Capers and his wife Jodi grew up in Charleston and Mt. Pleasant and have been married for 33 years. They have two sons, Capers and Cannon, and a granddaughter, Lee. Capers and his wife, Mary, live with their daughter, Lee, in Mt. Pleasant, and they are expecting their second daughter, Lucy, to arrive in January of this year. Cannon is married to Marguerite, and they live in Georgetown.',
