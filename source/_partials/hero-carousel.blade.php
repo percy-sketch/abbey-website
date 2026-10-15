@@ -20,9 +20,23 @@
         <img
           src="{{ $page->baseUrl }}assets/images/{{ $slide['image'] }}"
           alt="{{ $slide['alt'] }}"
-          class="w-full h-full {{ ($slide['fit'] ?? 'cover') === 'contain' ? 'object-contain object-center' : 'object-cover object-left' }}"
+          class="w-full h-full {{ ($slide['fit'] ?? 'cover') === 'contain' ? 'object-contain object-center' : 'object-cover' }}"
+          style="object-position: {{ $slide['position'] ?? 'center' }}"
           @if ($i !== 0) loading="lazy" @endif
         >
+
+        @if (! empty($slide['welcome']))
+          {{-- Welcome title: Garamond (brand primary) with an Avenir-style eyebrow; only the
+               eyebrow gets wide tracking, per the brand standards. --}}
+          <div class="absolute inset-x-0 top-0 h-3/4 bg-gradient-to-b from-black/55 via-black/25 to-transparent pointer-events-none"></div>
+          <div class="absolute inset-x-0 top-0 flex flex-col items-center text-center px-6 pt-10 md:pt-14 pointer-events-none">
+            <p class="font-sans uppercase tracking-[0.3em] text-xs md:text-sm text-white/90">The Abbey at Pawleys Island</p>
+            <h1 class="font-serif text-white text-7xl md:text-9xl leading-none mt-3 md:mt-4 [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]">Welcome</h1>
+            <div class="flex items-center gap-4 mt-4 md:mt-5 text-abbey-gold" aria-hidden="true">
+              <span class="h-px w-12 md:w-20 bg-abbey-parchment/70"></span><span class="text-lg">&#10022;</span><span class="h-px w-12 md:w-20 bg-abbey-parchment/70"></span>
+            </div>
+          </div>
+        @endif
 
         @if (isset($slide['panel']))
           @php $panel = $slide['panel']; @endphp

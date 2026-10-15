@@ -206,9 +206,19 @@ return [
     // Home page carousel. Slides advance in this order; `panel` (optional) is the taupe
     // text box laid over the photo. Rebuilt as live text from the legacy site's slider graphics.
     'heroSlides' => [
+        // Optional keys: 'position' = which part of the photo to keep when it's cropped to fit
+        // the screen (CSS object-position, e.g. 'center 40%'); 'welcome' = the big Welcome title;
+        // 'panel' = the taupe text box; 'fit' => 'contain' + 'bg' for graphics with baked-in text.
         [
-            'image' => 'slide-1.jpg',
-            'alt' => 'Live oaks draped in Spanish moss over the brick drive and church campus at sunset',
+            'image' => 'hero-1-welcome.jpg',
+            'position' => 'center 25%',
+            'welcome' => true,
+            'alt' => 'The Abbey’s brick church building, with a Celtic cross atop the cupola, under a dramatic evening sky',
+        ],
+        [
+            'image' => 'hero-2-worship.jpg',
+            'position' => 'center 45%',
+            'alt' => 'A full sanctuary during Advent worship, beneath a candle chandelier and a timber ceiling',
             'panel' => [
                 'heading' => 'You’re Invited…',
                 'body' => 'We want to invite you to experience God our Father, through His Son Jesus Christ, by the power of the Holy Spirit in a new and vibrant way, where your heart becomes free through His Word, His presence, and authentic community.',
@@ -216,16 +226,9 @@ return [
             ],
         ],
         [
-            'image' => 'slide-2.jpg',
-            'alt' => 'A stylized, painterly rendering of The Abbey’s church building with its cross in the center gable',
-        ],
-        [
-            'image' => 'slide-3.jpg',
-            'alt' => 'The congregation gathered in worship, with a pianist and a cellist leading music',
-        ],
-        [
-            'image' => 'slide-4.jpg',
-            'alt' => 'A group of children laughing together on a sofa, with candy canes on the tables in front of them',
+            'image' => 'hero-3-blessing.jpg',
+            'position' => 'center 40%',
+            'alt' => 'The congregation raises their hands to bless the children and students gathered at the front for the Back to School Blessing',
             'panel' => [
                 'heading' => 'Mission',
                 'body' => 'Like the Celtic abbeys of old, we desire to transform the world by proclaiming the Gospel of Jesus Christ through',
@@ -233,12 +236,14 @@ return [
             ],
         ],
         [
-            'image' => 'slide-5.jpg',
-            // This graphic has its own text baked in, so show all of it (centered) rather than
-            // cropping to fill; `bg` matches the image's edge color so there are no visible bars.
-            'fit' => 'contain',
-            'bg' => '#050713',
-            'alt' => 'Sundays at The Abbey, 10:30 AM. “Lord, I love the house where you live, the place where your glory dwells.” Psalm 26. Sunlight through a stained-glass window lights the sanctuary.',
+            'image' => 'hero-4-confirmation.jpg',
+            'position' => '60% 30%',
+            'alt' => 'A family gathers around a young man as the bishop, in red vestments, prays a blessing over him',
+        ],
+        [
+            'image' => 'hero-5-chapel.jpg',
+            'position' => '65% 55%',
+            'alt' => 'The white chapel with its stone cross and The Abbey sign, framed by a crape myrtle and live oaks in Spanish moss',
         ],
     ],
 
