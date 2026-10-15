@@ -169,7 +169,7 @@ return [
             'name' => 'Sara Williams',
             'fullName' => 'Sara Williams',
             'title' => 'Care Ministry Guide',
-            'photo' => 'staff-williams.jpg',
+            'photo' => 'staff-williams-v2.jpg',
             // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
             'bio' => [],
         ],
