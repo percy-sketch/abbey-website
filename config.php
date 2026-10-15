@@ -229,9 +229,10 @@ return [
             'alt' => 'The congregation raises their hands to bless the children and students gathered at the front for the Back to School Blessing',
         ],
         [
-            'image' => 'hero-4-confirmation.jpg',
-            'position' => '60% 30%',
-            'alt' => 'A family gathers around a young man as the bishop, in red vestments, prays a blessing over him',
+            'image' => 'hero-4-procession.jpg',
+            // Keep the top of this tall photo: the timber trusses, candle chandelier and processional cross.
+            'position' => 'center 6%',
+            'alt' => 'A crucifer in a white robe carries the processional cross down the center aisle beneath the sanctuary’s timber trusses and candle chandelier',
         ],
         [
             'image' => 'hero-exterior-brick.jpg',
