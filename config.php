@@ -14,7 +14,7 @@ return [
 
     'service' => [
         'day' => 'Sundays',
-        'time' => '10:30 AM',
+        'time' => '10:30 AM and 4 PM',
     ],
 
     'contact' => [
