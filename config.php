@@ -207,33 +207,27 @@ return [
     // text box laid over the photo. Rebuilt as live text from the legacy site's slider graphics.
     'heroSlides' => [
         // Optional keys: 'position' = which part of the photo to keep when it's cropped to fit
-        // the screen (CSS object-position, e.g. 'center 40%'); 'welcome' = the big Welcome title;
-        // 'panel' = the taupe text box; 'fit' => 'contain' + 'bg' for graphics with baked-in text.
+        // the screen (CSS object-position, e.g. 'center 40%'); 'title' = the big word across the
+        // top (with optional small 'eyebrow' line above it); 'panel' = a taupe text box;
+        // 'fit' => 'contain' + 'bg' for graphics with baked-in text.
         [
-            'image' => 'hero-1-welcome.jpg',
-            'position' => 'center 25%',
-            'welcome' => true,
-            'alt' => 'The Abbey’s brick church building, with a Celtic cross atop the cupola, under a dramatic evening sky',
+            'image' => 'hero-exterior-chapel.jpg',
+            'position' => '65% 55%',
+            'eyebrow' => 'The Abbey at Pawleys Island',
+            'title' => 'Welcome',
+            'alt' => 'The white chapel with its stone cross and The Abbey sign, framed by a crape myrtle and live oaks in Spanish moss',
         ],
         [
             'image' => 'hero-2-worship.jpg',
             'position' => 'center 45%',
+            'title' => 'Worship',
             'alt' => 'A full sanctuary during Advent worship, beneath a candle chandelier and a timber ceiling',
-            'panel' => [
-                'heading' => 'You’re Invited…',
-                'body' => 'We want to invite you to experience God our Father, through His Son Jesus Christ, by the power of the Holy Spirit in a new and vibrant way, where your heart becomes free through His Word, His presence, and authentic community.',
-                'tagline' => ['COME + BELONG'],
-            ],
         ],
         [
             'image' => 'hero-3-blessing.jpg',
             'position' => 'center 40%',
+            'title' => 'Community',
             'alt' => 'The congregation raises their hands to bless the children and students gathered at the front for the Back to School Blessing',
-            'panel' => [
-                'heading' => 'Mission',
-                'body' => 'Like the Celtic abbeys of old, we desire to transform the world by proclaiming the Gospel of Jesus Christ through',
-                'tagline' => ['RADICAL HOSPITALITY', 'CULTURAL ENGAGEMENT', '+ SPIRITUAL RENEWAL.'],
-            ],
         ],
         [
             'image' => 'hero-4-confirmation.jpg',
@@ -241,9 +235,10 @@ return [
             'alt' => 'A family gathers around a young man as the bishop, in red vestments, prays a blessing over him',
         ],
         [
-            'image' => 'hero-5-chapel.jpg',
-            'position' => '65% 55%',
-            'alt' => 'The white chapel with its stone cross and The Abbey sign, framed by a crape myrtle and live oaks in Spanish moss',
+            'image' => 'hero-exterior-brick.jpg',
+            'position' => 'center 25%',
+            'title' => 'Come visit',
+            'alt' => 'The Abbey’s brick church building, with a Celtic cross atop the cupola, under a dramatic evening sky',
         ],
     ],
 
