@@ -29,7 +29,7 @@
           {{-- Slide title (e.g. Welcome): Garamond (brand primary) with an Avenir-style eyebrow; only the
                eyebrow gets wide tracking, per the brand standards. --}}
           <div class="absolute inset-x-0 top-0 h-3/4 bg-gradient-to-b from-black/55 via-black/25 to-transparent pointer-events-none"></div>
-          <div class="absolute inset-x-0 top-0 flex flex-col items-center text-center px-6 pt-10 md:pt-14 pointer-events-none">
+          <div class="absolute inset-x-0 top-0 flex flex-col items-center text-center px-6 pt-6 md:pt-8 pointer-events-none">
             @if (! empty($slide['eyebrow']))
               <p class="font-sans uppercase tracking-[0.3em] text-xs md:text-sm text-white/90 mb-3 md:mb-4">{{ $slide['eyebrow'] }}</p>
             @endif

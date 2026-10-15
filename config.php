@@ -212,8 +212,7 @@ return [
         // 'fit' => 'contain' + 'bg' for graphics with baked-in text.
         [
             'image' => 'hero-exterior-chapel.jpg',
-            'position' => '65% 55%',
-            'eyebrow' => 'The Abbey at Pawleys Island',
+            'position' => '65% 35%',
             'title' => 'Welcome',
             'alt' => 'The white chapel with its stone cross and The Abbey sign, framed by a crape myrtle and live oaks in Spanish moss',
         ],
