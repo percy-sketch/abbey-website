@@ -165,6 +165,14 @@ return [
                 'Before coming to The Abbey, Kevin and Tara served for more than 20 years in a number of ministry capacities, including church planting, preaching and teaching, inner-city ministry, university ministry, and hospitality. Kevin’s desire is to teach and clarify God’s truth in a way that forms people into maturity, while building and equipping leaders who multiply that maturity in others.',
             ],
         ],
+        [
+            'name' => 'Sara Williams',
+            'fullName' => 'Sara Williams',
+            'title' => 'Care Ministry Guide',
+            'photo' => 'staff-williams.jpg',
+            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
+            'bio' => [],
+        ],
     ],
 
     // Intro video in the left-hand slot under the home page cards. (The right-hand slot
