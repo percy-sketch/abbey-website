@@ -16,7 +16,8 @@ title: Our Team
 <div class="max-w-6xl mx-auto px-6 md:px-12 py-14">
   <div data-staff-grid class="grid gap-x-6 gap-y-10 sm:grid-cols-3">
     @foreach ($page->staff as $i => $person)
-      <div data-staff-item>
+      {{-- A lone person on the last row sits in the middle column. --}}
+      <div data-staff-item @if ($loop->last && $loop->count % 3 === 1) class="sm:col-start-2" @endif>
         @if (count($person['bio'] ?? []) > 0)
         <button type="button" data-staff-card aria-expanded="false" aria-controls="staff-bio-{{ $i }}" class="block w-full text-left group">
           <img src="{{ $page->baseUrl }}assets/images/{{ $person['photo'] }}" alt="{{ $person['name'] }}" loading="lazy" class="w-full aspect-square object-cover rounded-2xl group-hover:opacity-90 group-aria-expanded:ring-4 group-aria-expanded:ring-abbey-green">
