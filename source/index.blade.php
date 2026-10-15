@@ -36,9 +36,9 @@ title: Home
   <div class="max-w-3xl mx-auto px-6 text-center">
     <img src="{{ $page->baseUrl }}assets/images/abbey-logomark.png" alt="" class="h-10 w-auto mx-auto mb-6">
     <p class="font-serif text-2xl italic text-abbey-midnight">
-      &ldquo;Unto him be the glory in the church and in Christ Jesus unto all generations for ever and ever. Amen.&rdquo;
+      &ldquo;I was glad when they said to me, &lsquo;Let us go to the house of the Lord!&rsquo;&rdquo;
     </p>
-    <p class="font-sans text-sm text-abbey-sage mt-4">&mdash; Ephesians 3:21</p>
+    <p class="font-sans text-sm text-abbey-sage mt-4">&mdash; <a href="https://www.biblegateway.com/passage/?search=Psalm%20122%3A1&amp;version=ESV" target="_blank" rel="noopener" class="hover:text-abbey-green">Psalm 122:1</a></p>
   </div>
 </section>
 
