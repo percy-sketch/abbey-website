@@ -155,15 +155,23 @@ description: Who we are and what we believe — an Ancient-Future, Three-Stream 
             <em>The Book of Common Prayer</em>, filled with evangelical preaching focused on the Gospel as understood by the English
             Reformation, and charismatically expectant that the Holy Spirit works in us today in healing, gifting, and empowering.
           </p>
+          <div class="border-t border-abbey-parchment mt-6 pt-6">
+            <p class="font-sans text-xs uppercase tracking-[0.3em] text-abbey-gold">Sundays at 4 PM</p>
+            <h3 class="font-serif text-2xl text-abbey-midnight mt-1">Family Worship</h3>
+            <p class="font-serif text-lg leading-relaxed text-abbey-midnight/85 mt-2">
+              Family Worship is about formation over formality, participation over perfection. Students and families serving
+              alongside clergy makes this casual, hour-long service meaningful and fun.
+            </p>
+          </div>
           <div class="flex flex-wrap gap-3 mt-6">
             <a href="{{ $page->links['liveStream'] }}" target="_blank" rel="noopener" class="inline-block bg-abbey-green text-white font-sans text-sm px-5 py-3 rounded-full hover:opacity-90">Watch the live stream</a>
             <a href="{{ $page->baseUrl }}contact" class="inline-block border border-abbey-green text-abbey-green font-sans text-sm px-5 py-3 rounded-full hover:bg-abbey-green hover:text-white">Plan your visit</a>
           </div>
         </div>
-        <dl class="bg-abbey-green text-white p-8 md:p-10 grid grid-cols-3 md:grid-cols-1 gap-6 content-center font-sans">
+        <dl class="bg-abbey-green text-white p-8 md:p-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 gap-6 content-center font-sans">
           <div><dt class="text-xs uppercase tracking-[0.2em] text-white/70">When</dt><dd class="font-serif text-xl mt-1">{{ $page->service['day'] }}, {{ $page->service['time'] }}</dd></div>
           <div><dt class="text-xs uppercase tracking-[0.2em] text-white/70">Where</dt><dd class="font-serif text-xl mt-1">The sanctuary</dd></div>
-          <div><dt class="text-xs uppercase tracking-[0.2em] text-white/70">Length</dt><dd class="font-serif text-xl mt-1">About 1 hr 15 min</dd></div>
+          <div><dt class="text-xs uppercase tracking-[0.2em] text-white/70">Length</dt><dd class="font-serif text-xl mt-1 leading-snug">10:30 AM: about 1&frac14; hrs<br>4 PM: about 1 hr</dd></div>
         </dl>
       </div>
     </div>
