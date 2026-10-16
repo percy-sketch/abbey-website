@@ -209,7 +209,8 @@ return [
         // Optional keys: 'position' = which part of the photo to keep when it's cropped to fit
         // the screen (CSS object-position, e.g. 'center 40%'); 'title' = the big word across the
         // top (with optional small 'eyebrow' line above it; 'titleAt' => 'bottom' puts it at the bottom); 'panel' = a taupe text box;
-        // 'fit' => 'contain' + 'bg' for graphics with baked-in text.
+        // 'fit' => 'contain' + 'bg' for graphics with baked-in text; 'fit' => 'whole' shows an
+        // entire tall photo on wide screens with a blurred copy of it filling the sides.
         [
             'image' => 'hero-exterior-chapel.jpg',
             'position' => '80% 50%',
@@ -230,8 +231,9 @@ return [
         ],
         [
             'image' => 'hero-4-procession.jpg',
-            // Keep the top of this tall photo: the timber trusses, candle chandelier and processional cross.
-            'position' => 'center 6%',
+            // Show the whole tall photo (ceiling, cross, crucifer and aisle); on phones it fills the screen.
+            'fit' => 'whole',
+            'position' => 'center 30%',
             'title' => 'Sent Out',
             'titleAt' => 'bottom',
             'alt' => 'A crucifer in a white robe carries the processional cross down the center aisle beneath the sanctuary’s timber trusses and candle chandelier',

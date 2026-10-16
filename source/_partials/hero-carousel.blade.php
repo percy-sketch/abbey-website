@@ -17,10 +17,17 @@
         aria-label="{{ $i + 1 }} of {{ count($page->heroSlides) }}"
         @if ($i !== 0) aria-hidden="true" @endif
       >
+        @php $fit = $slide['fit'] ?? 'cover'; @endphp
+        @if ($fit === 'whole')
+          {{-- Whole photo on wider screens, with a soft blurred copy filling the sides. --}}
+          <img src="{{ $page->baseUrl }}assets/images/{{ $slide['image'] }}" alt="" aria-hidden="true"
+               class="hidden md:block absolute inset-0 w-full h-full object-cover scale-110 blur-2xl brightness-75"
+               @if ($i !== 0) loading="lazy" @endif>
+        @endif
         <img
           src="{{ $page->baseUrl }}assets/images/{{ $slide['image'] }}"
           alt="{{ $slide['alt'] }}"
-          class="w-full h-full {{ ($slide['fit'] ?? 'cover') === 'contain' ? 'object-contain object-center' : 'object-cover' }}"
+          class="relative w-full h-full {{ $fit === 'contain' ? 'object-contain object-center' : ($fit === 'whole' ? 'object-cover md:object-contain' : 'object-cover') }}"
           style="object-position: {{ $slide['position'] ?? 'center' }}"
           @if ($i !== 0) loading="lazy" @endif
         >
