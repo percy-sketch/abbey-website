@@ -208,7 +208,7 @@ return [
     'heroSlides' => [
         // Optional keys: 'position' = which part of the photo to keep when it's cropped to fit
         // the screen (CSS object-position, e.g. 'center 40%'); 'title' = the big word across the
-        // top (with optional small 'eyebrow' line above it); 'panel' = a taupe text box;
+        // top (with optional small 'eyebrow' line above it; 'titleAt' => 'bottom' puts it at the bottom); 'panel' = a taupe text box;
         // 'fit' => 'contain' + 'bg' for graphics with baked-in text.
         [
             'image' => 'hero-exterior-chapel.jpg',
@@ -232,6 +232,8 @@ return [
             'image' => 'hero-4-procession.jpg',
             // Keep the top of this tall photo: the timber trusses, candle chandelier and processional cross.
             'position' => 'center 6%',
+            'title' => 'Sent Out',
+            'titleAt' => 'bottom',
             'alt' => 'A crucifer in a white robe carries the processional cross down the center aisle beneath the sanctuary’s timber trusses and candle chandelier',
         ],
         [
