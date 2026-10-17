@@ -5,7 +5,7 @@ return [
     'production' => false,
 
     'siteName' => 'The Abbey at Pawleys Island',
-    'siteDescription' => 'A community committed to forming fully devoted followers of Jesus Christ.',
+    'siteDescription' => 'A community committed to cultivating fully devoted followers of Jesus Christ.',
 
     // Where the site is served from: GitHub Pages (percy-sketch/abbey-website) at the church's own domain.
     'siteUrl' => 'https://www.theabbeypawleysisland.com',
