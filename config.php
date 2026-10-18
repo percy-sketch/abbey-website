@@ -171,10 +171,8 @@ return [
             'fullName' => 'Sara Williams',
             'title' => 'Care Ministry Guide',
             'photo' => 'staff-williams-v2.jpg',
-            'bio' => [
-                'Tyler serves as the Worship Pastor at The Abbey, where his heart is to serve people through the ministry of worship. He believes worship is more than a song, it’s joining our voices as a community for the purpose of turning our hearts toward Christ.',
-                'Tyler, his wife Sammy, and their three children live in Pawleys Island, SC.',
-            ],
+            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
+            'bio' => [],
         ],
     ],
 
