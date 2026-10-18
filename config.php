@@ -257,7 +257,7 @@ return [
             ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],
             ['title' => 'Our Team', 'url' => '/our-team'],
             ['title' => 'The Map', 'url' => '/the-map'],
-            ['title' => 'Live Stream', 'url' => 'liveStream', 'external' => true],
+            ['title' => 'Live Stream', 'url' => '/live-stream'],
         ]],
         ['title' => 'Latest News', 'url' => '/latest-news'],
         ['title' => 'Calendar', 'url' => '/calendar'],

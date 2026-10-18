@@ -29,8 +29,8 @@ permalink: 404.html
     'weddings': '/weddings-events', 'events': '/weddings-events',
     'contact': '/contact', 'contact-us': '/contact', 'connect': '/contact', 'get-in-touch': '/contact',
     'give': '/give', 'giving': '/give', 'donate': '/give',
-    'sermons': streams, 'sermon': streams, 'media': streams, 'watch': streams, 'live': streams,
-    'live-stream': streams, 'livestream': streams
+    'sermons': streams, 'sermon': streams, 'media': streams,
+    'watch': '/live-stream', 'live': '/live-stream', 'livestream': '/live-stream', 'live-stream': '/live-stream'
   };
   var path = location.pathname.toLowerCase().replace(/\.html?$/, '').replace(/\/+$/, '').replace(/^\/+/, '');
   var first = path.split('/')[0];

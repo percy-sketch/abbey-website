@@ -164,7 +164,7 @@ description: Who we are and what we believe — an Ancient-Future, Three-Stream 
             </p>
           </div>
           <div class="flex flex-wrap gap-3 mt-6">
-            <a href="{{ $page->links['liveStream'] }}" target="_blank" rel="noopener" class="inline-block bg-abbey-green text-white font-sans text-sm px-5 py-3 rounded-full hover:opacity-90">Watch the live stream</a>
+            <a href="{{ $page->baseUrl }}live-stream" class="inline-block bg-abbey-green text-white font-sans text-sm px-5 py-3 rounded-full hover:opacity-90">Watch the live stream</a>
             <a href="{{ $page->baseUrl }}contact" class="inline-block border border-abbey-green text-abbey-green font-sans text-sm px-5 py-3 rounded-full hover:bg-abbey-green hover:text-white">Plan your visit</a>
           </div>
         </div>
