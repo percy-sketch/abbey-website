@@ -228,7 +228,7 @@ return [
         [
             'image' => 'hero-3-blessing.jpg',
             'position' => 'center 40%',
-            'title' => 'Community',
+            'title' => 'Blessing',
             'alt' => 'The congregation raises their hands to bless the children and students gathered at the front for the Back to School Blessing',
         ],
         [
