@@ -226,6 +226,14 @@ return [
             'alt' => 'A full sanctuary during Advent worship, beneath a candle chandelier and a timber ceiling',
         ],
         [
+            'image' => 'hero-sacrament.jpg',
+            // Keep the silver pitcher and the stream of water falling into the font.
+            'position' => 'center 44%',
+            'title' => 'Sacrament',
+            'titleAt' => 'bottom',
+            'alt' => 'Water poured from a silver pitcher into the baptismal font by a priest in a white robe and stole',
+        ],
+        [
             'image' => 'hero-3-blessing.jpg',
             'position' => 'center 40%',
             'title' => 'Blessing',
