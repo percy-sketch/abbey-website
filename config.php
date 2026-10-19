@@ -232,6 +232,15 @@ return [
             'alt' => 'The congregation raises their hands to bless the children and students gathered at the front for the Back to School Blessing',
         ],
         [
+            'image' => 'hero-community-eggs.jpg',
+            // Keep the middle band of this tall photo, where the children are bending to pick up eggs;
+            // the title sits on the grass at the bottom so it doesn't cover any faces.
+            'position' => 'center 52%',
+            'title' => 'Community',
+            'titleAt' => 'bottom',
+            'alt' => 'Children bending to gather colorful plastic eggs on the lawn during an Easter egg hunt, one carrying a wicker basket',
+        ],
+        [
             'image' => 'hero-4-procession.jpg',
             // Show the whole tall photo (ceiling, cross, crucifer and aisle); on phones it fills the screen.
             'fit' => 'whole',
