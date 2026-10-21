@@ -34,7 +34,7 @@ description: Yabbey is The Abbey's ministry for middle and high school students.
   ];
 
   $email = 'mailto:peyton@theabbeypawleysisland.com?' . http_build_query(['subject' => 'Yabbey'], '', '&', PHP_QUERY_RFC3986);
-  $instagram = 'https://www.instagram.com/yabbypi/';
+  $instagram = 'https://www.instagram.com/yabbeypi/';
 @endphp
 
 <div class="bg-[#f5f1e6]">
@@ -127,7 +127,7 @@ description: Yabbey is The Abbey's ministry for middle and high school students.
         <a href="{{ $email }}" class="inline-block bg-abbey-green text-white font-sans text-sm px-6 py-3 rounded-full hover:opacity-90">Email Peyton</a>
         <a href="{{ $instagram }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-abbey-green text-abbey-green font-sans text-sm px-6 py-3 rounded-full hover:bg-abbey-green hover:text-white">
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          Follow @yabbypi
+          Follow @yabbeypi
         </a>
       </div>
       <p class="font-sans text-sm text-abbey-sage mt-5">Peyton Andreucci, Student Discipleship Pastor</p>
