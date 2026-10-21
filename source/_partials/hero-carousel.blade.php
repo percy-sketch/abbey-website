@@ -1,20 +1,26 @@
+@php
+  // Used on the home page (slides from 'heroSlides' in config.php) and on other pages, which
+  // pass their own: @include('_partials.hero-carousel', ['slides' => [...], 'height' => '...', 'label' => '...'])
+  $slides = $slides ?? $page->heroSlides;
+  $height = $height ?? 'h-[calc(100svh-7rem)] min-h-[440px] max-h-[900px]';
+@endphp
 <section
   data-carousel
   data-interval="9000"
-  class="relative bg-abbey-midnight overflow-hidden h-[calc(100svh-7rem)] min-h-[440px] max-h-[900px] group/hero"
+  class="relative bg-abbey-midnight overflow-hidden {{ $height }} group/hero"
   role="region"
   aria-roledescription="carousel"
-  aria-label="The Abbey at Pawleys Island"
+  aria-label="{{ $label ?? 'The Abbey at Pawleys Island' }}"
 >
   <div class="absolute inset-0" data-carousel-track>
-    @foreach ($page->heroSlides as $i => $slide)
+    @foreach ($slides as $i => $slide)
       <div
         data-carousel-slide
         class="absolute inset-0 transition-opacity duration-500 ease-in-out {{ $i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none' }}"
         role="group"
         aria-roledescription="slide"
         @if (isset($slide['bg'])) style="background-color: {{ $slide['bg'] }}" @endif
-        aria-label="{{ $i + 1 }} of {{ count($page->heroSlides) }}"
+        aria-label="{{ $i + 1 }} of {{ count($slides) }}"
         @if ($i !== 0) aria-hidden="true" @endif
       >
         @php $fit = $slide['fit'] ?? 'cover'; @endphp
@@ -46,7 +52,7 @@
             @if (! empty($slide['eyebrow']))
               <p class="font-sans uppercase tracking-[0.3em] text-xs md:text-sm text-white/90 mb-3 md:mb-4">{{ $slide['eyebrow'] }}</p>
             @endif
-            <{{ $i === 0 ? 'h1' : 'h2' }} class="font-serif text-white leading-none {{ $atBottom ? 'text-5xl sm:text-6xl md:text-7xl' : 'text-6xl sm:text-7xl md:text-9xl' }} [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]">{{ $slide['title'] }}</{{ $i === 0 ? 'h1' : 'h2' }}>
+            <{{ ($i === 0 && empty($noH1)) ? 'h1' : 'h2' }} class="font-serif text-white leading-none {{ $atBottom ? 'text-5xl sm:text-6xl md:text-7xl' : 'text-6xl sm:text-7xl md:text-9xl' }} [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]">{{ $slide['title'] }}</{{ ($i === 0 && empty($noH1)) ? 'h1' : 'h2' }}>
             <div class="flex items-center gap-4 {{ $atBottom ? 'mb-3 md:mb-4' : 'mt-4 md:mt-5' }} text-abbey-gold" aria-hidden="true">
               <span class="h-px w-12 md:w-20 bg-abbey-parchment/70"></span><span class="text-lg">&#10022;</span><span class="h-px w-12 md:w-20 bg-abbey-parchment/70"></span>
             </div>
@@ -84,7 +90,7 @@
       <svg data-icon-play class="h-3.5 w-3.5 hidden" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>
     </button>
     <div class="flex items-center gap-2 bg-black/30 rounded-full px-3 py-2">
-      @foreach ($page->heroSlides as $i => $slide)
+      @foreach ($slides as $i => $slide)
         <button type="button" data-carousel-dot="{{ $i }}" aria-label="Go to slide {{ $i + 1 }}"
           class="w-2.5 h-2.5 rounded-full bg-white/50 aria-[current=true]:bg-white aria-[current=true]:scale-125 transition"
           @if ($i === 0) aria-current="true" @endif></button>
