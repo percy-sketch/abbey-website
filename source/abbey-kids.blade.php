@@ -55,7 +55,7 @@ description: Abbey Kids is The Abbey's ministry for children up to 6th grade. Su
     <div class="grid md:grid-cols-[1fr_auto] items-center gap-8">
       <div>
         <p class="font-sans text-sm uppercase tracking-[0.3em] text-abbey-gold">Children at The Abbey</p>
-        <h1 class="font-serif text-5xl md:text-7xl text-abbey-midnight leading-[1.05] mt-3">Welcome to Abbey Kids!</h1>
+        <h1 class="font-serif text-5xl md:text-7xl text-abbey-midnight leading-[1.05] mt-3">Welcome to<br>Abbey Kids!</h1>
         <div class="flex items-center gap-3 mt-6 text-abbey-gold max-w-md" aria-hidden="true">
           <span class="h-px w-20 bg-abbey-gold/70"></span><span>&#10022;</span><span class="h-px flex-1 bg-gradient-to-r from-abbey-gold/70 to-transparent"></span>
         </div>
