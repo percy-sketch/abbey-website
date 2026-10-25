@@ -10,6 +10,14 @@ description: Abbey Kids is The Abbey's ministry for children up to 6th grade. Su
   // Photos for the carousel at the top ('position' keeps the important part in view when cropped).
   // To add more, put the photo in source/assets/images/ and add a line here.
   $kidsSlides = [
+    ['image' => 'kids-camp-longridge.jpg', 'position' => 'center 33%',
+     'alt' => 'Abbey Kids campers and leaders in Camp Longridge T-shirts gathered on the steps, some holding first-place ribbons'],
+    ['image' => 'kids-blast.jpg', 'position' => 'center 33%',
+     'alt' => 'Children and teen leaders raising their hands during worship at Kids Blast in the sanctuary'],
+    ['image' => 'kids-girls-golf.jpg', 'position' => 'center 25%',
+     'alt' => 'Four smiling girls with putters on the rocks of a mini golf course'],
+    ['image' => 'kids-gingerbread.jpg', 'position' => 'center 15%',
+     'alt' => 'A volunteer and a young boy building a graham cracker gingerbread house at the Gingerbread Bash'],
     ['image' => 'hero-community-eggs.jpg', 'position' => 'center 40%',
      'alt' => 'Children bending to gather colorful plastic eggs on the lawn during the Easter egg hunt'],
     ['image' => 'hero-3-blessing.jpg', 'position' => 'center 40%',
