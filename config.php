@@ -274,6 +274,7 @@ return [
             ['title' => 'Our Beliefs', 'url' => '/our-beliefs'],
             ['title' => 'Our Team', 'url' => '/our-team'],
             ['title' => 'The Map', 'url' => '/the-map'],
+            ['title' => 'Abbey Kids', 'url' => '/abbey-kids'],
             ['title' => 'Youth', 'url' => '/youth'],
             ['title' => 'Live Stream', 'url' => '/live-stream'],
         ]],
