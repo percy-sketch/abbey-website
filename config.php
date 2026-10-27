@@ -177,7 +177,7 @@ return [
     ],
 
     // Intro video in the left-hand slot under the home page cards. (The right-hand slot
-    // automatically shows the newest sermon in source/_sermons.)
+    // shows the newest live stream; see 'liveStreamPlaylist' below.)
     'introVideo' => [
         'id' => 'NLSs_D0L_Mg',
         'title' => 'Welcome to The Abbey at Pawleys Island',
@@ -287,14 +287,4 @@ return [
             ['title' => 'My Abbey', 'url' => 'myAbbey', 'external' => true],
         ]],
     ],
-
-    // Every file in source/_sermons/ becomes an entry in $page->sermons,
-    // newest first. Add a new sermon by dropping in one more markdown file —
-    // see source/_sermons/README.md for the front matter fields.
-    'collections' => [
-        'sermons' => [
-            'sort' => '-date',
-        ],
-    ],
-
 ];
