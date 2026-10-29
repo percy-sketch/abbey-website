@@ -171,8 +171,11 @@ return [
             'fullName' => 'Sara Williams',
             'title' => 'Care Ministry Guide',
             'photo' => 'staff-williams-v2.jpg',
-            // Bio to come: add paragraphs here and a "Read bio" button appears automatically.
-            'bio' => [],
+            'bio' => [
+                'Sara made Pawleys Island her home in 1982. She married her husband, Dave, at All Saints Church in 1991, and together they have two daughters, Maxie and Grace, along with their two beloved dogs, Lucy and Ella.',
+                'Throughout Dave’s Army career, Sara supported military families by leading Family Support Groups, demonstrating her dedication to serving others and building strong communities. When The Abbey was established in 2013, Sara became a member and has been a faithful volunteer from the very beginning.',
+                'In August 2022, Sara became the Care Ministry Guide at The Abbey, continuing her passion for caring for others and supporting the needs of the Abbey community.',
+            ],
         ],
     ],
 
