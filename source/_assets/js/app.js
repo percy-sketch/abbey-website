@@ -104,9 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // Home page carousel — fade between slides, autoplay with a pause control, arrows, dots,
 // swipe, and ←/→ keys. Autoplay pauses on hover/focus and while the tab is hidden, and
 // never starts for visitors who prefer reduced motion.
+// Every carousel on the page gets its own controls (the Provision page has two).
 document.addEventListener('DOMContentLoaded', () => {
-  const root = document.querySelector('[data-carousel]');
-  if (!root) return;
+  document.querySelectorAll('[data-carousel]').forEach(setUpCarousel);
+});
+
+function setUpCarousel(root) {
 
   const slides = [...root.querySelectorAll('[data-carousel-slide]')];
   const dots = [...root.querySelectorAll('[data-carousel-dot]')];
@@ -176,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   syncToggle();
   start();
-});
+}
 
 
 // Latest News: past Waypoints from Constant Contact's email archive (newest archived first).

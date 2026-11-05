@@ -42,6 +42,15 @@ noindex: true
     ['Memorial Garden &amp; Columbarium', 'A place of rest on the grounds where members have worshiped.'],
   ];
 
+  $plans = [
+    ['image' => 'provision-plan-campus.jpg', 'fit' => 'contain', 'bg' => '#ffffff',
+     'alt' => 'Conceptual floor plan of the whole campus, showing the new children and youth wing and the enlarged gathering space joined to the existing sanctuary'],
+    ['image' => 'provision-plan-wing.jpg', 'fit' => 'contain', 'bg' => '#ffffff',
+     'alt' => 'Conceptual floor plan of the new children and youth wing: nursery, preschool and elementary rooms, a large group room, a youth room, restrooms, a kitchen and a welcome entry'],
+    ['image' => 'provision-plan-gathering.jpg', 'fit' => 'contain', 'bg' => '#ffffff',
+     'alt' => 'Conceptual floor plan of the new gathering space and kitchen, seating about 170 at 20 tables, opening onto the columbarium'],
+  ];
+
   $grounds = ['More parking', 'An outdoor worship area', 'An outdoor event area', 'A playground beside the children’s wing'];
 
   $impact = [
@@ -140,6 +149,21 @@ noindex: true
           @endforeach
         </ul>
       </div>
+    </section>
+
+    {{-- Plans --}}
+    <section>
+      <p class="font-sans text-sm uppercase tracking-[0.3em] text-abbey-gold">The Plans</p>
+      <h2 class="font-serif text-3xl md:text-4xl text-abbey-midnight leading-tight mt-3">A closer look at the new wings</h2>
+      <div class="rounded-2xl overflow-hidden shadow-md border border-abbey-parchment mt-6">
+        @include('_partials.hero-carousel', [
+          'slides' => $plans,
+          'height' => 'h-[72vw] sm:h-[62vw] md:h-[560px] max-h-[620px]',
+          'label' => 'Conceptual site and floor plans for Provision',
+          'noH1' => true,
+        ])
+      </div>
+      <p class="font-sans text-xs uppercase tracking-[0.2em] text-abbey-sage mt-3 text-center">Conceptual floor plans &middot; LDD Blueline Architects &middot; January 2025</p>
     </section>
 
     {{-- Impact --}}
