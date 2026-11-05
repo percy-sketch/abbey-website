@@ -167,8 +167,8 @@ noindex: true
         If you would like more information about Provision, or would like to talk about how you might be part of
         preparing The Abbey for the journey ahead, please reach out.
       </p>
-      <a href="{{ $email }}" class="inline-block bg-abbey-green text-white font-sans text-sm px-7 py-3 rounded-full hover:opacity-90 mt-8">Email Capers Barr</a>
-      <p class="font-sans text-sm text-abbey-sage mt-5">Capers Barr, Executive Pastor &middot; capers@theabbeypawleysisland.com</p>
+      <a href="{{ $email }}" class="inline-block bg-abbey-green text-white font-sans text-sm px-7 py-3 rounded-full hover:opacity-90 mt-8">Contact Us</a>
+      <p class="font-sans text-sm text-abbey-sage mt-5">Capers Barr, Executive Pastor</p>
     </section>
   </div>
 </div>
