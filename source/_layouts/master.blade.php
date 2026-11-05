@@ -7,6 +7,10 @@
   <meta name="description" content="{{ $page->description ?? $page->siteDescription }}">
   <link rel="icon" href="{{ $page->baseUrl }}assets/images/abbey-logomark.png">
   <link rel="canonical" href="{{ $page->getUrl() }}">
+  @if ($page->noindex)
+    {{-- Pages not linked from the menu yet (set noindex: true in the page's front matter) stay out of search results. --}}
+    <meta name="robots" content="noindex, nofollow">
+  @endif
 
   {{-- Vite-compiled Tailwind CSS + JS, via the official @tighten/jigsaw-vite-plugin. --}}
   {{-- vite() returns root-relative paths; prefix baseUrl so the site also works from a subfolder. --}}
