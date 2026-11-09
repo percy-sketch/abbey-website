@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<title>Knowing Your Place</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Mulish:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: one centered column, a single question per screen, results as stacked sections. */
+:root{
+  --green:#3c5b3b; --navy:#00264d; --sage:#8b9576; --parch:#d4c4ab;
+  --bg:#f6f1e8; --surface:#ffffff; --soft:#ece4d6; --line:#d4c4ab;
+  --fg:#16130f; --muted:#4f4a42; --accent:#3c5b3b; --accent-fg:#ffffff; --bar:#3c5b3b; --bar2:#8b9576;
+  --serif:'EB Garamond',Garamond,Georgia,'Times New Roman',serif;
+  --sans:'Mulish','Avenir Next',Avenir,'Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a14; --surface:#1d241d; --soft:#263026; --line:#3a463a;
+  --fg:#f1ebe0; --muted:#c7bfb1; --accent:#9fb78f; --accent-fg:#101510; --bar:#9fb78f; --bar2:#b9bfad; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a14; --surface:#1d241d; --soft:#263026; --line:#3a463a;
+  --fg:#f1ebe0; --muted:#c7bfb1; --accent:#9fb78f; --accent-fg:#101510; --bar:#9fb78f; --bar2:#b9bfad; color-scheme:dark}
+html,body{background:var(--bg)}
+body{color:var(--fg);font-family:var(--serif);font-size:18px;line-height:1.5;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+header.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1.5px solid var(--line);padding-bottom:12px}
+.mark{font-family:var(--serif);font-weight:700;font-size:20px;letter-spacing:.02em}
+.mark small{display:block;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--muted)}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--serif);line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(34px,8vw,48px)} h2{font-size:30px} h3{font-size:22px}
+p{margin:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.soft{background:var(--soft);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.btn{font-family:var(--sans);font-weight:800;font-size:16px;letter-spacing:.02em;border:0;border-radius:12px;padding:15px 22px;background:var(--accent);color:var(--accent-fg);cursor:pointer;min-height:48px}
+.btn.ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line)}
+.btn:focus-visible,.opt:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.parts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:520px){.parts{grid-template-columns:1fr}}
+.part{background:var(--soft);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.part b{font-size:19px}
+.part span{font-family:var(--sans);font-size:13px;color:var(--muted)}
+label{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.04em}
+.field{display:flex;flex-direction:column;gap:6px}
+input,select{font:inherit;font-size:17px;padding:12px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);min-height:48px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:520px){.grid2{grid-template-columns:1fr}}
+.check{display:flex;gap:10px;align-items:flex-start;font-family:var(--serif);font-size:16px;font-weight:400;letter-spacing:0}
+.check input{min-height:auto;width:22px;height:22px;margin-top:2px;accent-color:var(--green)}
+.err{font-family:var(--sans);font-size:14px;color:#9b2c2c}
+.progress{height:8px;background:var(--soft);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.qmeta{display:flex;justify-content:space-between;font-family:var(--sans);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.qtext{font-size:clamp(24px,5.5vw,30px);line-height:1.25;text-wrap:balance}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{font:inherit;font-size:19px;text-align:left;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:12px;padding:14px 16px;cursor:pointer;min-height:56px;display:flex;gap:12px;align-items:center}
+.opt .k{flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:13px;font-weight:800}
+.opt[aria-pressed="true"]{border-color:var(--accent);background:var(--soft)}
+.opt[aria-pressed="true"] .k{background:var(--accent);color:var(--accent-fg)}
+.scale .opt{font-family:var(--sans);font-size:16px;font-weight:600}
+.nav{display:flex;justify-content:space-between;gap:10px}
+.typecode{font-family:var(--sans);font-weight:800;font-size:44px;letter-spacing:.12em;line-height:1}
+.pair{display:flex;flex-direction:column;gap:4px}
+.pair .lbl{display:flex;justify-content:space-between;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--muted)}
+.track{height:10px;border-radius:99px;background:var(--soft);overflow:hidden;display:flex}
+.track i{display:block;height:100%;background:var(--bar)}
+.bars{display:flex;flex-direction:column;gap:8px}
+.barrow{display:grid;grid-template-columns:140px minmax(0,1fr) 34px;gap:10px;align-items:center;font-family:var(--sans);font-size:14px;font-variant-numeric:tabular-nums}
+.barrow b{font-weight:700}
+.barrow.top b{color:var(--fg)}
+.barrow .track i{background:var(--bar2)}
+.barrow.top .track i{background:var(--bar)}
+@media (max-width:420px){.barrow{grid-template-columns:110px minmax(0,1fr) 30px}}
+.kv{display:grid;grid-template-columns:130px minmax(0,1fr);gap:6px 14px}
+.kv dt{font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.kv dd{margin:0}
+@media (max-width:480px){.kv{grid-template-columns:1fr}.kv dd{margin-bottom:6px}}
+.greek{font-style:italic;color:var(--muted)}
+.verse{font-style:italic;border-top:1px solid var(--line);padding-top:10px}
+.profile{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:520px){.profile{grid-template-columns:1fr}}
+.profile div{background:var(--soft);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.profile b{font-size:21px;line-height:1.15}
+.status{font-family:var(--sans);font-size:14px;color:var(--muted)}
+.note{font-family:var(--sans);font-size:13px;color:var(--muted)}
+footer{font-family:var(--sans);font-size:12px;letter-spacing:.1em;color:var(--muted);text-align:center;padding-top:8px}
+@media (prefers-reduced-motion:reduce){.progress i{transition:none}}
+</style>
+
+<div class="wrap">
+  <header class="brand">
+    <div class="mark">The Abbey<small>AT PAWLEYS ISLAND</small></div>
+    <div class="eyebrow">Knowing Your Place in the Body</div>
+  </header>
+  <main id="app" aria-live="polite"></main>
+  <footer>“Now you are the body of Christ and individually members of it.” 1 Corinthians 12:27</footer>
+</div>
+
+<script>
+/* ===== Settings ===== */
+const CONFIG = {
+  // Paste the Google Apps Script web app URL here to save responses to your Google Sheet.
+  // Leave empty to run in preview mode (nothing is sent anywhere).
+  endpoint: "https://script.google.com/macros/s/AKfycbxGX_IQODMs1mparLXyA1FFrqjdpHuziHlzE7RcoSGov61JsE5N4JWIQosuTT8CuKXr/exec",
+  version: "2026-11-v2"
+};
+
+/* ===== Questions (original items written for The Abbey) ===== */
+/* Personality: 70 either/or items (10 E/I, 20 S/N, 20 T/F, 20 J/P). Option A is always the first letter of the pair. */
+const P_ITEMS = {
+  EI: [
+    ["After a long week, I recharge best by…","Getting together with friends","Quiet time alone or with one person"],
+    ["In a group discussion, I usually…","Think out loud as I talk","Think it through before I speak"],
+    ["At a church potluck, I'm more likely to…","Work the room and meet new people","Settle in with a few people I know"],
+    ["I'd rather serve…","Out front, greeting and talking with people","Behind the scenes, where I can focus"],
+    ["People who know me would say I'm more…","Outgoing and easy to approach","Reserved and thoughtful"],
+    ["When the phone rings unexpectedly, I'm usually…","Glad to pick up and talk","Happy to let it go to voicemail and call back later"],
+    ["For an evening out, I'd choose…","A lively dinner party","A quiet dinner with one or two close friends"],
+    ["I tend to make friends…","Quickly, by jumping into conversations","Slowly, over time"],
+    ["When I'm working through a problem, I like to…","Talk it over with others","Sort it out in my own head first"],
+    ["A day full of meetings and conversations leaves me…","Energized","Drained and needing quiet"]
+  ],
+  SN: [
+    ["When I read a Bible story, I'm drawn first to…","The concrete details: who, where, what happened","The big themes and how it connects to the whole story"],
+    ["I tend to trust…","What I've seen work","What I sense could work"],
+    ["When someone gives me directions, I want…","Step-by-step specifics","The general idea; I'll figure out the rest"],
+    ["I'm more interested in…","What is","What could be"],
+    ["In a project, I most enjoy…","Getting the practical details right","Dreaming up new ideas and possibilities"],
+    ["I'd describe myself as more…","Practical and down-to-earth","Imaginative and full of ideas"],
+    ["When I learn something new, I want…","Hands-on examples first","The big idea behind it first"],
+    ["I usually notice…","What is actually in front of me","Patterns and meanings beneath the surface"],
+    ["I prefer…","Tried-and-true methods","Trying a fresh approach"],
+    ["When I tell a story, I…","Give the facts in order","Jump to the point and what it means"],
+    ["In a sermon, I'm helped most by…","Practical application for this week","Big ideas that change how I see things"],
+    ["I'm more comfortable with…","Things I can measure","Possibilities I can imagine"],
+    ["I'd rather…","Fix something that's broken","Invent something new"],
+    ["People count on me for…","Accurate details","Creative insight"],
+    ["I remember past events as…","Specific facts and details","Overall impressions"],
+    ["I value more…","Common sense","Vision"],
+    ["When planning a ministry event, I think first about…","Logistics: rooms, food, supplies","The purpose and what we hope will happen"],
+    ["Reading a document, I'm more likely to notice…","A typo or a wrong number","The main idea and where it's heading"],
+    ["I enjoy work that is…","Concrete and tangible","Conceptual and abstract"],
+    ["My attention tends to rest on…","The present","The future"]
+  ],
+  TF: [
+    ["When I make a hard decision, I lean first on…","Logic and principle","How it will affect the people involved"],
+    ["When a friend shares a problem, my first instinct is to…","Help solve it","Listen and empathize"],
+    ["I'd rather be known as…","Fair and truthful","Kind and caring"],
+    ["In a disagreement, I care more about…","Getting to the right answer","Keeping the relationship whole"],
+    ["The feedback I give tends to be…","Direct and to the point","Gentle and encouraging"],
+    ["A good leader should be…","Firm and consistent","Warm and understanding"],
+    ["I'm more convinced by…","A sound argument","A heartfelt story"],
+    ["When someone breaks a rule, I think first about…","The consequences","The circumstances behind it"],
+    ["I'd rather be…","Respected","Liked"],
+    ["In a church committee meeting, I focus on…","Whether the plan makes sense","How people feel about the plan"],
+    ["I'm more likely to say…","“That doesn't add up.”","“I can see why that hurts.”"],
+    ["When my work is criticized, I…","Weigh whether the criticism is accurate","Feel it personally"],
+    ["Choosing between two good options, I…","List the pros and cons","Go with what feels right"],
+    ["When I think about God's character, I'm drawn first to…","His justice and truth","His compassion and grace"],
+    ["Others might say I'm sometimes…","Too blunt","Too soft"],
+    ["On a team, I value more…","Competence","Harmony"],
+    ["When a friend asks what I think of their idea, I…","Point out its weaknesses","Encourage its strengths"],
+    ["I trust my…","Head","Heart"],
+    ["In a conflict, I tend to…","Stay calm and analyze","Feel it deeply"],
+    ["A rule should…","Apply to everyone equally","Bend for special situations"]
+  ],
+  JP: [
+    ["My calendar is…","Planned, and I like it that way","Flexible, with room to adapt"],
+    ["On a trip, I'd rather…","Have an itinerary","See where the day takes us"],
+    ["With a deadline, I usually…","Finish early","Do my best work near the end"],
+    ["I feel better when things are…","Decided and settled","Open to new options"],
+    ["My workspace is usually…","Orderly","A creative mess"],
+    ["I like to…","Make lists and check them off","Keep things in my head and go with the flow"],
+    ["An unexpected change of plans is…","Annoying","Welcome"],
+    ["When facing a decision, I prefer to…","Settle it quickly","Gather more information first"],
+    ["On a free Saturday, I'd rather…","Follow a plan","Wake up and decide"],
+    ["I'm known for being…","Prepared","Adaptable"],
+    ["I'd rather…","Finish one project before starting another","Juggle several at once"],
+    ["I usually arrive…","Early","Right on time or a little late"],
+    ["When I go shopping, I…","Take a list","Browse and see what catches my eye"],
+    ["Rules and procedures usually…","Help me","Get in my way"],
+    ["I pack for a trip…","Days ahead","The night before"],
+    ["I feel uneasy when things are…","Unfinished","Too fixed"],
+    ["I like to…","Know what's expected of me","Figure it out as I go"],
+    ["In worship, I'm most at home with…","A well-ordered liturgy","Room for spontaneity"],
+    ["I'd describe myself as…","Organized","Spontaneous"],
+    ["Once I make up my mind, I…","Stick to it","Stay open to changing it"]
+  ]
+};
+const DIM_LETTERS = {EI:["E","I"], SN:["S","N"], TF:["T","F"], JP:["J","P"]};
+/* Cycle E/I once and the other pairs twice per round of 7, for 10 rounds = 70 items */
+const PERSONALITY = (() => {
+  const idx = {EI:0, SN:0, TF:0, JP:0}, out = [];
+  for (let r = 0; r < 10; r++) ["EI","SN","SN","TF","TF","JP","JP"].forEach(d => {
+    const [q, a, b] = P_ITEMS[d][idx[d]++];
+    const n = String(out.length + 1).padStart(2, "0");
+    out.push({id:`P${n}_${d}`, dim:d, q, a:[a, DIM_LETTERS[d][0]], b:[b, DIM_LETTERS[d][1]]});
+  });
+  return out;
+})();
+const LENS_ITEMS = {
+  perceiver:["I quickly notice when something is not right spiritually or morally.","I feel compelled to speak the truth, even when it is unpopular.","Hypocrisy and compromise grieve me deeply.","I tend to see issues in clear terms of right and wrong.","I can usually tell when someone's words don't match their heart."],
+  servant:["I notice practical needs that others overlook.","I find deep joy in finishing hands-on tasks that help others.","I would rather show love by doing something than by saying something.","I find it hard to say no when someone needs help.","I'm happiest when I'm busy helping with something practical."],
+  teacher:["I enjoy researching a topic until I really understand it.","I am bothered when Scripture or facts are used carelessly.","I like organizing information so others can learn it.","I want to check whether a new idea is true before I accept it.","I enjoy explaining things step by step until people understand."],
+  exhorter:["I naturally see people's potential more than their present struggles.","I enjoy helping someone take practical next steps in their life.","People often come to me for encouragement or advice.","I get frustrated when teaching isn't applied to real life.","I like to cheer people on when they're discouraged."],
+  giver:["I am quick to notice financial or material needs.","Giving feels like worship to me.","I like to keep my own lifestyle simple so I have more to give.","I prefer to give quietly, without recognition.","I look for ways to put my resources where they'll do the most good."],
+  leader:["I naturally see the gap between where things are and where they could be.","I enjoy organizing people and resources toward a goal.","When no one is leading, I tend to step in.","I feel responsible for the people and projects in my care.","I enjoy setting goals and helping a group reach them."],
+  merciful:["I can usually sense who is hurting in a room.","I'm drawn to people who are overlooked or suffering.","People tell me they feel safe opening up to me.","I would rather sit with someone in pain than try to fix it.","I'm quick to comfort someone who is grieving."]
+};
+const LOC_ITEMS = {
+  apostle:["I'm energized by starting new things: ministries, groups, or churches.","I'm drawn to people and places the church hasn't reached yet.","I get restless when things stay the same for too long.","I like laying foundations that others will build on.","I think about how a ministry could multiply beyond one place.","I'm comfortable taking risks to start something new for God.","I enjoy connecting churches and leaders who could work together.","I'd rather pioneer something than maintain it.","I can picture what a new work could look like before it exists."],
+  prophet:["I often sense what God may be saying to our church.","I'm drawn to prayer and listening for God's direction.","I notice when our community is drifting from God's purposes.","I feel called to help the church hear and respond to God.","I sometimes carry a strong burden from prayer that I need to share.","I'm uneasy when the church gets comfortable instead of faithful.","I can often see what is really going on beneath the surface of a situation.","I'm willing to say hard things when the church needs to hear them.","Worship and prayer are where I most often sense God's direction."],
+  evangelist:["Conversations about faith come naturally to me with people outside the church.","I can explain the gospel in simple, everyday language.","I want the good news to get outside the church's walls.","I enjoy being around people who don't yet know Jesus.","I naturally look for ways to invite people to church or to faith.","I enjoy telling the story of how Jesus changed my life.","I'm comfortable talking about faith with people I've just met.","I think often about friends and neighbors who don't know God.","I get excited when someone new comes to faith."],
+  shepherd:["I notice when someone is missing or struggling.","I build deep, long-term relationships within the church.","I want our church to be a safe place where people are cared for.","I'm willing to walk with people through hard seasons for a long time.","I enjoy checking in on people during the week.","I want to protect people from things that would harm them spiritually.","People share their struggles with me because they trust me.","I'd rather care well for a small group than reach a crowd.","I feel responsible for the spiritual well-being of the people around me."],
+  teacher:["I want to help people understand and grow in sound teaching.","I enjoy preparing lessons or studies.","I care about passing the faith on to the next generation.","People seek me out when they have questions about the Bible.","I'm careful that what I share about the Bible is accurate.","I enjoy helping people connect Scripture to everyday life.","I like reading theology or Bible commentaries.","I can break down difficult ideas so others understand them.","I want people well grounded so they aren't misled by false teaching."]
+};
+const SCALE = ["Not like me","A little like me","Somewhat like me","Mostly like me","Very much like me"];
+const LENS_N = 5, LOC_N = 9, LENS_MAX = LENS_N * 5, LOC_MAX = LOC_N * 5;
+const LENS_TENTATIVE = 15, LOC_TENTATIVE = 27;
+
+/* Interleave so one category never runs in a row */
+function interleave(obj, prefix){
+  const keys = Object.keys(obj), out = [], n = obj[keys[0]].length;
+  for (let i = 0; i < n; i++) keys.forEach(k => out.push({cat:k, q:obj[k][i]}));
+  return out.map((it, j) => ({...it, id: prefix + String(j + 1).padStart(2, "0") + "_" + it.cat}));
+}
+const LENS_Q = interleave(LENS_ITEMS, "L");
+const LOC_Q = interleave(LOC_ITEMS, "F");
+const QUESTIONS = [
+  ...PERSONALITY.map(p => ({...p, part:1, kind:"pair"})),
+  ...LENS_Q.map(p => ({...p, part:2, kind:"scale"})),
+  ...LOC_Q.map(p => ({...p, part:3, kind:"scale"}))
+];
+const PARTS = {1:"Part 1 · Personality", 2:"Part 2 · Spiritual Lens", 3:"Part 3 · Spiritual Location"};
+
+/* ===== Result content ===== */
+const TYPES = {
+  ISTJ:["The Inspector","ISTJs are responsible organizers, driven to create and enforce order within systems and institutions.","Nehemiah","Guardian"],
+  ISFJ:["The Protector","ISFJs are industrious caretakers, loyal to institutions and ready to do the hard work to take care of the people around them.","Ruth","Guardian"],
+  ESTJ:["The Supervisor","ESTJs are hardworking traditionalists, eager to take charge in organizing projects and people.","Ezra","Guardian"],
+  ESFJ:["The Provider","ESFJs are conscientious helpers, sensitive to the needs of others and energetically dedicated to their responsibilities.","Martha and Barnabas","Guardian"],
+  ISTP:["The Craftsperson","ISTPs are observant artisans with an understanding of mechanics and an interest in troubleshooting.","Bezalel","Artisan"],
+  ISFP:["The Composer","ISFPs are gentle caretakers who live in the present moment and enjoy their surroundings with cheerful, low-key enthusiasm.","David the Psalmist","Artisan"],
+  ESTP:["The Dynamo","ESTPs are energetic thrill seekers who bring a sense of dynamic energy to their interactions with others and the world around them.","Peter","Artisan"],
+  ESFP:["The Performer","ESFPs are vivacious entertainers who charm and engage those around them with their fun-loving spontaneity.","The Prodigal's Father","Artisan"],
+  INFJ:["The Counselor","INFJs are creative nurturers with a strong sense of personal integrity and a drive to help others realize their potential.","Jeremiah","Idealist"],
+  INFP:["The Healer","INFPs are imaginative idealists, guided by their own unique core values and beliefs.","John the Beloved","Idealist"],
+  ENFJ:["The Teacher","ENFJs are idealist organizers, driven to lead others toward their insightful vision of what is best for humanity.","Barnabas","Idealist"],
+  ENFP:["The Champion","ENFPs are people-centered creators with a focus on possibilities and a contagious enthusiasm for new ideas, people and activities.","Philip the Evangelist","Idealist"],
+  INTJ:["The Mastermind","INTJs are analytical problem-solvers, eager to improve systems and processes with their innovative ideas.","Moses","Rational"],
+  INTP:["The Architect","INTPs are philosophical innovators, fascinated by logical analysis, systems, and design.","Paul in his letters","Rational"],
+  ENTJ:["The Commander","ENTJs are strategic leaders, motivated to take charge, develop efficient solutions, and implement impactful change.","Paul the Apostle","Rational"],
+  ENTP:["The Visionary","ENTPs are inspired innovators, motivated to find new solutions to intellectually challenging problems.","Apollos","Rational"]
+};
+const DIMS = [
+  {key:"EI", a:"E", b:"I", an:"Extravert", bn:"Introvert", what:"Where you draw energy"},
+  {key:"SN", a:"S", b:"N", an:"Sensing", bn:"Intuition", what:"How you take in the world"},
+  {key:"TF", a:"T", b:"F", an:"Thinking", bn:"Feeling", what:"How you make decisions"},
+  {key:"JP", a:"J", b:"P", an:"Judging", bn:"Perceiving", what:"How you engage the outer world"}
+];
+const LENSES = {
+  perceiver:{name:"Perceiver / Prophet", greek:"prophēteia", sees:"Spiritual reality with unusual clarity. You grieve over hypocrisy and compromise and feel compelled to speak truth.", how:"“In proportion to our faith” (Romans 12:6): anchored to revealed truth.", who:"Jeremiah; John the Baptist", gift:"Clarity", edge:"Compassion to temper the message", verse:"“The one who prophesies speaks to people for their upbuilding and encouragement and consolation.” 1 Corinthians 14:3"},
+  servant:{name:"Servant", greek:"diakonia", sees:"The empty coffee pot, the struggling family, the unfinished task, and you fill the need.", how:"“In our serving” (Romans 12:7): simply serve.", who:"Martha (Luke 10:40); the Seven of Acts 6", gift:"Faithful presence", edge:"Permission to receive and to say no", verse:"“For even the Son of Man came not to be served but to serve.” Mark 10:45"},
+  teacher:{name:"Teacher", greek:"didaskōn", sees:"The world through the grid of truth and error. You love research, accuracy, and clear structure.", how:"“In his teaching” (Romans 12:7): give yourself to the work of explaining.", who:"Ezra; Apollos; Jesus the Rabbi", gift:"Doctrinal anchoring", edge:"Clothing truth in love; transformation, not just information", verse:"“Ezra had set his heart to study the Law of the LORD, and to do it and to teach.” Ezra 7:10"},
+  exhorter:{name:"Exhorter / Encourager", greek:"parakalōn", sees:"People's potential more than their present condition, and the practical next steps that get them there.", how:"“In his exhortation” (Romans 12:8): the same word family as the Paraclete, the Holy Spirit.", who:"Barnabas, “son of encouragement” (Acts 4:36)", gift:"Calling forth the best in others", edge:"Encouragement that is honest, not flattery", verse:"“But exhort one another every day, as long as it is called ‘today.’” Hebrews 3:13"},
+  giver:{name:"Giver", greek:"metadidous", sees:"Resources as seeds to be released, not stored. You sense real needs and wise investments.", how:"“In generosity” (Romans 12:8): single-minded, no strings attached.", who:"The Macedonian churches (2 Corinthians 8); Barnabas sells a field (Acts 4:37)", gift:"Strategic generosity", edge:"Giving without controlling the outcome", verse:"“Each one must give as he has decided in his heart… for God loves a cheerful giver.” 2 Corinthians 9:7"},
+  leader:{name:"Leader", greek:"proïstamenos", sees:"The gap between what is and what could be, and how to bring people together toward a vision.", how:"“With zeal” (Romans 12:8): earnest, wholehearted diligence.", who:"Nehemiah rebuilding the wall", gift:"Bringing people together toward a vision", edge:"Integrating the caring with the driving", verse:"“Let us rise up and build.” Nehemiah 2:18"},
+  merciful:{name:"Merciful", greek:"eleōn", sees:"The pain beneath the surface. You walk into a room and sense who is hurting, and you're drawn to the overlooked.", how:"“With cheerfulness” (Romans 12:8): mercy from a full well.", who:"The Good Samaritan (Luke 10:30–37)", gift:"Healing presence", edge:"Serving from joy and rest, not depletion", verse:"“‘The one who showed him mercy.’ And Jesus said to him, ‘You go, and do likewise.’” Luke 10:37"}
+};
+const LOCS = {
+  apostle:{name:"Apostle", greek:"apostolos", place:"The Frontier: always beyond", does:"Presses the church's edges outward and lays foundations others build on for generations.", shows:"Movement-minded, comfortable in the unknown, thinks in networks and generations.", shadow:"Relationally thin; restless; resists accountability", verse:"“Built on the foundation of the apostles and prophets, Christ Jesus himself being the cornerstone.” Ephesians 2:20"},
+  prophet:{name:"Prophet", greek:"prophētēs", place:"The Threshold: always between", does:"The church's navigation system: discerns and speaks direction, warning, comfort, and confirmation.", shows:"A strong intercessor who sees beneath the surface and is drawn to Scripture and the Spirit's promptings.", shadow:"Isolation; using “thus says the Lord” as a shield against accountability", verse:"“Do not despise prophecies, but test everything; hold fast what is good.” 1 Thessalonians 5:20–21"},
+  evangelist:{name:"Evangelist", greek:"euangelistēs", place:"The Perimeter: always facing out", does:"Stands where church meets world and can't keep the good news inside the walls.", shows:"Conversations drift toward Jesus; energized by outsiders; makes the gospel simple and clear.", shadow:"Harvest without roots: winning people without connecting them to community", verse:"“How beautiful are the feet of those who preach the good news!” Romans 10:15"},
+  shepherd:{name:"Shepherd / Pastor", greek:"poimēn", place:"The Center: always within", does:"Makes a safe place where the wounded heal, the confused find direction, and the wandering come home.", shows:"Long-term relationships; notices who is missing; protective; people gravitate to you.", shadow:"Enmeshment, people-pleasing, resisting needed change", verse:"“Shepherd the flock of God that is among you… being examples to the flock.” 1 Peter 5:2–3"},
+  teacher:{name:"Teacher", greek:"didaskalos", place:"The Foundation: always beneath", does:"Anchors the church in truth and hands the faith on intact to the next generation.", shows:"Prepares deeply; builds lessons that outlast a single class; attracts people hungry for depth.", shadow:"Knowledge without transformation; precision used as a weapon", verse:"“What you have heard from me… entrust to faithful men, who will be able to teach others also.” 2 Timothy 2:2"}
+};
+
+/* ===== State ===== */
+const KEY = "abbey-place-assessment-v2";
+let S = load() || fresh();
+function fresh(){ return {screen:"welcome", i:0, answers:{}, about:{}, startedAt:null, finishedAt:null, rid: rid(), sent:false}; }
+function rid(){ return "R" + Date.now().toString(36).toUpperCase() + Math.random().toString(36).slice(2,6).toUpperCase(); }
+function load(){ try { const s = JSON.parse(localStorage.getItem(KEY)); return s && s.rid ? s : null; } catch(e){ return null; } }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} }
+
+const app = document.getElementById("app");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function render(){
+  save();
+  if (S.screen === "welcome") return renderWelcome();
+  if (S.screen === "about") return renderAbout();
+  if (S.screen === "quiz") return renderQuestion();
+  if (S.screen === "results") return renderResults();
+}
+
+function renderWelcome(){
+  const resume = S.i > 0 && S.screen === "welcome" && Object.keys(S.answers).length;
+  app.innerHTML = `
+  <div class="wrap" style="gap:18px">
+    <div class="eyebrow">A three-part assessment</div>
+    <h1>Discover your place in the Body</h1>
+    <p>“God arranged the members in the body, each one of them, as he chose.” (1 Corinthians 12:18) These questions help you see how God has wired you and where Christ may be placing you to serve.</p>
+    <div class="parts">
+      <div class="part"><b>Personality</b><span>70 quick either/or choices</span></div>
+      <div class="part"><b>Spiritual Lens</b><span>35 statements · Romans 12</span></div>
+      <div class="part"><b>Spiritual Location</b><span>45 statements · Ephesians 4</span></div>
+    </div>
+    <div class="soft"><p><b>About 20 to 25 minutes, 150 taps.</b> You can stop and come back; your place is saved on this device. Answer with your first instinct and describe who you really are, not who you think you should be. There are no wrong answers. Your results appear as soon as you finish.</p></div>
+    <div class="row">
+      <button class="btn" id="go">${resume ? "Continue where I left off" : "Begin"}</button>
+      ${resume ? `<button class="btn ghost" id="restart">Start over</button>` : ""}
+    </div>
+  </div>`;
+  document.getElementById("go").onclick = () => { S.screen = resume ? "quiz" : "about"; render(); };
+  const r = document.getElementById("restart"); if (r) r.onclick = () => { S = fresh(); render(); };
+}
+
+function renderAbout(){
+  const a = S.about;
+  const opt = (list, v) => list.map(x => `<option ${x===v?"selected":""}>${esc(x)}</option>`).join("");
+  app.innerHTML = `
+  <form class="card" id="f" novalidate>
+    <div class="eyebrow">Before we begin</div>
+    <h2>A little about you</h2>
+    <div class="grid2">
+      <div class="field"><label for="fn">First name</label><input id="fn" autocomplete="given-name" required value="${esc(a.first_name||"")}"></div>
+      <div class="field"><label for="ln">Last name</label><input id="ln" autocomplete="family-name" value="${esc(a.last_name||"")}"></div>
+    </div>
+    <div class="field"><label for="em">Email (optional)</label><input id="em" type="email" autocomplete="email" value="${esc(a.email||"")}"></div>
+    <div class="grid2">
+      <div class="field"><label for="age">Age range</label><select id="age"><option value="">Choose one</option>${opt(["Under 18","18–29","30–39","40–49","50–59","60–69","70+"], a.age_range)}</select></div>
+      <div class="field"><label for="yrs">Time at The Abbey</label><select id="yrs"><option value="">Choose one</option>${opt(["Visiting / new","Less than 1 year","1–3 years","4–10 years","More than 10 years"], a.years_at_abbey)}</select></div>
+    </div>
+    <label class="check" for="ok"><input type="checkbox" id="ok" ${a.consent?"checked":""}><span>I'm glad for The Abbey's clergy to keep my answers and results to help me find my place to serve.</span></label>
+    <div class="err" id="err" hidden>Please add your first name and check the box to continue.</div>
+    <div class="nav"><button type="button" class="btn ghost" id="back">Back</button><button class="btn" type="submit">Start Part 1</button></div>
+  </form>`;
+  document.getElementById("back").onclick = () => { S.screen = "welcome"; render(); };
+  document.getElementById("f").addEventListener("submit", e => {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    S.about = {first_name:v("fn"), last_name:v("ln"), email:v("em"), age_range:v("age"), years_at_abbey:v("yrs"), consent:document.getElementById("ok").checked};
+    if (!S.about.first_name || !S.about.consent){ document.getElementById("err").hidden = false; return; }
+    S.startedAt = S.startedAt || new Date().toISOString();
+    S.screen = "quiz"; S.i = 0; render();
+  });
+}
+
+function renderQuestion(){
+  const q = QUESTIONS[S.i], total = QUESTIONS.length;
+  const partStart = QUESTIONS.findIndex(x => x.part === q.part);
+  const partLen = QUESTIONS.filter(x => x.part === q.part).length;
+  const cur = S.answers[q.id];
+  let opts;
+  if (q.kind === "pair"){
+    opts = `<div class="opts">${[["A",q.a],["B",q.b]].map(([k,[txt,letter]]) =>
+      `<button class="opt" data-v="${letter}" aria-pressed="${cur===letter}"><span class="k">${k}</span><span>${esc(txt)}</span></button>`).join("")}</div>`;
+  } else {
+    opts = `<div class="opts scale">${SCALE.map((t,n) =>
+      `<button class="opt" data-v="${n+1}" aria-pressed="${cur===n+1}"><span class="k">${n+1}</span><span>${t}</span></button>`).join("")}</div>`;
+  }
+  const lead = q.kind === "pair" ? "Choose the one that fits you better." : "How much is this like you?";
+  app.innerHTML = `
+  <div class="card">
+    <div class="qmeta"><span>${PARTS[q.part]}</span><span>${S.i - partStart + 1} of ${partLen}</span></div>
+    <div class="progress" aria-hidden="true"><i style="width:${Math.round(S.i/total*100)}%"></i></div>
+    <p class="note">${lead}</p>
+    <p class="qtext">${esc(q.q)}</p>
+    ${opts}
+    <div class="nav"><button class="btn ghost" id="prev">Back</button>${cur!==undefined && S.i < total-1 ? `<button class="btn ghost" id="next">Next</button>` : ""}</div>
+  </div>`;
+  app.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    const v = q.kind === "pair" ? b.dataset.v : Number(b.dataset.v);
+    S.answers[q.id] = v;
+    if (S.i < total - 1){ S.i++; render(); }
+    else finish();
+  });
+  document.getElementById("prev").onclick = () => { if (S.i === 0){ S.screen = "about"; } else S.i--; render(); };
+  const n = document.getElementById("next"); if (n) n.onclick = () => { S.i++; render(); };
+}
+
+/* ===== Scoring ===== */
+function score(){
+  const dims = {};
+  DIMS.forEach(d => {
+    const items = PERSONALITY.filter(p => p.dim === d.key);
+    const a = items.filter(p => S.answers[p.id] === d.a).length, b = items.length - a;
+    const tie = a === b;
+    dims[d.key] = {a, b, tie, letter: a > b ? d.a : a < b ? d.b : (S.answers[items[0].id] || d.a)};
+  });
+  const code = DIMS.map(d => dims[d.key].letter).join("");
+  const sum = (qs, cat) => qs.filter(x => x.cat === cat).reduce((t, x) => t + (S.answers[x.id] || 0), 0);
+  const lens = Object.keys(LENSES).map(k => ({k, s: sum(LENS_Q, k)})).sort((x,y) => y.s - x.s);
+  const loc = Object.keys(LOCS).map(k => ({k, s: sum(LOC_Q, k)})).sort((x,y) => y.s - x.s);
+  return {dims, code, lens, loc};
+}
+
+function finish(){
+  S.finishedAt = new Date().toISOString();
+  S.screen = "results"; S.i = QUESTIONS.length - 1;
+  render();
+  submit();
+}
+
+function payload(r){
+  const p = {
+    respondent_id:S.rid, version:CONFIG.version, started_at:S.startedAt, finished_at:S.finishedAt,
+    duration_sec: Math.round((new Date(S.finishedAt) - new Date(S.startedAt)) / 1000),
+    first_name:S.about.first_name, last_name:S.about.last_name, email:S.about.email,
+    age_range:S.about.age_range, years_at_abbey:S.about.years_at_abbey, consent:S.about.consent,
+    type_code:r.code, type_name:TYPES[r.code][0], temperament:TYPES[r.code][3],
+    E_count:r.dims.EI.a, I_count:r.dims.EI.b, S_count:r.dims.SN.a, N_count:r.dims.SN.b,
+    T_count:r.dims.TF.a, F_count:r.dims.TF.b, J_count:r.dims.JP.a, P_count:r.dims.JP.b,
+    ties: DIMS.filter(d => r.dims[d.key].tie).map(d => d.key).join(" ")
+  };
+  Object.keys(LENSES).forEach(k => p["lens_" + k] = r.lens.find(x => x.k === k).s);
+  p.lens_primary = LENSES[r.lens[0].k].name; p.lens_secondary = LENSES[r.lens[1].k].name;
+  p.lens_tie = r.lens[0].s === r.lens[1].s; p.lens_tentative = r.lens[0].s < LENS_TENTATIVE;
+  Object.keys(LOCS).forEach(k => p["loc_" + k] = r.loc.find(x => x.k === k).s);
+  p.loc_primary = LOCS[r.loc[0].k].name; p.loc_secondary = LOCS[r.loc[1].k].name;
+  p.loc_tie = r.loc[0].s === r.loc[1].s; p.loc_tentative = r.loc[0].s < LOC_TENTATIVE;
+  QUESTIONS.forEach(q => p[q.id] = S.answers[q.id] ?? "");
+  return p;
+}
+
+async function submit(){
+  const el = () => document.getElementById("status");
+  if (S.sent) return;
+  if (!CONFIG.endpoint){ if (el()) el().textContent = "Preview mode: your answers stay on this device."; return; }
+  try {
+    await fetch(CONFIG.endpoint, {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(payload(score()))});
+    S.sent = true; save();
+    if (el()) el().textContent = "Your results were sent to The Abbey. Thank you!";
+  } catch(e){
+    if (el()) el().innerHTML = `We couldn't send your results just now. <button class="btn ghost" id="retry" style="padding:6px 12px;min-height:0;font-size:13px">Try again</button>`;
+    const b = document.getElementById("retry"); if (b) b.onclick = submit;
+  }
+}
+
+/* ===== Results ===== */
+function bar(label, s, max, top){
+  return `<div class="barrow ${top?"top":""}"><b>${esc(label)}</b><div class="track"><i style="width:${Math.round(s/max*100)}%"></i></div><span>${s}</span></div>`;
+}
+function renderResults(){
+  const r = score(), t = TYPES[r.code];
+  const L1 = LENSES[r.lens[0].k], L2 = LENSES[r.lens[1].k];
+  const F1 = LOCS[r.loc[0].k], F2 = LOCS[r.loc[1].k];
+  const lensTie = r.lens[0].s === r.lens[1].s, locTie = r.loc[0].s === r.loc[1].s;
+  const name = S.about.first_name || "Your";
+  app.innerHTML = `
+  <div class="wrap">
+    <div class="eyebrow">Your results</div>
+    <h1>${esc(name)}${S.about.first_name ? "’s" : ""} place in the Body</h1>
+    <div class="profile">
+      <div><span class="eyebrow">Personality</span><b>${r.code} · ${esc(t[0])}</b></div>
+      <div><span class="eyebrow">Lens</span><b>${esc(L1.name)}</b></div>
+      <div><span class="eyebrow">Location</span><b>${esc(F1.name)}</b></div>
+    </div>
+    <p class="status" id="status">${S.sent ? "Your results were sent to The Abbey. Thank you!" : (CONFIG.endpoint ? "Sending your results…" : "Preview mode: your answers stay on this device.")}</p>
+
+    <section class="card">
+      <div class="eyebrow">Part 1 · How God wired you · Psalm 139:14</div>
+      <div class="typecode">${r.code}</div>
+      <h2>${esc(t[0])}</h2>
+      <p>${esc(t[1])}</p>
+      <dl class="kv"><dt>Temperament</dt><dd>${esc(t[3])}</dd><dt>Biblical portrait</dt><dd>${esc(t[2])}</dd></dl>
+      ${DIMS.some(d => r.dims[d.key].tie) ? `<p class="note">You split evenly on ${DIMS.filter(d => r.dims[d.key].tie).map(d => d.a + "/" + d.b).join(" and ")}, so either letter may fit you. Read both types and see which rings truer.</p>` : ""}
+      <div class="bars" style="gap:12px">${DIMS.map(d => { const x = r.dims[d.key]; const tot = x.a + x.b;
+        return `<div class="pair"><div class="lbl"><span>${d.a} · ${d.an} (${x.a})</span><span>${d.what}</span><span>(${x.b}) ${d.bn} · ${d.b}</span></div><div class="track"><i style="width:${x.a/tot*100}%"></i></div></div>`; }).join("")}</div>
+    </section>
+
+    <section class="card">
+      <div class="eyebrow">Part 2 · Your spiritual lens · Romans 12:6–8</div>
+      <h2>${esc(L1.name)} <span class="greek">${L1.greek}</span></h2>
+      ${r.lens[0].s < LENS_TENTATIVE ? `<p class="note">Your top score is under ${LENS_TENTATIVE} of ${LENS_MAX}, so treat this result as tentative. More time serving in different areas may make your lens clearer.</p>` : ""}
+      ${lensTie ? `<p class="note">You scored equally high as ${esc(L1.name)} and ${esc(L2.name)}. Read both and notice which one rings truer.</p>` : ""}
+      <dl class="kv">
+        <dt>You notice</dt><dd>${esc(L1.sees)}</dd>
+        <dt>Paul's “how”</dt><dd>${esc(L1.how)}</dd>
+        <dt>In Scripture</dt><dd>${esc(L1.who)}</dd>
+        <dt>Greatest gift</dt><dd><b>${esc(L1.gift)}</b></dd>
+        <dt>Growth edge</dt><dd><b>${esc(L1.edge)}</b></dd>
+      </dl>
+      <p class="verse">${esc(L1.verse)}</p>
+      <div class="soft"><span class="eyebrow">Secondary lens</span><p><b>${esc(L2.name)}</b> <span class="greek">${L2.greek}</span>: ${esc(L2.sees)}</p></div>
+      <div class="bars">${r.lens.map((x,n) => bar(LENSES[x.k].name, x.s, LENS_MAX, n===0)).join("")}</div>
+    </section>
+
+    <section class="card">
+      <div class="eyebrow">Part 3 · Your spiritual location · Ephesians 4:11–12</div>
+      <h2>${esc(F1.name)} <span class="greek">${F1.greek}</span></h2>
+      ${r.loc[0].s < LOC_TENTATIVE ? `<p class="note">Your top score is under ${LOC_TENTATIVE} of ${LOC_MAX}, so treat this result as tentative.</p>` : ""}
+      ${locTie ? `<p class="note">You scored equally high as ${esc(F1.name)} and ${esc(F2.name)}. Talk with a clergy member about which fits your season.</p>` : ""}
+      <dl class="kv">
+        <dt>Where you stand</dt><dd><b>${esc(F1.place)}</b></dd>
+        <dt>What it does</dt><dd>${esc(F1.does)}</dd>
+        <dt>How it shows up</dt><dd>${esc(F1.shows)}</dd>
+        <dt>Shadow side</dt><dd>${esc(F1.shadow)}</dd>
+      </dl>
+      <p class="verse">${esc(F1.verse)}</p>
+      <div class="soft"><span class="eyebrow">Secondary location</span><p><b>${esc(F2.name)}</b>: ${esc(F2.place)}. ${esc(F2.does)}</p></div>
+      <div class="bars">${r.loc.map((x,n) => bar(LOCS[x.k].name, x.s, LOC_MAX, n===0)).join("")}</div>
+    </section>
+
+    <div class="soft"><p><b>Only all of us, together.</b> You were not designed to be everything. You were designed to be something, and to belong to a Body that together becomes everything. Share these results with someone who knows you well and ask what they see.</p></div>
+    <div class="row">
+      <button class="btn" id="copy">Copy my results</button>
+      <button class="btn ghost" id="again">Start over</button>
+    </div>
+    <p class="note" id="copied" hidden>Copied. Paste them into a note or a message.</p>
+  </div>`;
+  document.getElementById("copy").onclick = async () => {
+    const txt = `My Place in the Body (The Abbey)\nPersonality: ${r.code}, ${t[0]}\nPrimary lens: ${L1.name} (secondary: ${L2.name})\nLocation: ${F1.name} (secondary: ${F2.name})`;
+    try { await navigator.clipboard.writeText(txt); document.getElementById("copied").hidden = false; }
+    catch(e){ document.getElementById("copied").hidden = false; document.getElementById("copied").textContent = txt; }
+  };
+  document.getElementById("again").onclick = () => { S = fresh(); render(); window.scrollTo(0,0); };
+}
+
+render();
+</script>
+
+</body>
+</html>
