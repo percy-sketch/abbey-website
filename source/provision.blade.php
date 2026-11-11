@@ -3,14 +3,11 @@ extends: _layouts.master
 section: content
 title: Provision
 description: Provision is The Abbey's capital campaign to prepare our campus for the people God is bringing through our doors.
-noindex: true
 ---
 
 {{--
   PROVISION campaign page.
-  Not linked from the menu on purpose (it is not in 'navigation' in config.php) and marked
-  noindex so search engines skip it. To launch it publicly: add it to 'navigation' in
-  config.php and remove the noindex line above.
+  Linked from the menu as a featured item ('navigation' in config.php) since Nov 2026.
 --}}
 
 @section('content')

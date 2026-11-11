@@ -284,6 +284,9 @@ return [
         ['title' => 'Latest News', 'url' => '/latest-news'],
         ['title' => 'Calendar', 'url' => '/calendar'],
         ['title' => 'Weddings + Events', 'url' => '/weddings-events'],
+        // Provision capital campaign: featured (outlined in Abbey Green) for the campaign season.
+        // Remove this line when the campaign ends.
+        ['title' => 'Provision', 'url' => '/provision', 'featured' => true],
         ['title' => 'Contact Us', 'url' => '/contact', 'children' => [
             ['title' => 'Get in Touch', 'url' => '/contact'],
             ['title' => 'Give', 'url' => '/give'],
