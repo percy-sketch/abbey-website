@@ -24,7 +24,7 @@
     @apply inline-block px-6 py-3 rounded-lg font-sans tracking-wide uppercase text-sm border border-white text-white hover:bg-white hover:text-abbey-midnight transition-colors;
   }
   .nav-link {
-    @apply font-sans text-sm tracking-wide uppercase whitespace-nowrap text-abbey-midnight hover:text-abbey-green transition-colors;
+    @apply font-sans text-sm md:text-[10px] md:tracking-normal lg:text-xs lg:tracking-wide xl:text-sm uppercase whitespace-nowrap text-abbey-midnight hover:text-abbey-green transition-colors;
   }
   .section-heading {
     @apply font-serif text-3xl md:text-4xl text-abbey-midnight;
