@@ -90,6 +90,15 @@ input,select{font:inherit;font-size:17px;padding:12px;border-radius:10px;border:
 .profile b{font-size:21px;line-height:1.15}
 .status{font-family:var(--sans);font-size:14px;color:var(--muted)}
 .note{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.intro{gap:16px}
+.intro .num{font-family:var(--sans);font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.intro h2{font-size:clamp(32px,7vw,42px)}
+.done{display:flex;gap:10px;align-items:center;font-family:var(--sans);font-size:14px;font-weight:700;color:var(--accent)}
+.done .tick{flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--accent-fg);display:flex;align-items:center;justify-content:center;font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.steps div{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.04em;text-align:center;padding:8px 6px;border-radius:10px;background:var(--soft);color:var(--muted)}
+.steps div.on{background:var(--accent);color:var(--accent-fg)}
+.steps div.past{border:1.5px solid var(--accent);background:transparent;color:var(--fg)}
 footer{font-family:var(--sans);font-size:12px;letter-spacing:.1em;color:var(--muted);text-align:center;padding-top:8px}
 @media (prefers-reduced-motion:reduce){.progress i{transition:none}}
 </style>
@@ -239,6 +248,18 @@ const QUESTIONS = [
   ...LOC_Q.map(p => ({...p, part:3, kind:"scale"}))
 ];
 const PARTS = {1:"Part 1 · Personality", 2:"Part 2 · Spiritual Lens", 3:"Part 3 · Spiritual Location"};
+const PART_INTRO = {
+  1:{title:"Personality", sub:"How God wired you", verse:"“For you formed my inward parts; you knitted me together in my mother’s womb. I praise you, for I am fearfully and wonderfully made.” Psalm 139:13–14",
+     about:"These questions look at your natural temperament: where you draw energy, how you take in the world, how you make decisions, and how you like to order your life.",
+     how:"Each question gives two options. Choose the one that fits you better, even if neither is perfect.", count:"70 either/or choices · about 8 to 10 minutes"},
+  2:{title:"Spiritual Lens", sub:"How you see the needs around you", verse:"“Having gifts that differ according to the grace given to us, let us use them.” Romans 12:6",
+     about:"Romans 12 names seven motivational gifts. Each is a lens: the first thing you notice when you walk into a room, and what moves you to act.",
+     how:"Read each statement and tap how much it is like you, from 1 (not like me) to 5 (very much like me).", count:"35 statements · about 5 to 7 minutes"},
+  3:{title:"Spiritual Location", sub:"Where Christ is placing you to serve", verse:"“And he gave the apostles, the prophets, the evangelists, the shepherds and teachers, to equip the saints for the work of ministry, for building up the body of Christ.” Ephesians 4:11–12",
+     about:"Ephesians 4 names five ways Christ equips his church. Each is a location: the frontier, the threshold, the perimeter, the center, or the foundation.",
+     how:"Use the same 1 to 5 scale. Answer for who you really are, not who you think you should be.", count:"45 statements · about 7 to 9 minutes"}
+};
+const partStartIdx = n => QUESTIONS.findIndex(x => x.part === n);
 
 /* ===== Result content ===== */
 const TYPES = {
@@ -297,6 +318,7 @@ function render(){
   save();
   if (S.screen === "welcome") return renderWelcome();
   if (S.screen === "about") return renderAbout();
+  if (S.screen === "intro") return renderIntro();
   if (S.screen === "quiz") return renderQuestion();
   if (S.screen === "results") return renderResults();
 }
@@ -350,8 +372,38 @@ function renderAbout(){
     S.about = {first_name:v("fn"), last_name:v("ln"), email:v("em"), age_range:v("age"), years_at_abbey:v("yrs"), consent:document.getElementById("ok").checked};
     if (!S.about.first_name || !S.about.consent){ document.getElementById("err").hidden = false; return; }
     S.startedAt = S.startedAt || new Date().toISOString();
-    S.screen = "quiz"; S.i = 0; render();
+    S.screen = "intro"; S.part = 1; S.i = 0; render();
   });
+}
+
+function renderIntro(){
+  const n = S.part || 1, t = PART_INTRO[n];
+  const prevDone = n > 1 ? `<div class="done"><span class="tick" aria-hidden="true">✓</span>${esc(PART_INTRO[n-1].title)} complete</div>` : "";
+  app.innerHTML = `
+  <div class="card intro">
+    <div class="steps" aria-hidden="true">${[1,2,3].map(k => `<div class="${k===n?"on":k<n?"past":""}">${k<n?"✓ ":""}${PART_INTRO[k].title}</div>`).join("")}</div>
+    ${prevDone}
+    <div class="num">Part ${n} of 3</div>
+    <h2>${esc(t.title)}</h2>
+    <p style="font-size:21px;font-style:italic;margin-top:-6px">${esc(t.sub)}</p>
+    <p class="verse">${esc(t.verse)}</p>
+    <p>${esc(t.about)}</p>
+    <div class="soft"><p><b>How to answer.</b> ${esc(t.how)}</p><p class="note">${esc(t.count)}</p></div>
+    <div class="nav"><button class="btn ghost" id="prev">Back</button><button class="btn" id="go">Begin Part ${n}</button></div>
+  </div>`;
+  document.getElementById("go").onclick = () => { S.screen = "quiz"; S.i = partStartIdx(n); render(); window.scrollTo(0,0); };
+  document.getElementById("prev").onclick = () => {
+    if (n === 1){ S.screen = "about"; } else { S.screen = "quiz"; S.i = partStartIdx(n) - 1; }
+    render();
+  };
+}
+
+/* Move forward one question, showing the next part's intro when a part ends. */
+function advance(){
+  const nxt = QUESTIONS[S.i + 1];
+  if (nxt && nxt.part !== QUESTIONS[S.i].part){ S.i++; S.screen = "intro"; S.part = nxt.part; }
+  else S.i++;
+  render(); window.scrollTo(0,0);
 }
 
 function renderQuestion(){
@@ -380,11 +432,14 @@ function renderQuestion(){
   app.querySelectorAll(".opt").forEach(b => b.onclick = () => {
     const v = q.kind === "pair" ? b.dataset.v : Number(b.dataset.v);
     S.answers[q.id] = v;
-    if (S.i < total - 1){ S.i++; render(); }
+    if (S.i < total - 1) advance();
     else finish();
   });
-  document.getElementById("prev").onclick = () => { if (S.i === 0){ S.screen = "about"; } else S.i--; render(); };
-  const n = document.getElementById("next"); if (n) n.onclick = () => { S.i++; render(); };
+  document.getElementById("prev").onclick = () => {
+    if (S.i === partStart){ S.screen = "intro"; S.part = q.part; } else S.i--;
+    render();
+  };
+  const n = document.getElementById("next"); if (n) n.onclick = advance;
 }
 
 /* ===== Scoring ===== */
