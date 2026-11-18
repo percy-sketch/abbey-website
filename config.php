@@ -16,6 +16,18 @@ return [
         'time' => '10:30 AM and 4 PM',
     ],
 
+    // Family Worship (4 PM) is on break for Advent/Christmas. Until 'ends', the
+    // announcement bar and the Worship section on Our Beliefs show 10:30 only,
+    // with a "returns" note. From 'ends' on, the site goes back to the normal
+    // wording on its own — in the browser right away (data-season-* + the
+    // script in master.blade.php), and in the HTML at the next build.
+    // To reuse for a future break, change these dates; to retire, delete it.
+    'familyWorshipBreak' => [
+        'ends' => '2027-01-11',
+        'resumes' => 'January 17',
+        'resumesFull' => 'Sunday, January 17, 2027',
+    ],
+
     'contact' => [
         'address' => '46 Gathering Lane, Pawleys Island, SC 29585',
         'phone' => '843.314.0277',

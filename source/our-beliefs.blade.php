@@ -158,6 +158,11 @@ description: Who we are and what we believe — an Ancient-Future, Three-Stream 
           <div class="border-t border-abbey-parchment mt-6 pt-6">
             <p class="font-sans text-xs uppercase tracking-[0.3em] text-abbey-gold">Sundays at 4 PM</p>
             <h3 class="font-serif text-2xl text-abbey-midnight mt-1">Family Worship</h3>
+            @if ($page->familyWorshipBreak && date('Y-m-d') < $page->familyWorshipBreak['ends'])
+              <p data-season-until="{{ $page->familyWorshipBreak['ends'] }}" class="font-serif text-lg italic leading-relaxed text-abbey-green bg-abbey-sage/10 border-l-4 border-abbey-green px-4 py-3 mt-3">
+                Family Worship is taking a break for the season and resumes {{ $page->familyWorshipBreak['resumesFull'] }}, at 4&nbsp;PM. Until then, join us at 10:30.
+              </p>
+            @endif
             <p class="font-serif text-lg leading-relaxed text-abbey-midnight/85 mt-2">
               Family Worship is about formation over formality, participation over perfection. Students and families serving
               alongside clergy makes this casual, hour-long service meaningful and fun.
@@ -169,7 +174,7 @@ description: Who we are and what we believe — an Ancient-Future, Three-Stream 
           </div>
         </div>
         <dl class="bg-abbey-green text-white p-8 md:p-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 gap-6 content-center font-sans">
-          <div><dt class="text-xs uppercase tracking-[0.2em] text-white/70">When</dt><dd class="font-serif text-xl mt-1">{{ $page->service['day'] }}, {{ $page->service['time'] }}</dd></div>
+          <div><dt class="text-xs uppercase tracking-[0.2em] text-white/70">When</dt><dd class="font-serif text-xl mt-1">@if ($page->familyWorshipBreak && date('Y-m-d') < $page->familyWorshipBreak['ends'])<span data-season-until="{{ $page->familyWorshipBreak['ends'] }}">{{ $page->service['day'] }}, 10:30 AM<br><span class="text-base text-white/80">4 PM resumes <span class="whitespace-nowrap">{{ $page->familyWorshipBreak['resumes'] }}</span></span></span><span data-season-from="{{ $page->familyWorshipBreak['ends'] }}" hidden>{{ $page->service['day'] }}, {{ $page->service['time'] }}</span>@else{{ $page->service['day'] }}, {{ $page->service['time'] }}@endif</dd></div>
           <div><dt class="text-xs uppercase tracking-[0.2em] text-white/70">Where</dt><dd class="font-serif text-xl mt-1">The sanctuary</dd></div>
           <div><dt class="text-xs uppercase tracking-[0.2em] text-white/70">Length</dt><dd class="font-serif text-xl mt-1 leading-snug">10:30 AM: about 1&frac14; hrs<br>4 PM: about 1 hr</dd></div>
         </dl>

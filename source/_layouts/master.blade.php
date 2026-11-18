@@ -35,5 +35,19 @@
     @include('_partials.footer')
   </div>
 
+  {{-- Seasonal notices: once the Eastern-time date reaches data-season-until,
+       hide that wording and reveal the data-season-from version (see
+       familyWorshipBreak in config.php). Runs before the page paints. --}}
+  <script>
+    (function () {
+      var today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
+      document.querySelectorAll('[data-season-until]').forEach(function (el) {
+        if (today >= el.getAttribute('data-season-until')) el.hidden = true;
+      });
+      document.querySelectorAll('[data-season-from]').forEach(function (el) {
+        if (today >= el.getAttribute('data-season-from')) el.hidden = false;
+      });
+    })();
+  </script>
 </body>
 </html>
