@@ -372,16 +372,16 @@ function renderAbout(){
       <div class="field"><label for="age">Age range</label><select id="age"><option value="">Choose one</option>${opt(["Under 18","18–29","30–39","40–49","50–59","60–69","70+"], a.age_range)}</select></div>
       <div class="field"><label for="yrs">Time at The Abbey</label><select id="yrs"><option value="">Choose one</option>${opt(["Visiting / new","Less than 1 year","1–3 years","4–10 years","More than 10 years"], a.years_at_abbey)}</select></div>
     </div>
-    <label class="check" for="ok"><input type="checkbox" id="ok" ${a.consent?"checked":""}><span>I'm glad for The Abbey's clergy to keep my answers and results to help me find my place to serve.</span></label>
-    <div class="err" id="err" hidden>Please add your first name and check the box to continue.</div>
+    <p class="note">Your answers and results go to The Abbey's clergy, who use them to help you find your place to serve.</p>
+    <div class="err" id="err" hidden>Please add your first name to continue.</div>
     <div class="nav"><button type="button" class="btn ghost" id="back">Back</button><button class="btn" type="submit">Start Part 1</button></div>
   </form>`;
   document.getElementById("back").onclick = () => { S.screen = "welcome"; render(); };
   document.getElementById("f").addEventListener("submit", e => {
     e.preventDefault();
     const v = id => document.getElementById(id).value.trim();
-    S.about = {first_name:v("fn"), last_name:v("ln"), email:v("em"), age_range:v("age"), years_at_abbey:v("yrs"), consent:document.getElementById("ok").checked};
-    if (!S.about.first_name || !S.about.consent){ document.getElementById("err").hidden = false; return; }
+    S.about = {first_name:v("fn"), last_name:v("ln"), email:v("em"), age_range:v("age"), years_at_abbey:v("yrs"), consent:true};
+    if (!S.about.first_name){ document.getElementById("err").hidden = false; return; }
     S.startedAt = S.startedAt || new Date().toISOString();
     S.screen = "intro"; S.part = 1; S.i = 0; render();
   });
