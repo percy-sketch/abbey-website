@@ -121,10 +121,12 @@ const CONFIG = {
   // Paste the Google Apps Script web app URL here to save responses to your Google Sheet.
   // Leave empty to run in preview mode (nothing is sent anywhere).
   endpoint: "https://script.google.com/macros/s/AKfycbxGX_IQODMs1mparLXyA1FFrqjdpHuziHlzE7RcoSGov61JsE5N4JWIQosuTT8CuKXr/exec",
-  version: "2026-11-v2"
+  version: "2026-11-v3"
 };
 
 /* ===== Questions (original items written for The Abbey) ===== */
+/* v3 (Nov 18, 2026): reworded 4 weak lens statements after the first 24 responses:
+   L15_perceiver, L03_teacher, L24_teacher, L25_exhorter. Item IDs are unchanged; use the version column to tell v2 and v3 answers apart. */
 /* Personality: 70 either/or items (10 E/I, 20 S/N, 20 T/F, 20 J/P). Option A is always the first letter of the pair. */
 const P_ITEMS = {
   EI: [
@@ -218,10 +220,10 @@ const PERSONALITY = (() => {
   return out;
 })();
 const LENS_ITEMS = {
-  perceiver:["I quickly notice when something is not right spiritually or morally.","I feel compelled to speak the truth, even when it is unpopular.","Hypocrisy and compromise grieve me deeply.","I tend to see issues in clear terms of right and wrong.","I can usually tell when someone's words don't match their heart."],
+  perceiver:["I quickly notice when something is not right spiritually or morally.","I feel compelled to speak the truth, even when it is unpopular.","When I see something wrong, I find it hard to stay quiet about it.","I tend to see issues in clear terms of right and wrong.","I can usually tell when someone's words don't match their heart."],
   servant:["I notice practical needs that others overlook.","I find deep joy in finishing hands-on tasks that help others.","I would rather show love by doing something than by saying something.","I find it hard to say no when someone needs help.","I'm happiest when I'm busy helping with something practical."],
-  teacher:["I enjoy researching a topic until I really understand it.","I am bothered when Scripture or facts are used carelessly.","I like organizing information so others can learn it.","I want to check whether a new idea is true before I accept it.","I enjoy explaining things step by step until people understand."],
-  exhorter:["I naturally see people's potential more than their present struggles.","I enjoy helping someone take practical next steps in their life.","People often come to me for encouragement or advice.","I get frustrated when teaching isn't applied to real life.","I like to cheer people on when they're discouraged."],
+  teacher:["I love digging into a Bible passage to find out exactly what it means.","I am bothered when Scripture or facts are used carelessly.","I like organizing information so others can learn it.","When I hear a new teaching, I want to check it against Scripture before I accept it.","I enjoy explaining things step by step until people understand."],
+  exhorter:["I naturally see people's potential more than their present struggles.","I enjoy helping someone take practical next steps in their life.","People often come to me for encouragement or advice.","I enjoy helping people see how they can grow and what to do next.","I like to cheer people on when they're discouraged."],
   giver:["I am quick to notice financial or material needs.","Giving feels like worship to me.","I like to keep my own lifestyle simple so I have more to give.","I prefer to give quietly, without recognition.","I look for ways to put my resources where they'll do the most good."],
   leader:["I naturally see the gap between where things are and where they could be.","I enjoy organizing people and resources toward a goal.","When no one is leading, I tend to step in.","I feel responsible for the people and projects in my care.","I enjoy setting goals and helping a group reach them."],
   merciful:["I can usually sense who is hurting in a room.","I'm drawn to people who are overlooked or suffering.","People tell me they feel safe opening up to me.","I would rather sit with someone in pain than try to fix it.","I'm quick to comfort someone who is grieving."]
