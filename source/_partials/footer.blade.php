@@ -10,7 +10,12 @@
       <p>{{ $page->contact['address'] }}</p>
       <p><a href="tel:{{ $page->contact['phoneHref'] }}" class="hover:text-abbey-sage">{{ $page->contact['phone'] }}</a></p>
       <p><a href="mailto:{{ $page->contact['email'] }}" class="hover:text-abbey-sage">{{ $page->contact['email'] }}</a></p>
-      <p>{{ $page->service['day'] }} at {{ $page->service['time'] }}</p>
+      @if ($page->familyWorshipBreak && date('Y-m-d') < $page->familyWorshipBreak['ends'])
+        <p data-season-until="{{ $page->familyWorshipBreak['ends'] }}">{{ $page->service['day'] }} at 10:30 AM<br>Family Worship (4 PM) returns {{ $page->familyWorshipBreak['resumes'] }}</p>
+        <p data-season-from="{{ $page->familyWorshipBreak['ends'] }}" hidden>{{ $page->service['day'] }} at {{ $page->service['time'] }}</p>
+      @else
+        <p>{{ $page->service['day'] }} at {{ $page->service['time'] }}</p>
+      @endif
     </div>
 
     <div class="font-sans text-sm space-y-3">
